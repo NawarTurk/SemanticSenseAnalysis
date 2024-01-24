@@ -1,0 +1,6 @@
+Correlation Critical Values 
+
+result X arg2-as-detail  = -0.322
+arg1-as-negcond X arg1-as-excpt  = 0.308
+arg2-as-detail X result  = -0.322
+arg1-as-excpt X arg1-as-negcond  = 0.308

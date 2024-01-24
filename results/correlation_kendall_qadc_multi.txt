@@ -1,0 +1,6 @@
+Correlation Critical Values 
+
+precedence X succession  = 0.421
+succession X precedence  = 0.421
+result X arg2-as-detail  = -0.254
+arg2-as-detail X result  = -0.254

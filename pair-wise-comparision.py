@@ -4,8 +4,16 @@ import seaborn as sns
 import numpy as np
 
 file_path = 'data/qadc_multi.csv'
+# file_path = 'data/discogem_multi.csv'
+
 UPPER_CORR_THRESHOLD = 0.7
 LOWER_CORR_THRESHOLD = -0.7
+# CORR_COEFFICIENT = 'pearson'
+CORR_COEFFICIENT = 'spearman'
+# CORR_COEFFICIENT = 'kendall'
+
+
+
 
 critical_corr_values = ''
 
@@ -17,8 +25,11 @@ df = df.iloc[:, 8:]
 plt.figure(figsize=(10,10))
 
 # creating the correlation matrix
-corr_matrix = df.corr()
-corr_matrix.to_csv(f'results/correlation_{file_path[5:]}')
+corr_matrix = df.corr(CORR_COEFFICIENT)
+
+
+
+corr_matrix.to_csv(f'results/{CORR_COEFFICIENT}_correlation_{file_path[5:]}')
 
 # creating a haet map
 ax = sns.heatmap(corr_matrix, annot=False, fmt=".2f", cmap='coolwarm', 
@@ -49,12 +60,12 @@ cbar.set_ticks(np.arange(-1, 1.1, 0.1))  # Setting ticks from -1 to 1 at interva
 cbar.set_ticklabels([f'{tick:.1f}' for tick in np.arange(-1, 1.1, 0.1)])  # Formatting tick labels
 
 print(critical_corr_values)
-with open(f'results/correlation_{file_path[5:-4]}.txt', 'w') as f:
+with open(f'results/correlation_{CORR_COEFFICIENT}_{file_path[5:-4]}.txt', 'w') as f:
     f.write('Correlation Critical Values \n\n')
     f.write(critical_corr_values)
 
-plt.title('Correlation Matrix')
-plt.savefig(f'results/correlation_heatmap_{file_path[5:-4]}.png')
+plt.title(f'Correlation {CORR_COEFFICIENT} Matrix')
+plt.savefig(f'results/correlation_{CORR_COEFFICIENT}_heatmap_{file_path[5:-4]}.png')
 plt.show()
 
 

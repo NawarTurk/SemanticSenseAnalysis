@@ -16,7 +16,7 @@ processed_matrix = np.zeros_like(data_matrix)
 
 for i, row in enumerate(data_matrix):
     largest_indices = np.argsort(row)[-2:]  # Get indices of two largest values
-    if row[largest_indices].sum() > 0.9:  # Check if their sum is more than 0.5
+    if row[largest_indices].sum() > 0.8:  # Check if their sum is more than 0.5
         processed_matrix[i, largest_indices] = 1  # Set them to 1
 
 processed_df = pd.DataFrame(processed_matrix, columns=df.columns)

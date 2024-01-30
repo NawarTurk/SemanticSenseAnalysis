@@ -2,11 +2,20 @@ import pandas as pd
 import matplotlib.pyplot as plt
 import seaborn as sns
 import numpy as np
+import glob
 
-file_path = 'data/qadc_multi.csv'
-# file_path = 'data/discogem_multi.csv'
+
+raw_data_folder = 'raw_data'
+csv_files = glob.glob(f'{raw_data_folder}/*.csv')
+print(len(csv_files))
+
+# file_path = 'data/qadc_multi.csv'
+file_path = 'data/discogem_multi.csv'
 
 df = pd.read_csv(file_path)
+print("ere")
+
+
 df = df.iloc[:, 8:]  
 
 plt.figure(figsize=(10,10))

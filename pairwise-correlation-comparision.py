@@ -10,8 +10,9 @@ UPPER_CORR_THRESHOLD = 0.7
 LOWER_CORR_THRESHOLD = -0.7
 exist_thresholds = [0.1, 0.2, 0.3, 0.4]
 raw_data_folder = 'raw_data'
-df_ready_to_process = {}
-csv_raw_files = glob.glob(f'{raw_data_folder}/*.csv')
+ready_to_transform_folder = 'ready_to_transform'
+df_ready_to_transform = {}
+
 
 def convert_to_level2(df):
     df_level2 = pd.DataFrame()
@@ -37,7 +38,6 @@ def convert_to_level2(df):
         df_level2['substitution'] = df['arg1-as-subst'] + df['arg2-as-subst'] 
     else:
         df_level2['substitution'] = df['arg2-as-subst'] 
-
     return df_level2
 
 
@@ -48,12 +48,11 @@ def convert_to_level1(df_level2):
     df_level1['comparision'] = df_level2['concession'] + df_level2['contrast'] + df_level2['similarity']
     df_level1['expansion'] = df_level2['conjunction'] + df_level2['disjunction'] + df_level2['equivalence'] + df_level2['exception'] + \
                              df_level2['instantiation'] + df_level2['level-of-detail'] + df_level2['manner'] + df_level2['substitution']
-    
     return df_level1
 
-def save_as_csv_dummy(df, file_name):
-    df.to_csv(f'playground/{file_name}.csv', index = False)
 
+
+csv_raw_files = glob.glob(f'{raw_data_folder}/*.csv')
 
 # prepare the dataframes at the three levels for all the raw data files
 for csv_file in csv_raw_files:
@@ -61,17 +60,20 @@ for csv_file in csv_raw_files:
     df_leaves = df_leaves.iloc[:, 8:-2]  # dropping out unecessary columns  check the last two columns  +++++ ATTENTION +++++
     file_name = os.path.basename(csv_file)[:-4]
 
-    df_ready_to_process[file_name + "_leaves"] = df_leaves # we want to consider the data as as without transforming
+    df_ready_to_transform[file_name + "_leaves"] = df_leaves # we want to consider the data as as without transforming
 
     df_level2 = convert_to_level2(df_leaves)
-    df_ready_to_process[file_name + "_level2"] = df_level2
+    df_ready_to_transform[file_name + "_level2"] = df_level2
 
     df_level1 = convert_to_level1(df_level2)
-    df_ready_to_process[file_name + "_level1"] = df_level1
+    df_ready_to_transform[file_name + "_level1"] = df_level1
 
-    save_as_csv_dummy(df_leaves, file_name + "_leaves")
-    save_as_csv_dummy(df_level2, file_name + "_lvl2")
-    save_as_csv_dummy(df_level1, file_name + "_lvl1")
+    df_leaves.to_csv(f'{ready_to_transform_folder}/{file_name}_leaves.csv', index = False)
+    df_level2.to_csv(f'{ready_to_transform_folder}/{file_name}_lvl2.csv', index = False)
+    df_level1.to_csv(f'{ready_to_transform_folder}/{file_name}_lvl1.csv', index = False)
+
+
+
 
 
 

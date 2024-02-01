@@ -91,7 +91,7 @@ for df_ready_to_transform_name, df_ready_to_transform in dfs_ready_to_transform.
     for threshold in exist_thresholds:
         df_transformed_to_binary = transform_to_binary(df_ready_to_transform, threshold)
         dfs_ready_to_process[df_ready_to_transform_name + f'_binary_{exist_thresholds}'] = df_transformed_to_binary
-        df_transformed_to_binary.to_csv(f'{ready_to_process_folder}/{df_ready_to_transform_name}/{binary_folder}/_binary_{threshold}.csv')
+        df_transformed_to_binary.to_csv(f'{ready_to_process_folder}/{binary_folder}/{df_ready_to_transform_name}_binary_{threshold}.csv')
 
 
 

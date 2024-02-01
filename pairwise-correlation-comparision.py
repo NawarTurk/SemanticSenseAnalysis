@@ -9,16 +9,26 @@ import os
 UPPER_CORR_THRESHOLD = 0.7  # recommended threshold for + correlation 
 LOWER_CORR_THRESHOLD = -0.7 # recommended threshold for - correlation 
 exist_thresholds = [0.1, 0.2, 0.3, 0.4]  # for binary transfomation  if > threshold -> 1 else 0
+correlation_coefficients = ['pearson', 'spearman', 'kendall']
+
 
 # folder names
 raw_data_folder = 'raw_data'
 ready_to_transform_folder = 'ready_to_transform'
 ready_to_process_folder = 'ready_to_process'
+result_folder = 'results'
 binary_folder = 'binary'
+euclidean_folder = 'euclidean'
+binary_corr_matrix_folder = 'binary corr matrix'
+euclidean_corr_matrix_folder = 'euclidean corr matrix'
+euclidean_heatmap_folder = 'euclidean heatmap'
+
 
 # dataframe dictionaries
 dfs_ready_to_transform = {}
-dfs_ready_to_process = {}
+dfs_ready_to_process_binary = {}
+dfs_ready_to_process_euclidean = {}
+
 
 
 
@@ -58,13 +68,70 @@ def convert_to_level1(df_level2):
                              df_level2['instantiation'] + df_level2['level-of-detail'] + df_level2['manner'] + df_level2['substitution']
     return df_level1
 
+
+# Transform to binary data
 def transform_to_binary(df_ready_to_transform, threshold):
     return df_ready_to_transform.map(lambda x: 1 if x > threshold else 0)
 
+# Transfomr to Euclidean Space
+def transform_to_CLR(df_ready_to_transform):
+    df_ready_to_transform = df_ready_to_transform.replace(0, 1e-5)  # check why
+    return df_ready_to_transform
+
+def transform_to_ALR(df_ready_to_transform):
+    return df_ready_to_transform
+
+def transform_to_ILR(df_ready_to_transform):
+    return df_ready_to_transform
+
+
+def create_and_save_heatmap(corr_matrix, file_path, heatmap_title):
+    plt.figure(figsize=(8, 6))
+    ax = sns.heatmap(corr_matrix, annot=False, fmt=".2f", cmap='coolwarm', 
+                cbar=True, vmin=-1, vmax=1, linewidths=1, linecolor='black')
+
+    # finding the max and min value
+    numpy_corr_matrix = corr_matrix.to_numpy()  # need to be transformed to a numpy matrix
+    np.fill_diagonal(numpy_corr_matrix, np.nan)  # because they are all 1s, removing them to reduce noise
+    flattened_corr_matrix = numpy_corr_matrix.flatten()  # to be able to calculate the min and max
+    max_corr_value = np.nanmax(flattened_corr_matrix)
+    min_corr_value = np.nanmin(flattened_corr_matrix)
+
+    # only annotating cells that are beyond the corr_threshold, and the max/min values
+    for i in range(corr_matrix.shape[0]):
+        for j in range(corr_matrix.shape[1]):
+            value = corr_matrix.iloc[i, j]
+            if value >= UPPER_CORR_THRESHOLD or value == max_corr_value or value <= LOWER_CORR_THRESHOLD or value == min_corr_value:
+                text = ax.text(j + 0.5, i + 0.5, f'{value:.2f}',
+                            ha="center", va="center", color="black")
+                first_sense = corr_matrix.columns[i]  # a sense in the correlation
+                seconde_sense = corr_matrix.columns[j]  # a sense in the correlation
+                # critical_corr_values = critical_corr_values + f"{col_i} X {col_j}  = {round(value,3)}\n"
+
+            
+    # Customize the color bar
+    cbar = ax.collections[0].colorbar
+    cbar.set_ticks(np.arange(-1, 1.1, 0.1))  # Setting ticks from -1 to 1 at intervals of 0.1
+    cbar.set_ticklabels([f'{tick:.1f}' for tick in np.arange(-1, 1.1, 0.1)])  # Formatting tick labels
+
+# print(critical_corr_values)
+# with open(f'results/correlation_{CORR_COEFFICIENT}_{file_path[5:-4]}.txt', 'w') as f:
+#     f.write('Correlation Critical Values \n\n')
+#     f.write(critical_corr_values)
+
+    plt.title(f'{heatmap_title}_heatmap')
+    # plt.xticks(rotation=80)
+    # plt.show()
+    plt.tight_layout()
+    print(file_path)
+    print(heatmap_title)
+    plt.savefig(f'{file_path}/{heatmap_title}_heatmap.png')
+ 
 
 
 csv_raw_files = glob.glob(f'{raw_data_folder}/*.csv')
 
+# _Data Preparation_
 # prepare the dataframes at the three levels for all the raw data files
 for csv_file in csv_raw_files:
     df_leaves = pd.read_csv(csv_file)
@@ -84,14 +151,50 @@ for csv_file in csv_raw_files:
     df_level1.to_csv(f'{ready_to_transform_folder}/{file_name}_level1.csv', index = False)
 
 
-print (len(dfs_ready_to_transform))
-
-# transfer to binary
-for df_ready_to_transform_name, df_ready_to_transform in dfs_ready_to_transform.items():
+# _Data Transformation_
+for df_name, df_ready_to_transform in dfs_ready_to_transform.items():
+    # Transform to binary
     for threshold in exist_thresholds:
+        # transform
         df_transformed_to_binary = transform_to_binary(df_ready_to_transform, threshold)
-        dfs_ready_to_process[df_ready_to_transform_name + f'_binary_{exist_thresholds}'] = df_transformed_to_binary
-        df_transformed_to_binary.to_csv(f'{ready_to_process_folder}/{binary_folder}/{df_ready_to_transform_name}_binary_{threshold}.csv')
+
+        #store
+        dfs_ready_to_process_binary[df_name + f'_binary_{exist_thresholds}'] = df_transformed_to_binary
+
+        #save
+        df_transformed_to_binary.to_csv(f'{ready_to_process_folder}/{binary_folder}/{df_name}_binary_{threshold}.csv')
+    
+    # Transfrom to Euclidean
+        # transform
+    df_transformed_to_CLR = transform_to_CLR(df_ready_to_transform)
+    df_transformed_to_ALR = transform_to_ALR(df_ready_to_transform)
+    df_transformed_to_ILR = transform_to_ILR(df_ready_to_transform)
+       
+        # store
+    dfs_ready_to_process_euclidean[df_name + '_Euclidean_CLR'] = df_transformed_to_CLR
+    dfs_ready_to_process_euclidean[df_name + '_Euclidean_ALR'] = df_transformed_to_ALR
+    dfs_ready_to_process_euclidean[df_name + '_Euclidean_ILR'] = df_transformed_to_ILR
+       
+        # save
+    df_transformed_to_CLR.to_csv(f'{ready_to_process_folder}/{euclidean_folder}/{df_name}_CLR.csv')
+    df_transformed_to_CLR.to_csv(f'{ready_to_process_folder}/{euclidean_folder}/{df_name}_ALR.csv')
+    df_transformed_to_CLR.to_csv(f'{ready_to_process_folder}/{euclidean_folder}/{df_name}_ILR.csv')
+
+
+
+
+
+#_Data Processing_
+for df_name, df_ready_to_process in dfs_ready_to_process_euclidean.items():
+    for corr_coefficient in correlation_coefficients:
+
+        corr_matrix = df_ready_to_process.corr(corr_coefficient)
+
+        corr_matrix.to_csv(f'{result_folder}/{euclidean_folder}/{euclidean_corr_matrix_folder}/{df_name}_corr_matrix.csv')
+
+        heatmap_file_path = f'{result_folder}/{euclidean_folder}/{euclidean_heatmap_folder}'
+        heatmap_title = df_name + '_' + corr_coefficient
+        create_and_save_heatmap(corr_matrix, heatmap_file_path, heatmap_title)
 
 
 
@@ -99,39 +202,6 @@ for df_ready_to_transform_name, df_ready_to_transform in dfs_ready_to_transform.
 
 
 
-# def transform_to_binary(df, threshold):
-#     df_binary = df.applymap(lambda x: 1 if x > threshold else 0)
-#     return df_binary
-
-
-
-
-#     for exist_threshold in exist_thresholds:
-#         df_binary = transform_to_binary(df, exist_threshold)
-#         df_ready_array.append(df_binary)
-
-
-# for df in df_ready_array:
-#     print(df)
-
-
-# file_path = 'data/qadc_multi.csv'
-# # file_path = 'data/discogem_multi.csv'
-
-
-# # CORR_COEFFICIENT = 'pearson'
-# CORR_COEFFICIENT = 'spearman'
-# # CORR_COEFFICIENT = 'kendall'
-
-
-
-
-# critical_corr_values = ''
-
-# df = pd.read_csv(file_path)
-
-# # considering the sense columns only
-# df = df.iloc[:, 8:]  
 
 # plt.figure(figsize=(10,10))
 
@@ -215,7 +285,45 @@ for df_ready_to_transform_name, df_ready_to_transform in dfs_ready_to_transform.
 # # corr_value = round(corr_matrix.iloc[0,1],3)
 # # print(corr_value)
 
-# # print("here")
+
+    
+    # __history_____
+ # # print("here")
 # # first_col = df.iloc[:,0]
 # # corr_with_1col = df.corrwith(first_col)
 # # print(type(corr_with_1col))
+    
+
+    
+
+# def transform_to_binary(df, threshold):
+#     df_binary = df.applymap(lambda x: 1 if x > threshold else 0)
+#     return df_binary
+
+
+
+
+#     for exist_threshold in exist_thresholds:
+#         df_binary = transform_to_binary(df, exist_threshold)
+#         df_ready_array.append(df_binary)
+
+
+# for df in df_ready_array:
+#     print(df)
+
+
+# file_path = 'data/qadc_multi.csv'
+# # file_path = 'data/discogem_multi.csv'
+
+
+# # CORR_COEFFICIENT = 'pearson'
+# CORR_COEFFICIENT = 'spearman'
+# # CORR_COEFFICIENT = 'kendall'
+    
+
+    # critical_corr_values = ''
+
+# df = pd.read_csv(file_path)
+
+# # considering the sense columns only
+# df = df.iloc[:, 8:]  

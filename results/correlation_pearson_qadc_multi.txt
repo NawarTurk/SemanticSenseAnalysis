@@ -1,6 +1,0 @@
-Correlation Critical Values 
-
-precedence X succession  = 0.505
-succession X precedence  = 0.505
-result X conjunction  = -0.33
-conjunction X result  = -0.33

@@ -1,6 +1,0 @@
-Correlation Critical Values 
-
-synchronous X precedence  = 0.235
-precedence X synchronous  = 0.235
-result X arg2-as-detail  = -0.304
-arg2-as-detail X result  = -0.304

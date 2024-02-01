@@ -76,12 +76,54 @@ def transform_to_binary(df_ready_to_transform, threshold):
 
 # Transfomr to Euclidean Space
 def transform_to_CLR(df_ready_to_transform):
-    df_ready_to_transform = df_ready_to_transform.replace(0, 1e-5)  # check why
-    return df_ready_to_transform
+    # Replace zeros with a small positive value to avoid division by zero or log of zero
+    df_no_zeros = df_ready_to_transform.replace(0, 1e-5).values  # Convert to numpy array for efficiency
+    
+    # Calculate the geometric mean of each row
+    geometric_mean = np.exp(np.mean(np.log(df_no_zeros), axis=1)).reshape(-1, 1)  # Reshape for broadcasting
+    
+    # Apply the CLR transformation: log(x_i / geometric_mean(x))
+    df_clr = np.log(df_no_zeros / geometric_mean)
+    
+    # Convert back to a pandas DataFrame, if necessary
+    df_clr = pd.DataFrame(df_clr, index=df_ready_to_transform.index, columns=df_ready_to_transform.columns)
+    
+    return df_clr
+    # df_ready_to_transform = df_ready_to_transform.replace(0, 1e-5)  # check why
+    # return df_ready_to_transform
+
+    # # Replace zeros with a small positive value to avoid division by zero or log of zero
+    # df_no_zeros = df_ready_to_transform.replace(0, 1e-5)
+    
+    # # Calculate the geometric mean of each row
+    # geometric_mean = df_no_zeros.apply(lambda x: np.prod(x)**(1/len(x)), axis=1)
+    
+    # # Apply the CLR transformation: log(x_i / geometric_mean(x))
+    # df_clr = df_no_zeros.apply(lambda x: np.log(x / geometric_mean), axis=1)
+    
+    # return df_clr
 
 def transform_to_ALR(df_ready_to_transform):
-    return df_ready_to_transform
-
+        # Convert DataFrame to a NumPy array for efficient computation
+    # Convert DataFrame to a NumPy array for efficient computation
+    denominator_index=1
+    data = df_ready_to_transform.replace(0, 1e-5).values  # Replace zeros with a small positive value
+    
+    # Select the denominator values for the ratio
+    denominator = data[:, denominator_index].reshape(-1, 1)  # Reshape for broadcasting
+    
+    # Apply the ALR transformation
+    data_alr = np.log(data / denominator)
+    
+    # Remove the denominator column from the result
+    data_alr = np.delete(data_alr, denominator_index, axis=1)
+    
+    # Convert the result back to a DataFrame
+    columns = list(df_ready_to_transform.columns)
+    columns.pop(denominator_index)  # Remove the denominator column name
+    df_alr = pd.DataFrame(data_alr, columns=columns, index=df_ready_to_transform.index)
+    
+    return df_alr
 def transform_to_ILR(df_ready_to_transform):
     return df_ready_to_transform
 

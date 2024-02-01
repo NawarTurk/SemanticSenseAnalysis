@@ -5,13 +5,21 @@ import numpy as np
 import glob
 import os
 
+# hyper=parameters
+UPPER_CORR_THRESHOLD = 0.7  # recommended threshold for + correlation 
+LOWER_CORR_THRESHOLD = -0.7 # recommended threshold for - correlation 
+exist_thresholds = [0.1, 0.2, 0.3, 0.4]  # for binary transfomation  if > threshold -> 1 else 0
 
-UPPER_CORR_THRESHOLD = 0.7
-LOWER_CORR_THRESHOLD = -0.7
-exist_thresholds = [0.1, 0.2, 0.3, 0.4]
+# folder names
 raw_data_folder = 'raw_data'
 ready_to_transform_folder = 'ready_to_transform'
-df_ready_to_transform = {}
+ready_to_process_folder = 'ready_to_process'
+binary_folder = 'binary'
+
+# dataframe dictionaries
+dfs_ready_to_transform = {}
+dfs_ready_to_process = {}
+
 
 
 def convert_to_level2(df):
@@ -50,6 +58,9 @@ def convert_to_level1(df_level2):
                              df_level2['instantiation'] + df_level2['level-of-detail'] + df_level2['manner'] + df_level2['substitution']
     return df_level1
 
+def transform_to_binary(df_ready_to_transform, threshold):
+    return df_ready_to_transform.map(lambda x: 1 if x > threshold else 0)
+
 
 
 csv_raw_files = glob.glob(f'{raw_data_folder}/*.csv')
@@ -58,20 +69,29 @@ csv_raw_files = glob.glob(f'{raw_data_folder}/*.csv')
 for csv_file in csv_raw_files:
     df_leaves = pd.read_csv(csv_file)
     df_leaves = df_leaves.iloc[:, 8:-2]  # dropping out unecessary columns  check the last two columns  +++++ ATTENTION +++++
-    file_name = os.path.basename(csv_file)[:-4]
+    file_name = os.path.basename(csv_file)[:-4]  # -4 to remove the '.csv' from the name
 
-    df_ready_to_transform[file_name + "_leaves"] = df_leaves # we want to consider the data as as without transforming
+    dfs_ready_to_transform[file_name + "_leaves"] = df_leaves # we want to consider the data as as without transforming
 
     df_level2 = convert_to_level2(df_leaves)
-    df_ready_to_transform[file_name + "_level2"] = df_level2
+    dfs_ready_to_transform[file_name + "_level2"] = df_level2
 
     df_level1 = convert_to_level1(df_level2)
-    df_ready_to_transform[file_name + "_level1"] = df_level1
+    dfs_ready_to_transform[file_name + "_level1"] = df_level1
 
     df_leaves.to_csv(f'{ready_to_transform_folder}/{file_name}_leaves.csv', index = False)
-    df_level2.to_csv(f'{ready_to_transform_folder}/{file_name}_lvl2.csv', index = False)
-    df_level1.to_csv(f'{ready_to_transform_folder}/{file_name}_lvl1.csv', index = False)
+    df_level2.to_csv(f'{ready_to_transform_folder}/{file_name}_level2.csv', index = False)
+    df_level1.to_csv(f'{ready_to_transform_folder}/{file_name}_level1.csv', index = False)
 
+
+print (len(dfs_ready_to_transform))
+
+# transfer to binary
+for df_ready_to_transform_name, df_ready_to_transform in dfs_ready_to_transform.items():
+    for threshold in exist_thresholds:
+        df_transformed_to_binary = transform_to_binary(df_ready_to_transform, threshold)
+        dfs_ready_to_process[df_ready_to_transform_name + f'_binary_{exist_thresholds}'] = df_transformed_to_binary
+        df_transformed_to_binary.to_csv(f'{ready_to_process_folder}/{df_ready_to_transform_name}/{binary_folder}/_binary_{threshold}.csv')
 
 
 

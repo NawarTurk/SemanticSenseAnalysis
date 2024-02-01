@@ -22,6 +22,7 @@ euclidean_folder = 'euclidean'
 binary_corr_matrix_folder = 'binary corr matrix'
 euclidean_corr_matrix_folder = 'euclidean corr matrix'
 euclidean_heatmap_folder = 'euclidean heatmap'
+report_file = f'{result_folder}/report.txt'
 
 
 # dataframe dictionaries
@@ -85,6 +86,12 @@ def transform_to_ILR(df_ready_to_transform):
     return df_ready_to_transform
 
 
+def save_to_report(data_name, first_sense, seconde_sense, corr_value):
+    with open(report_file, 'a+') as file:
+        file.write(f'{first_sense:<17}|{seconde_sense:<17}|{corr_value:<+7.2f}|  {data_name}\n')
+
+
+
 def create_and_save_heatmap(corr_matrix, file_path, heatmap_title):
     plt.figure(figsize=(8, 6))
     ax = sns.heatmap(corr_matrix, annot=False, fmt=".2f", cmap='coolwarm', 
@@ -99,13 +106,14 @@ def create_and_save_heatmap(corr_matrix, file_path, heatmap_title):
 
     # only annotating cells that are beyond the corr_threshold, and the max/min values
     for i in range(corr_matrix.shape[0]):
-        for j in range(corr_matrix.shape[1]):
-            value = corr_matrix.iloc[i, j]
-            if value >= UPPER_CORR_THRESHOLD or value == max_corr_value or value <= LOWER_CORR_THRESHOLD or value == min_corr_value:
-                text = ax.text(j + 0.5, i + 0.5, f'{value:.2f}',
+        for j in range(i+1, corr_matrix.shape[1]):
+            corr_value = corr_matrix.iloc[i, j]
+            if corr_value >= UPPER_CORR_THRESHOLD or corr_value == max_corr_value or corr_value <= LOWER_CORR_THRESHOLD or corr_value == min_corr_value:
+                text = ax.text(j + 0.5, i + 0.5, f'{corr_value:.2f}',
                             ha="center", va="center", color="black")
                 first_sense = corr_matrix.columns[i]  # a sense in the correlation
                 seconde_sense = corr_matrix.columns[j]  # a sense in the correlation
+                save_to_report(heatmap_title, first_sense, seconde_sense, corr_value)
                 # critical_corr_values = critical_corr_values + f"{col_i} X {col_j}  = {round(value,3)}\n"
 
             
@@ -123,11 +131,12 @@ def create_and_save_heatmap(corr_matrix, file_path, heatmap_title):
     # plt.xticks(rotation=80)
     # plt.show()
     plt.tight_layout()
-    print(file_path)
-    print(heatmap_title)
     plt.savefig(f'{file_path}/{heatmap_title}_heatmap.png')
- 
+    plt.close()
 
+ 
+if os.path.exists(report_file):
+        os.remove(report_file)
 
 csv_raw_files = glob.glob(f'{raw_data_folder}/*.csv')
 

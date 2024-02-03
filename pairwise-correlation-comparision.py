@@ -140,22 +140,39 @@ def create_and_save_heatmap(corr_matrix, file_path, heatmap_title):
                 first_sense = corr_matrix.columns[i]  # a sense in the correlation
                 seconde_sense = corr_matrix.columns[j]  # a sense in the correlation
                 save_to_report(heatmap_title, first_sense, seconde_sense, corr_value)
-                # critical_corr_values = critical_corr_values + f"{col_i} X {col_j}  = {round(value,3)}\n"
-
-            
+                       
     # Customize the color bar
     cbar = ax.collections[0].colorbar
     cbar.set_ticks(np.arange(-1, 1.1, 0.1))  # Setting ticks from -1 to 1 at intervals of 0.1
     cbar.set_ticklabels([f'{tick:.1f}' for tick in np.arange(-1, 1.1, 0.1)])  # Formatting tick labels
-
-
 
     plt.title(f'{heatmap_title}_heatmap')
     plt.tight_layout()
     plt.savefig(f'{file_path}/{heatmap_title}_heatmap.png')
     plt.close()
 
- #______________________________________________ START _________________________________
+
+# test plotting
+def plot_scatter_matrix(df, df_name):
+    num_columns = len(df.columns)
+    fig, ax = plt.subplots(nrows=num_columns, ncols=num_columns, figsize=(num_columns*4, num_columns*4))
+    
+    # Loop over all the columns
+    for i in range(num_columns):
+        for j in range(i + 1, num_columns):
+            # Scatter plot for each pair of columns
+            ax[i, j].scatter(df.iloc[:, j], df.iloc[:, i]) 
+            ax[i, j].set_xlim(0, 1)  # Set x-axis to extend to 1
+            ax[i, j].set_ylim(0, 1)  # Set y-axis to extend to 1
+            ax[i, j].set_xlabel(df.columns[j])
+            ax[i, j].set_ylabel(df.columns[i])
+                
+    plt.tight_layout()
+    plt.savefig(f'{result_folder}/{df_name}.png')
+
+
+
+#______________________________________________ START _________________________________
 
 # Clean previous transformed and proccessed files
 clean_files_within_directory(result_folder)
@@ -184,6 +201,8 @@ for csv_file in csv_raw_files:
     df_level2.to_csv(f'{ready_to_transform_folder}/{file_name}_level2.csv', index = False)
     df_level1.to_csv(f'{ready_to_transform_folder}/{file_name}_level1.csv', index = False)
 
+    plot_scatter_matrix(df_leaves, f'{file_name}_leaves')
+    plot_scatter_matrix(df_level2, f'{file_name}_level2')
 
 # _Data Transformation_
 for df_name, df_ready_to_transform in dfs_ready_to_transform.items():

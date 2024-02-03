@@ -25,12 +25,24 @@ euclidean_heatmap_folder = 'euclidean heatmap'
 report_file = f'{result_folder}/report.txt'
 
 
+
 # dataframe dictionaries
 dfs_ready_to_transform = {}
 dfs_ready_to_process_binary = {}
 dfs_ready_to_process_euclidean = {}
 
 
+
+def clean_files_within_directory(directory_name):
+    # Construct the full path to the directory relative to the current script
+    directory_path = os.path.join(os.path.dirname(__file__), directory_name)
+    
+    # Walk through the directory
+    for root, dirs, files in os.walk(directory_path):
+        # Remove each file in the root and subdirectories
+        for file in files:
+            file_path = os.path.join(root, file)
+            os.remove(file_path)
 
 
 def convert_to_level2(df):
@@ -81,6 +93,7 @@ def transform_to_CLR(df_ready_to_transform):
     
     # Calculate the geometric mean of each row
     geometric_mean = np.exp(np.mean(np.log(df_no_zeros), axis=1)).reshape(-1, 1)  # Reshape for broadcasting
+    # axis=1 means the operation is performed row-wise across columns (across the rows).
     
     # Apply the CLR transformation: log(x_i / geometric_mean(x))
     df_clr = np.log(df_no_zeros / geometric_mean)
@@ -89,43 +102,14 @@ def transform_to_CLR(df_ready_to_transform):
     df_clr = pd.DataFrame(df_clr, index=df_ready_to_transform.index, columns=df_ready_to_transform.columns)
     
     return df_clr
-    # df_ready_to_transform = df_ready_to_transform.replace(0, 1e-5)  # check why
-    # return df_ready_to_transform
 
-    # # Replace zeros with a small positive value to avoid division by zero or log of zero
-    # df_no_zeros = df_ready_to_transform.replace(0, 1e-5)
-    
-    # # Calculate the geometric mean of each row
-    # geometric_mean = df_no_zeros.apply(lambda x: np.prod(x)**(1/len(x)), axis=1)
-    
-    # # Apply the CLR transformation: log(x_i / geometric_mean(x))
-    # df_clr = df_no_zeros.apply(lambda x: np.log(x / geometric_mean), axis=1)
-    
-    # return df_clr
 
 def transform_to_ALR(df_ready_to_transform):
-        # Convert DataFrame to a NumPy array for efficient computation
-    # Convert DataFrame to a NumPy array for efficient computation
-    denominator_index=1
-    data = df_ready_to_transform.replace(0, 1e-5).values  # Replace zeros with a small positive value
+    pass
     
-    # Select the denominator values for the ratio
-    denominator = data[:, denominator_index].reshape(-1, 1)  # Reshape for broadcasting
     
-    # Apply the ALR transformation
-    data_alr = np.log(data / denominator)
-    
-    # Remove the denominator column from the result
-    data_alr = np.delete(data_alr, denominator_index, axis=1)
-    
-    # Convert the result back to a DataFrame
-    columns = list(df_ready_to_transform.columns)
-    columns.pop(denominator_index)  # Remove the denominator column name
-    df_alr = pd.DataFrame(data_alr, columns=columns, index=df_ready_to_transform.index)
-    
-    return df_alr
 def transform_to_ILR(df_ready_to_transform):
-    return df_ready_to_transform
+    pass
 
 
 def save_to_report(data_name, first_sense, seconde_sense, corr_value):
@@ -164,22 +148,21 @@ def create_and_save_heatmap(corr_matrix, file_path, heatmap_title):
     cbar.set_ticks(np.arange(-1, 1.1, 0.1))  # Setting ticks from -1 to 1 at intervals of 0.1
     cbar.set_ticklabels([f'{tick:.1f}' for tick in np.arange(-1, 1.1, 0.1)])  # Formatting tick labels
 
-# print(critical_corr_values)
-# with open(f'results/correlation_{CORR_COEFFICIENT}_{file_path[5:-4]}.txt', 'w') as f:
-#     f.write('Correlation Critical Values \n\n')
-#     f.write(critical_corr_values)
+
 
     plt.title(f'{heatmap_title}_heatmap')
-    # plt.xticks(rotation=80)
-    # plt.show()
     plt.tight_layout()
     plt.savefig(f'{file_path}/{heatmap_title}_heatmap.png')
     plt.close()
 
- 
-if os.path.exists(report_file):
-        os.remove(report_file)
+ #______________________________________________ START _________________________________
 
+# Clean previous transformed and proccessed files
+clean_files_within_directory(result_folder)
+clean_files_within_directory(ready_to_transform_folder)
+clean_files_within_directory(ready_to_process_folder)
+
+# Import all files in rawa_data folder
 csv_raw_files = glob.glob(f'{raw_data_folder}/*.csv')
 
 # _Data Preparation_
@@ -218,18 +201,18 @@ for df_name, df_ready_to_transform in dfs_ready_to_transform.items():
     # Transfrom to Euclidean
         # transform
     df_transformed_to_CLR = transform_to_CLR(df_ready_to_transform)
-    df_transformed_to_ALR = transform_to_ALR(df_ready_to_transform)
-    df_transformed_to_ILR = transform_to_ILR(df_ready_to_transform)
+    # df_transformed_to_ALR = transform_to_ALR(df_ready_to_transform)
+    # df_transformed_to_ILR = transform_to_ILR(df_ready_to_transform)
        
         # store
     dfs_ready_to_process_euclidean[df_name + '_Euclidean_CLR'] = df_transformed_to_CLR
-    dfs_ready_to_process_euclidean[df_name + '_Euclidean_ALR'] = df_transformed_to_ALR
-    dfs_ready_to_process_euclidean[df_name + '_Euclidean_ILR'] = df_transformed_to_ILR
+    # dfs_ready_to_process_euclidean[df_name + '_Euclidean_ALR'] = df_transformed_to_ALR
+    # dfs_ready_to_process_euclidean[df_name + '_Euclidean_ILR'] = df_transformed_to_ILR
        
         # save
     df_transformed_to_CLR.to_csv(f'{ready_to_process_folder}/{euclidean_folder}/{df_name}_CLR.csv')
-    df_transformed_to_CLR.to_csv(f'{ready_to_process_folder}/{euclidean_folder}/{df_name}_ALR.csv')
-    df_transformed_to_CLR.to_csv(f'{ready_to_process_folder}/{euclidean_folder}/{df_name}_ILR.csv')
+    # df_transformed_to_ALR.to_csv(f'{ready_to_process_folder}/{euclidean_folder}/{df_name}_ALR.csv')
+    # df_transformed_to_ILR.to_csv(f'{ready_to_process_folder}/{euclidean_folder}/{df_name}_ILR.csv')
 
 
 
@@ -252,7 +235,7 @@ for df_name, df_ready_to_process in dfs_ready_to_process_euclidean.items():
 
 
 
-
+#___________________OLD STUFF __________________________________
 
 # plt.figure(figsize=(10,10))
 

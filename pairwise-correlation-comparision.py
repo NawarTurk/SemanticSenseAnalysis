@@ -4,12 +4,15 @@ import seaborn as sns
 import numpy as np
 import glob
 import os
+from scipy.stats import chi2_contingency
+
 
 # hyper=parameters
 UPPER_CORR_THRESHOLD = 0.7  # recommended threshold for + correlation 
 LOWER_CORR_THRESHOLD = -0.7 # recommended threshold for - correlation 
 exist_thresholds = [0.1, 0.2, 0.3, 0.4]  # for binary transfomation  if > threshold -> 1 else 0
 correlation_coefficients = ['pearson', 'spearman', 'kendall']
+sense_of_interest = ['synchronous',	'precedence',	'reason',	'result',	'arg1-as-denier',	'arg2-as-denier',	'contrast',	'similarity',	'conjunction',	'arg2-as-instance',	'arg1-as-detail',	'arg2-as-detail', 'instantiation',	'level-of-detail', 'asynchronous',	'cause',	'concession']
 
 
 # folder names
@@ -18,10 +21,11 @@ ready_to_transform_folder = 'ready_to_transform'
 ready_to_process_folder = 'ready_to_process'
 result_folder = 'results'
 binary_folder = 'binary'
-euclidean_folder = 'euclidean'
+continuous_folder = 'continuous'
 binary_corr_matrix_folder = 'binary corr matrix'
-euclidean_corr_matrix_folder = 'euclidean corr matrix'
-euclidean_heatmap_folder = 'euclidean heatmap'
+continuous_corr_matrix_folder = 'continuous corr matrix'
+binary_heatmap_folder = 'binary heatmap'
+continuous_heatmap_folder = 'continuous heatmap'
 report_file = f'{result_folder}/report.txt'
 
 
@@ -29,7 +33,7 @@ report_file = f'{result_folder}/report.txt'
 # dataframe dictionaries
 dfs_ready_to_transform = {}
 dfs_ready_to_process_binary = {}
-dfs_ready_to_process_euclidean = {}
+dfs_ready_to_process_continuous = {}
 
 
 
@@ -86,7 +90,7 @@ def convert_to_level1(df_level2):
 def transform_to_binary(df_ready_to_transform, threshold):
     return df_ready_to_transform.map(lambda x: 1 if x > threshold else 0)
 
-# Transfomr to Euclidean Space
+# Transfomr to continuous Space
 def transform_to_CLR(df_ready_to_transform):
     # Replace zeros with a small positive value to avoid division by zero or log of zero
     df_no_zeros = df_ready_to_transform.replace(0, 1e-5).values  # Convert to numpy array for efficiency
@@ -152,8 +156,7 @@ def create_and_save_heatmap(corr_matrix, file_path, heatmap_title):
     plt.close()
 
 
-# test plotting
-def plot_scatter_matrix(df, df_name):
+def plot_scatter_matrix(df, df_name, set_limit_1):
     num_columns = len(df.columns)
     fig, ax = plt.subplots(nrows=num_columns, ncols=num_columns, figsize=(num_columns*4, num_columns*4))
     
@@ -162,15 +165,20 @@ def plot_scatter_matrix(df, df_name):
         for j in range(i + 1, num_columns):
             # Scatter plot for each pair of columns
             ax[i, j].scatter(df.iloc[:, j], df.iloc[:, i]) 
-            ax[i, j].set_xlim(0, 1)  # Set x-axis to extend to 1
-            ax[i, j].set_ylim(0, 1)  # Set y-axis to extend to 1
+            if set_limit_1:
+                ax[i, j].set_xlim(0, 1)  # Set x-axis to extend to 1
+                ax[i, j].set_ylim(0, 1)  # Set y-axis to extend to 1
             ax[i, j].set_xlabel(df.columns[j])
             ax[i, j].set_ylabel(df.columns[i])
                 
     plt.tight_layout()
     plt.savefig(f'{result_folder}/{df_name}.png')
 
-
+# def plot_histogram_matrix(df, df_name):
+#     cols = df.columns
+#     n_cols = 3
+#     n_rows = np.ceil(len(cols) / n_cols)
+#     plt.figure(figsize(15, 4*))
 
 #______________________________________________ START _________________________________
 
@@ -201,8 +209,10 @@ for csv_file in csv_raw_files:
     df_level2.to_csv(f'{ready_to_transform_folder}/{file_name}_level2.csv', index = False)
     df_level1.to_csv(f'{ready_to_transform_folder}/{file_name}_level1.csv', index = False)
 
-    plot_scatter_matrix(df_leaves, f'{file_name}_leaves')
-    plot_scatter_matrix(df_level2, f'{file_name}_level2')
+    # plot_scatter_matrix(df_leaves, f'{file_name}_leaves', True)
+    # plot_scatter_matrix(df_level2, f'{file_name}_level2', True)
+    # plot_scatter_matrix(df_level1, f'{file_name}_level1', True)
+
 
 # _Data Transformation_
 for df_name, df_ready_to_transform in dfs_ready_to_transform.items():
@@ -210,45 +220,80 @@ for df_name, df_ready_to_transform in dfs_ready_to_transform.items():
     for threshold in exist_thresholds:
         # transform
         df_transformed_to_binary = transform_to_binary(df_ready_to_transform, threshold)
-
         #store
-        dfs_ready_to_process_binary[df_name + f'_binary_{exist_thresholds}'] = df_transformed_to_binary
-
+        dfs_ready_to_process_binary[df_name + f'_binary_{threshold}'] = df_transformed_to_binary
         #save
         df_transformed_to_binary.to_csv(f'{ready_to_process_folder}/{binary_folder}/{df_name}_binary_{threshold}.csv')
     
-    # Transfrom to Euclidean
+    # Transfrom to continuous
         # transform
     df_transformed_to_CLR = transform_to_CLR(df_ready_to_transform)
     # df_transformed_to_ALR = transform_to_ALR(df_ready_to_transform)
     # df_transformed_to_ILR = transform_to_ILR(df_ready_to_transform)
-       
         # store
-    dfs_ready_to_process_euclidean[df_name + '_Euclidean_CLR'] = df_transformed_to_CLR
-    # dfs_ready_to_process_euclidean[df_name + '_Euclidean_ALR'] = df_transformed_to_ALR
-    # dfs_ready_to_process_euclidean[df_name + '_Euclidean_ILR'] = df_transformed_to_ILR
-       
+    dfs_ready_to_process_continuous[df_name + '_continuous_CLR'] = df_transformed_to_CLR
+    # dfs_ready_to_process_continuous[df_name + '_continuous_ALR'] = df_transformed_to_ALR
+    # dfs_ready_to_process_continuous[df_name + '_continuous_ILR'] = df_transformed_to_ILR
         # save
-    df_transformed_to_CLR.to_csv(f'{ready_to_process_folder}/{euclidean_folder}/{df_name}_CLR.csv')
-    # df_transformed_to_ALR.to_csv(f'{ready_to_process_folder}/{euclidean_folder}/{df_name}_ALR.csv')
-    # df_transformed_to_ILR.to_csv(f'{ready_to_process_folder}/{euclidean_folder}/{df_name}_ILR.csv')
+    df_transformed_to_CLR.to_csv(f'{ready_to_process_folder}/{continuous_folder}/{df_name}_CLR.csv')
+    # df_transformed_to_ALR.to_csv(f'{ready_to_process_folder}/{continuous_folder}/{df_name}_ALR.csv')
+    # df_transformed_to_ILR.to_csv(f'{ready_to_process_folder}/{continuous_folder}/{df_name}_ILR.csv')
+
+    plot_scatter_matrix(df_transformed_to_CLR, f'CLR_{df_name}', False)
+
+def phi_coefficient(col1, col2):
+    contingency_table = pd.crosstab(col1, col2)
+    print('contingency_tabl')
+    print(contingency_table)
+    chi2, _, _, _ = chi2_contingency(contingency_table)
+    print("chi2 here")
+    print(chi2)
+    n = contingency_table.values.sum()
+    print("Total observations (n):", n)
+    print("n here")
+    print(n)
+    phi = np.sqrt(chi2 / n)
+    print("here")
+    print(phi)
+    return phi
+
+def phi_coefficient_matrix(df):
+    cols = df.columns
+    n_cols = len(cols)
+    phi_matrix = pd.DataFrame(np.zeros((n_cols, n_cols)), index = cols, columns = cols)
+    
+    for i in range(n_cols):
+        for j in range(i, n_cols):
+            phi_value = phi_coefficient(df.iloc[:, i], df.iloc[:, j])
+            print(phi_value)
+            phi_matrix.loc[cols[i], cols[j]] =  phi_value
+            phi_matrix.loc[cols[j], cols[i]] = phi_value
+    return phi_matrix
 
 
-
-
-
-#_Data Processing_
-for df_name, df_ready_to_process in dfs_ready_to_process_euclidean.items():
+#_Data Processing_  
+for df_name, df_ready_to_process in dfs_ready_to_process_continuous.items():
     for corr_coefficient in correlation_coefficients:
 
         corr_matrix = df_ready_to_process.corr(corr_coefficient)
 
-        corr_matrix.to_csv(f'{result_folder}/{euclidean_folder}/{euclidean_corr_matrix_folder}/{df_name}_corr_matrix.csv')
+        corr_matrix.to_csv(f'{result_folder}/{continuous_folder}/{continuous_corr_matrix_folder}/{df_name}_{corr_coefficient}_corr_matrix.csv')
 
-        heatmap_file_path = f'{result_folder}/{euclidean_folder}/{euclidean_heatmap_folder}'
+        heatmap_file_path = f'{result_folder}/{continuous_folder}/{continuous_heatmap_folder}'
         heatmap_title = df_name + '_' + corr_coefficient
         create_and_save_heatmap(corr_matrix, heatmap_file_path, heatmap_title)
 
+for df_name, df_ready_to_process in dfs_ready_to_process_binary.items():
+    corr_matrix = phi_coefficient_matrix(df_ready_to_process)
+    corr_matrix.to_csv(f'{result_folder}/{binary_folder}/{binary_corr_matrix_folder}/{df_name}_Phi_corr_matrix.csv')
+
+    heatmap_file_path = f'{result_folder}/{binary_folder}/{binary_heatmap_folder}'
+    heatmap_title = df_name + '_Phi_corr'
+    create_and_save_heatmap(corr_matrix, heatmap_file_path, heatmap_title)
+
+
+
+    
 
 
 

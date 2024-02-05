@@ -37,6 +37,7 @@ dfs_ready_to_process_continuous = {}
 
 
 
+
 def clean_files_within_directory(directory_name):
     # Construct the full path to the directory relative to the current script
     directory_path = os.path.join(os.path.dirname(__file__), directory_name)
@@ -48,6 +49,10 @@ def clean_files_within_directory(directory_name):
             file_path = os.path.join(root, file)
             os.remove(file_path)
 
+def annotate_sense_of_interest(df, list_of_sense):
+    for col in df.columns:
+        if col in list_of_sense:
+            df.rename(columns = {col: col + '+++'}, inplace = True)
 
 def convert_to_level2(df):
     df_level2 = pd.DataFrame()
@@ -180,6 +185,8 @@ def plot_scatter_matrix(df, df_name, set_limit_1):
 #     n_rows = np.ceil(len(cols) / n_cols)
 #     plt.figure(figsize(15, 4*))
 
+
+
 #______________________________________________ START _________________________________
 
 # Clean previous transformed and proccessed files
@@ -197,21 +204,23 @@ for csv_file in csv_raw_files:
     df_leaves = df_leaves.iloc[:, 8:-2]  # dropping out unecessary columns  check the last two columns  +++++ ATTENTION +++++
     file_name = os.path.basename(csv_file)[:-4]  # -4 to remove the '.csv' from the name
 
-    dfs_ready_to_transform[file_name + "_leaves"] = df_leaves # we want to consider the data as as without transforming
-
     df_level2 = convert_to_level2(df_leaves)
-    dfs_ready_to_transform[file_name + "_level2"] = df_level2
-
     df_level1 = convert_to_level1(df_level2)
+
+    annotate_sense_of_interest(df_leaves, sense_of_interest)
+    annotate_sense_of_interest(df_level2, sense_of_interest)
+
+    dfs_ready_to_transform[file_name + "_leaves"] = df_leaves # we want to consider the data as as without transforming
+    dfs_ready_to_transform[file_name + "_level2"] = df_level2
     dfs_ready_to_transform[file_name + "_level1"] = df_level1
 
     df_leaves.to_csv(f'{ready_to_transform_folder}/{file_name}_leaves.csv', index = False)
     df_level2.to_csv(f'{ready_to_transform_folder}/{file_name}_level2.csv', index = False)
     df_level1.to_csv(f'{ready_to_transform_folder}/{file_name}_level1.csv', index = False)
 
-    # plot_scatter_matrix(df_leaves, f'{file_name}_leaves', True)
-    # plot_scatter_matrix(df_level2, f'{file_name}_level2', True)
-    # plot_scatter_matrix(df_level1, f'{file_name}_level1', True)
+    plot_scatter_matrix(df_leaves, f'{file_name}_leaves', True)
+    plot_scatter_matrix(df_level2, f'{file_name}_level2', True)
+    plot_scatter_matrix(df_level1, f'{file_name}_level1', True)
 
 
 # _Data Transformation_

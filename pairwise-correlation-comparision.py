@@ -222,6 +222,15 @@ for csv_file in csv_raw_files:
     plot_scatter_matrix(df_level2, f'{file_name}_level2', True)
     plot_scatter_matrix(df_level1, f'{file_name}_level1', True)
 
+    # adding the raw data for analysis with correlation coefficients without any transformation
+    dfs_ready_to_process_continuous[file_name + "_leaves"] = df_leaves # we want to consider the data as as without transforming
+    dfs_ready_to_process_continuous[file_name + "_level2"] = df_level2
+    dfs_ready_to_process_continuous[file_name + "_level1"] = df_level1
+
+
+
+
+
 
 # _Data Transformation_
 for df_name, df_ready_to_transform in dfs_ready_to_transform.items():

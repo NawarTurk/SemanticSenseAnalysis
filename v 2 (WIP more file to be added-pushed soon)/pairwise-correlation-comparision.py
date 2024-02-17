@@ -22,12 +22,15 @@ ready_to_process_folder = '2_ready_to_process'
 result_folder = '3_results'
 binary_folder = 'binary'
 continuous_folder = 'continuous'
-binary_chi2Pvalue_matrices_folder = 'binary_chi2Pvalue_matrices'
-binary_corr_matrix_folder = 'binary corr matrix'
-continuous_corr_matrix_folder = 'continuous corr matrix'
-binary_heatmap_folder = 'binary heatmap'
-continuous_heatmap_folder = 'continuous heatmap'
-report_file = f'{result_folder}/report.txt'
+analysis_value_matrices_folder = 'analysis_value_matrices'
+heatmap_folder = 'heatmaps'
+csv_files_folder = 'csv_files'
+contingency_table_folder = 'contingency_tables'
+# binary_corr_matrix_folder = 'binary corr matrix'
+# # continuous_corr_matrix_folder = 'continuous corr matrix'
+# binary_heatmap_folder = 'binary heatmap'
+# continuous_heatmap_folder = 'continuous heatmap'
+# report_file = f'{result_folder}/report.txt'
 
 
 
@@ -95,30 +98,7 @@ def clean_files_within_directory(directory_name):
 def transform_to_binary(df_ready_to_transform, threshold):
     return df_ready_to_transform.map(lambda x: 1 if x >= threshold else 0)
 
-# Transfomr to continuous Space
-# def transform_to_CLR(df_ready_to_transform):
-#     # Replace zeros with a small positive value to avoid division by zero or log of zero
-#     df_no_zeros = df_ready_to_transform.replace(0, 1e-5).values  # Convert to numpy array for efficiency
-    
-#     # Calculate the geometric mean of each row
-#     geometric_mean = np.exp(np.mean(np.log(df_no_zeros), axis=1)).reshape(-1, 1)  # Reshape for broadcasting
-#     # axis=1 means the operation is performed row-wise across columns (across the rows).
-    
-#     # Apply the CLR transformation: log(x_i / geometric_mean(x))
-#     df_clr = np.log(df_no_zeros / geometric_mean)
-    
-#     # Convert back to a pandas DataFrame, if necessary
-#     df_clr = pd.DataFrame(df_clr, index=df_ready_to_transform.index, columns=df_ready_to_transform.columns)
-    
-#     return df_clr
 
-
-# def transform_to_ALR(df_ready_to_transform):
-#     pass
-    
-    
-# def transform_to_ILR(df_ready_to_transform):
-#     pass
 
 
 # def save_to_report(data_name, first_sense, seconde_sense, corr_value):
@@ -161,29 +141,7 @@ def transform_to_binary(df_ready_to_transform, threshold):
 #     plt.close()
 
 
-# def plot_scatter_matrix(df, df_name, set_limit_1):
-#     num_columns = len(df.columns)
-#     fig, ax = plt.subplots(nrows=num_columns, ncols=num_columns, figsize=(num_columns*4, num_columns*4))
-    
-#     # Loop over all the columns
-#     for i in range(num_columns):
-#         for j in range(i + 1, num_columns):
-#             # Scatter plot for each pair of columns
-#             ax[i, j].scatter(df.iloc[:, j], df.iloc[:, i]) 
-#             if set_limit_1:
-#                 ax[i, j].set_xlim(0, 1)  # Set x-axis to extend to 1
-#                 ax[i, j].set_ylim(0, 1)  # Set y-axis to extend to 1
-#             ax[i, j].set_xlabel(df.columns[j])
-#             ax[i, j].set_ylabel(df.columns[i])
-                
-#     plt.tight_layout()
-#     plt.savefig(f'{result_folder}/{df_name}.png')
 
-# def plot_histogram_matrix(df, df_name):
-#     cols = df.columns
-#     n_cols = 3
-#     n_rows = np.ceil(len(cols) / n_cols)
-#     plt.figure(figsize(15, 4*))
 
 
 
@@ -227,9 +185,7 @@ for csv_file in csv_raw_files:
     # df_level2.to_csv(f'{ready_to_transform_folder}/{file_name}_level2.csv', index = False)
     # df_level1.to_csv(f'{ready_to_transform_folder}/{file_name}_level1.csv', index = False)
 
-    # plot_scatter_matrix(df_leaves, f'{file_name}_leaves', True)
-    # plot_scatter_matrix(df_level2, f'{file_name}_level2', True)
-    # plot_scatter_matrix(df_level1, f'{file_name}_level1', True)
+
 
     # adding the raw data for analysis with correlation coefficients without any transformation
     # explain it
@@ -269,61 +225,98 @@ for df_name, df_ready_to_transform in dfs_ready_to_transform.items():
     # plot_scatter_matrix(df_transformed_to_CLR, f'CLR_{df_name}', False)
 # THE DATA IS NOW READY TO BE PROCESSED
         
-def get_contingency_matrix(s1, s2):
+def get_contingency_matrix(s1, s2, df_name, isSkip):
     contingency_table = pd.crosstab(s1, s2)
+    contingency_table_str = str(contingency_table)
+
+    if (not isSkip):
+        with open(f'./{result_folder}/{binary_folder}/{contingency_table_folder}/{df_name}.txt', 'a') as file:
+            file.write(contingency_table_str + '\n\n' + '-.-.-.-.-.-.-.-.-.-')
     return contingency_table
 
+def get_chi2_p_value(contingency_table):
+    stat, p, dof, expected = chi2_contingency(contingency_table, correction= False)
+    # correction= True means Yates's correction
+    # The effect of Yates's correction is to prevent overestimation of statistical significance for small data. 
+    # This formula is chiefly used when at least one cell of the table has an expected count smaller than 5
+    return p
 
-# def phi_coefficient(col1, col2):
-#     contingency_table = pd.crosstab(col1, col2)
-#     print('contingency_tabl')
-#     print(contingency_table)
-#     chi2, _, _, _ = chi2_contingency(contingency_table)
-#     print("chi2 here")
-#     print(chi2)
-#     n = contingency_table.values.sum()
-#     print("Total observations (n):", n)
-#     print("n here")
-#     print(n)
-#     phi = np.sqrt(chi2 / n)
-#     print("here")
-#     print(phi)
-#     return phi
+def get_yuleQ_value(contingency_table, isSkip):
+    one_one = contingency_table.loc[1,1]
+    one_zero = contingency_table.loc[1,0]
+    zero_one = contingency_table.loc[0,1]
+    zero_zero = contingency_table.loc[0,0]
+    if (isSkip):
+        return 'X'
+    OR = one_one*zero_zero/(one_zero*zero_one)
+    yule_Q = (OR-1)/(OR+1)
+    return yule_Q
 
-# def phi_coefficient_matrix(df):
-#     cols = df.columns
-#     n_cols = len(cols)
-#     phi_matrix = pd.DataFrame(np.zeros((n_cols, n_cols)), index = cols, columns = cols)
-    
-#     for i in range(n_cols):
-#         for j in range(i, n_cols):
-#             phi_value = phi_coefficient(df.iloc[:, i], df.iloc[:, j])
-#             print(phi_value)
-#             phi_matrix.loc[cols[i], cols[j]] =  phi_value
-#             phi_matrix.loc[cols[j], cols[i]] = phi_value
-#     return phi_matrix
+def get_proposed_method_value(contingency_table):
+    one_one = contingency_table.loc[1,1]
+    one_zero = contingency_table.loc[1,0]
+    zero_one = contingency_table.loc[0,1]
+    proposed_method_value = (one_one/(one_one + one_zero + zero_one))
+    return proposed_method_value
+
+def generate_csv(matrix_value_df, title):
+    matrix_value_df.to_csv(f'./{result_folder}/{binary_folder}/{analysis_value_matrices_folder}/{csv_files_folder}/{title}.csv')
 
 
-#_Data Processing_  
+ 
+contingency_tables = {}
+chi2_p_value_matrices = {}
+yuleQ_value_matrices = {}
+proposed_indicator_value_matrices = {}
+isSkip = False
+
+
 for df_name, df_ready_to_process in dfs_ready_to_process_binary.items():
+
+    column_labels = df_ready_to_process.columns
+    contingency_tables[df_name] = pd.DataFrame(index=column_labels, columns=column_labels)
+    chi2_p_value_matrices[df_name] = pd.DataFrame(index=column_labels, columns= column_labels)
+    yuleQ_value_matrices[df_name] = pd.DataFrame(index= column_labels, columns= column_labels)
+    proposed_indicator_value_matrices[df_name] = pd.DataFrame(index= column_labels, columns= column_labels)
+        
+
     for i in range(len(df_ready_to_process.columns)):
-        for j in range(i+1, len(df_ready_to_process.columns)):
-
-
+        for j in range(i, len(df_ready_to_process.columns)): # we do from i intead of i+1 to double check our calculaitons by looking at the diagonal
             s1_name = df_ready_to_process.columns[i]
             s2_name = df_ready_to_process.columns[j]
-
             s1_data = df_ready_to_process[s1_name]
             s2_data = df_ready_to_process[s2_name]
 
-            contingency_table = get_contingency_matrix(s1_data, s2_data)
-            print(contingency_table)
-            print(type(contingency_table))
+            if (i==j):
+                isSkip = True
 
+            contingency_table = get_contingency_matrix(s1_data, s2_data, df_name, isSkip)
+            # check point
+            # print(contingency_table) 
 
+            chi2_p_value = get_chi2_p_value(contingency_table)
+            # check point
+            # print(f'chi2_p_value = {chi2_p_value}')
+            
+            yuleQ_value = get_yuleQ_value(contingency_table, isSkip)
+            # check point
+            # print(f'yuleQ_value = {yuleQ_value}')
+            
+            proposed_indicator_value = get_proposed_method_value(contingency_table)
+            # check point
+            # print(f'proposed_method_value = {get_proposed_method_value(contingency_table)*100}%')
 
+            # creating a matrix for the results, one for each a dataframe(here we have only df of discogem at leaves level transfered to binar at 0.3)
+            contingency_tables[df_name].at[s1_name, s2_name] = contingency_table
+            chi2_p_value_matrices[df_name].at[s1_name, s2_name] = chi2_p_value
+            yuleQ_value_matrices[df_name].at[s1_name, s2_name] = yuleQ_value
+            proposed_indicator_value_matrices[df_name].at[s1_name, s2_name] = proposed_indicator_value
 
-            # contingency_table = get_contingency_matrix()
+            isSkip = False
+
+    generate_csv(chi2_p_value_matrices[df_name], f'{df_name}_chi2_P_value')
+    generate_csv(yuleQ_value_matrices[df_name], f'{df_name}_yuleQ_value')
+    generate_csv(proposed_indicator_value_matrices[df_name], f'{df_name}_proposed_indicator_value')
 
 
     # corr_matrix = phi_coefficient_matrix(df_ready_to_process)

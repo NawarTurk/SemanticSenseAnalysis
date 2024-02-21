@@ -1,0 +1,816 @@
+asynchronous    0    1
+synchronous           
+0             726  135
+1              28   11
+
+-.-.-.-.-.-.-.-.-.-
+cause          0    1
+synchronous          
+0            437  424
+1             23   16
+
+-.-.-.-.-.-.-.-.-.-
+condition      0  1
+synchronous        
+0            853  8
+1             39  0
+
+-.-.-.-.-.-.-.-.-.-
+negative-condition    0  1
+synchronous               
+0                   861  0
+1                    39  0
+
+-.-.-.-.-.-.-.-.-.-
+purpose        0   1
+synchronous         
+0            839  22
+1             39   0
+
+-.-.-.-.-.-.-.-.-.-
+concession     0   1
+synchronous         
+0            805  56
+1             34   5
+
+-.-.-.-.-.-.-.-.-.-
+contrast       0   1
+synchronous         
+0            775  86
+1             34   5
+
+-.-.-.-.-.-.-.-.-.-
+similarity     0   1
+synchronous         
+0            841  20
+1             38   1
+
+-.-.-.-.-.-.-.-.-.-
+conjunction    0    1
+synchronous          
+0            309  552
+1             17   22
+
+-.-.-.-.-.-.-.-.-.-
+disjunction    0   1
+synchronous         
+0            850  11
+1             39   0
+
+-.-.-.-.-.-.-.-.-.-
+instantiation    0    1
+synchronous            
+0              723  138
+1               39    0
+
+-.-.-.-.-.-.-.-.-.-
+level-of-detail    0    1
+synchronous              
+0                432  429
+1                 26   13
+
+-.-.-.-.-.-.-.-.-.-
+equivalence    0  1
+synchronous        
+0            859  2
+1             39  0
+
+-.-.-.-.-.-.-.-.-.-
+manner         0   1
+synchronous         
+0            851  10
+1             39   0
+
+-.-.-.-.-.-.-.-.-.-
+exception      0  1
+synchronous        
+0            860  1
+1             39  0
+
+-.-.-.-.-.-.-.-.-.-
+substitution    0  1
+synchronous         
+0             861  0
+1              39  0
+
+-.-.-.-.-.-.-.-.-.-
+cause           0    1
+asynchronous          
+0             388  366
+1              72   74
+
+-.-.-.-.-.-.-.-.-.-
+condition       0  1
+asynchronous        
+0             747  7
+1             145  1
+
+-.-.-.-.-.-.-.-.-.-
+negative-condition    0  1
+asynchronous              
+0                   754  0
+1                   146  0
+
+-.-.-.-.-.-.-.-.-.-
+purpose         0   1
+asynchronous         
+0             734  20
+1             144   2
+
+-.-.-.-.-.-.-.-.-.-
+concession      0   1
+asynchronous         
+0             696  58
+1             143   3
+
+-.-.-.-.-.-.-.-.-.-
+contrast        0   1
+asynchronous         
+0             672  82
+1             137   9
+
+-.-.-.-.-.-.-.-.-.-
+similarity      0   1
+asynchronous         
+0             734  20
+1             145   1
+
+-.-.-.-.-.-.-.-.-.-
+conjunction     0    1
+asynchronous          
+0             236  518
+1              90   56
+
+-.-.-.-.-.-.-.-.-.-
+disjunction     0   1
+asynchronous         
+0             744  10
+1             145   1
+
+-.-.-.-.-.-.-.-.-.-
+instantiation    0    1
+asynchronous           
+0              620  134
+1              142    4
+
+-.-.-.-.-.-.-.-.-.-
+level-of-detail    0    1
+asynchronous             
+0                355  399
+1                103   43
+
+-.-.-.-.-.-.-.-.-.-
+equivalence     0  1
+asynchronous        
+0             752  2
+1             146  0
+
+-.-.-.-.-.-.-.-.-.-
+manner          0  1
+asynchronous        
+0             745  9
+1             145  1
+
+-.-.-.-.-.-.-.-.-.-
+exception       0  1
+asynchronous        
+0             753  1
+1             146  0
+
+-.-.-.-.-.-.-.-.-.-
+substitution    0  1
+asynchronous        
+0             754  0
+1             146  0
+
+-.-.-.-.-.-.-.-.-.-
+condition    0  1
+cause            
+0          458  2
+1          434  6
+
+-.-.-.-.-.-.-.-.-.-
+negative-condition    0  1
+cause                     
+0                   460  0
+1                   440  0
+
+-.-.-.-.-.-.-.-.-.-
+purpose    0   1
+cause           
+0        456   4
+1        422  18
+
+-.-.-.-.-.-.-.-.-.-
+concession    0   1
+cause              
+0           420  40
+1           419  21
+
+-.-.-.-.-.-.-.-.-.-
+contrast    0   1
+cause            
+0         389  71
+1         420  20
+
+-.-.-.-.-.-.-.-.-.-
+similarity    0   1
+cause              
+0           442  18
+1           437   3
+
+-.-.-.-.-.-.-.-.-.-
+conjunction    0    1
+cause                
+0            108  352
+1            218  222
+
+-.-.-.-.-.-.-.-.-.-
+disjunction    0  1
+cause              
+0            453  7
+1            436  4
+
+-.-.-.-.-.-.-.-.-.-
+instantiation    0   1
+cause                 
+0              368  92
+1              394  46
+
+-.-.-.-.-.-.-.-.-.-
+level-of-detail    0    1
+cause                    
+0                185  275
+1                273  167
+
+-.-.-.-.-.-.-.-.-.-
+equivalence    0  1
+cause              
+0            459  1
+1            439  1
+
+-.-.-.-.-.-.-.-.-.-
+manner    0  1
+cause         
+0       457  3
+1       433  7
+
+-.-.-.-.-.-.-.-.-.-
+exception    0  1
+cause            
+0          459  1
+1          440  0
+
+-.-.-.-.-.-.-.-.-.-
+substitution    0  1
+cause               
+0             460  0
+1             440  0
+
+-.-.-.-.-.-.-.-.-.-
+negative-condition    0  1
+condition                 
+0                   892  0
+1                     8  0
+
+-.-.-.-.-.-.-.-.-.-
+purpose      0   1
+condition         
+0          871  21
+1            7   1
+
+-.-.-.-.-.-.-.-.-.-
+concession    0   1
+condition          
+0           832  60
+1             7   1
+
+-.-.-.-.-.-.-.-.-.-
+contrast     0   1
+condition         
+0          801  91
+1            8   0
+
+-.-.-.-.-.-.-.-.-.-
+similarity    0   1
+condition          
+0           871  21
+1             8   0
+
+-.-.-.-.-.-.-.-.-.-
+conjunction    0    1
+condition            
+0            321  571
+1              5    3
+
+-.-.-.-.-.-.-.-.-.-
+disjunction    0   1
+condition           
+0            881  11
+1              8   0
+
+-.-.-.-.-.-.-.-.-.-
+instantiation    0    1
+condition              
+0              756  136
+1                6    2
+
+-.-.-.-.-.-.-.-.-.-
+level-of-detail    0    1
+condition                
+0                452  440
+1                  6    2
+
+-.-.-.-.-.-.-.-.-.-
+equivalence    0  1
+condition          
+0            890  2
+1              8  0
+
+-.-.-.-.-.-.-.-.-.-
+manner       0  1
+condition        
+0          883  9
+1            7  1
+
+-.-.-.-.-.-.-.-.-.-
+exception    0  1
+condition        
+0          891  1
+1            8  0
+
+-.-.-.-.-.-.-.-.-.-
+substitution    0  1
+condition           
+0             892  0
+1               8  0
+
+-.-.-.-.-.-.-.-.-.-
+purpose               0   1
+negative-condition         
+0                   878  22
+1                     0   0
+
+-.-.-.-.-.-.-.-.-.-
+concession            0   1
+negative-condition         
+0                   839  61
+1                     0   0
+
+-.-.-.-.-.-.-.-.-.-
+contrast              0   1
+negative-condition         
+0                   809  91
+1                     0   0
+
+-.-.-.-.-.-.-.-.-.-
+similarity            0   1
+negative-condition         
+0                   879  21
+1                     0   0
+
+-.-.-.-.-.-.-.-.-.-
+conjunction           0    1
+negative-condition          
+0                   326  574
+1                     0    0
+
+-.-.-.-.-.-.-.-.-.-
+disjunction           0   1
+negative-condition         
+0                   889  11
+1                     0   0
+
+-.-.-.-.-.-.-.-.-.-
+instantiation         0    1
+negative-condition          
+0                   762  138
+1                     0    0
+
+-.-.-.-.-.-.-.-.-.-
+level-of-detail       0    1
+negative-condition          
+0                   458  442
+1                     0    0
+
+-.-.-.-.-.-.-.-.-.-
+equivalence           0  1
+negative-condition        
+0                   898  2
+1                     0  0
+
+-.-.-.-.-.-.-.-.-.-
+manner                0   1
+negative-condition         
+0                   890  10
+1                     0   0
+
+-.-.-.-.-.-.-.-.-.-
+exception             0  1
+negative-condition        
+0                   899  1
+1                     0  0
+
+-.-.-.-.-.-.-.-.-.-
+substitution          0  1
+negative-condition        
+0                   900  0
+1                     0  0
+
+-.-.-.-.-.-.-.-.-.-
+concession    0   1
+purpose            
+0           817  61
+1            22   0
+
+-.-.-.-.-.-.-.-.-.-
+contrast    0   1
+purpose          
+0         787  91
+1          22   0
+
+-.-.-.-.-.-.-.-.-.-
+similarity    0   1
+purpose            
+0           857  21
+1            22   0
+
+-.-.-.-.-.-.-.-.-.-
+conjunction    0    1
+purpose              
+0            318  560
+1              8   14
+
+-.-.-.-.-.-.-.-.-.-
+disjunction    0   1
+purpose             
+0            867  11
+1             22   0
+
+-.-.-.-.-.-.-.-.-.-
+instantiation    0    1
+purpose                
+0              742  136
+1               20    2
+
+-.-.-.-.-.-.-.-.-.-
+level-of-detail    0    1
+purpose                  
+0                443  435
+1                 15    7
+
+-.-.-.-.-.-.-.-.-.-
+equivalence    0  1
+purpose            
+0            876  2
+1             22  0
+
+-.-.-.-.-.-.-.-.-.-
+manner     0   1
+purpose         
+0        868  10
+1         22   0
+
+-.-.-.-.-.-.-.-.-.-
+exception    0  1
+purpose          
+0          877  1
+1           22  0
+
+-.-.-.-.-.-.-.-.-.-
+substitution    0  1
+purpose             
+0             878  0
+1              22  0
+
+-.-.-.-.-.-.-.-.-.-
+contrast      0   1
+concession         
+0           773  66
+1            36  25
+
+-.-.-.-.-.-.-.-.-.-
+similarity    0   1
+concession         
+0           819  20
+1            60   1
+
+-.-.-.-.-.-.-.-.-.-
+conjunction    0    1
+concession           
+0            296  543
+1             30   31
+
+-.-.-.-.-.-.-.-.-.-
+disjunction    0   1
+concession          
+0            828  11
+1             61   0
+
+-.-.-.-.-.-.-.-.-.-
+instantiation    0    1
+concession             
+0              709  130
+1               53    8
+
+-.-.-.-.-.-.-.-.-.-
+level-of-detail    0    1
+concession               
+0                415  424
+1                 43   18
+
+-.-.-.-.-.-.-.-.-.-
+equivalence    0  1
+concession         
+0            837  2
+1             61  0
+
+-.-.-.-.-.-.-.-.-.-
+manner        0   1
+concession         
+0           829  10
+1            61   0
+
+-.-.-.-.-.-.-.-.-.-
+exception     0  1
+concession        
+0           839  0
+1            60  1
+
+-.-.-.-.-.-.-.-.-.-
+substitution    0  1
+concession          
+0             839  0
+1              61  0
+
+-.-.-.-.-.-.-.-.-.-
+similarity    0   1
+contrast           
+0           792  17
+1            87   4
+
+-.-.-.-.-.-.-.-.-.-
+conjunction    0    1
+contrast             
+0            287  522
+1             39   52
+
+-.-.-.-.-.-.-.-.-.-
+disjunction    0  1
+contrast           
+0            801  8
+1             88  3
+
+-.-.-.-.-.-.-.-.-.-
+instantiation    0    1
+contrast               
+0              677  132
+1               85    6
+
+-.-.-.-.-.-.-.-.-.-
+level-of-detail    0    1
+contrast                 
+0                391  418
+1                 67   24
+
+-.-.-.-.-.-.-.-.-.-
+equivalence    0  1
+contrast           
+0            807  2
+1             91  0
+
+-.-.-.-.-.-.-.-.-.-
+manner      0   1
+contrast         
+0         799  10
+1          91   0
+
+-.-.-.-.-.-.-.-.-.-
+exception    0  1
+contrast         
+0          809  0
+1           90  1
+
+-.-.-.-.-.-.-.-.-.-
+substitution    0  1
+contrast            
+0             809  0
+1              91  0
+
+-.-.-.-.-.-.-.-.-.-
+conjunction    0    1
+similarity           
+0            325  554
+1              1   20
+
+-.-.-.-.-.-.-.-.-.-
+disjunction    0  1
+similarity         
+0            870  9
+1             19  2
+
+-.-.-.-.-.-.-.-.-.-
+instantiation    0    1
+similarity             
+0              742  137
+1               20    1
+
+-.-.-.-.-.-.-.-.-.-
+level-of-detail    0    1
+similarity               
+0                447  432
+1                 11   10
+
+-.-.-.-.-.-.-.-.-.-
+equivalence    0  1
+similarity         
+0            877  2
+1             21  0
+
+-.-.-.-.-.-.-.-.-.-
+manner        0   1
+similarity         
+0           869  10
+1            21   0
+
+-.-.-.-.-.-.-.-.-.-
+exception     0  1
+similarity        
+0           878  1
+1            21  0
+
+-.-.-.-.-.-.-.-.-.-
+substitution    0  1
+similarity          
+0             879  0
+1              21  0
+
+-.-.-.-.-.-.-.-.-.-
+disjunction    0  1
+conjunction        
+0            320  6
+1            569  5
+
+-.-.-.-.-.-.-.-.-.-
+instantiation    0   1
+conjunction           
+0              274  52
+1              488  86
+
+-.-.-.-.-.-.-.-.-.-
+level-of-detail    0    1
+conjunction              
+0                201  125
+1                257  317
+
+-.-.-.-.-.-.-.-.-.-
+equivalence    0  1
+conjunction        
+0            326  0
+1            572  2
+
+-.-.-.-.-.-.-.-.-.-
+manner         0  1
+conjunction        
+0            320  6
+1            570  4
+
+-.-.-.-.-.-.-.-.-.-
+exception      0  1
+conjunction        
+0            325  1
+1            574  0
+
+-.-.-.-.-.-.-.-.-.-
+substitution    0  1
+conjunction         
+0             326  0
+1             574  0
+
+-.-.-.-.-.-.-.-.-.-
+instantiation    0    1
+disjunction            
+0              751  138
+1               11    0
+
+-.-.-.-.-.-.-.-.-.-
+level-of-detail    0    1
+disjunction              
+0                449  440
+1                  9    2
+
+-.-.-.-.-.-.-.-.-.-
+equivalence    0  1
+disjunction        
+0            887  2
+1             11  0
+
+-.-.-.-.-.-.-.-.-.-
+manner         0   1
+disjunction         
+0            879  10
+1             11   0
+
+-.-.-.-.-.-.-.-.-.-
+exception      0  1
+disjunction        
+0            888  1
+1             11  0
+
+-.-.-.-.-.-.-.-.-.-
+substitution    0  1
+disjunction         
+0             889  0
+1              11  0
+
+-.-.-.-.-.-.-.-.-.-
+level-of-detail    0    1
+instantiation            
+0                380  382
+1                 78   60
+
+-.-.-.-.-.-.-.-.-.-
+equivalence      0  1
+instantiation        
+0              760  2
+1              138  0
+
+-.-.-.-.-.-.-.-.-.-
+manner           0   1
+instantiation         
+0              752  10
+1              138   0
+
+-.-.-.-.-.-.-.-.-.-
+exception        0  1
+instantiation        
+0              761  1
+1              138  0
+
+-.-.-.-.-.-.-.-.-.-
+substitution     0  1
+instantiation        
+0              762  0
+1              138  0
+
+-.-.-.-.-.-.-.-.-.-
+equivalence        0  1
+level-of-detail        
+0                457  1
+1                441  1
+
+-.-.-.-.-.-.-.-.-.-
+manner             0  1
+level-of-detail        
+0                450  8
+1                440  2
+
+-.-.-.-.-.-.-.-.-.-
+exception          0  1
+level-of-detail        
+0                457  1
+1                442  0
+
+-.-.-.-.-.-.-.-.-.-
+substitution       0  1
+level-of-detail        
+0                458  0
+1                442  0
+
+-.-.-.-.-.-.-.-.-.-
+manner         0   1
+equivalence         
+0            888  10
+1              2   0
+
+-.-.-.-.-.-.-.-.-.-
+exception      0  1
+equivalence        
+0            897  1
+1              2  0
+
+-.-.-.-.-.-.-.-.-.-
+substitution    0  1
+equivalence         
+0             898  0
+1               2  0
+
+-.-.-.-.-.-.-.-.-.-
+exception    0  1
+manner           
+0          889  1
+1           10  0
+
+-.-.-.-.-.-.-.-.-.-
+substitution    0  1
+manner              
+0             890  0
+1              10  0
+
+-.-.-.-.-.-.-.-.-.-
+substitution    0  1
+exception           
+0             899  0
+1               1  0
+
+-.-.-.-.-.-.-.-.-.-

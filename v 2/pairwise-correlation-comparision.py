@@ -9,16 +9,13 @@ from scipy.stats import chi2_contingency
 from scipy.stats import fisher_exact
 
 
-
-# hyper=parameters
+# Hyper=parameters
 # UPPER_CORR_THRESHOLD = 0.7  # recommended threshold for + correlation 
 # LOWER_CORR_THRESHOLD = -0.7 # recommended threshold for - correlation 
-thresholds = [0.3]  # for binary transfomation  if > threshold -> 1 else 0
-correlation_coefficients = ['pearson', 'spearman', 'kendall']
-# sense_of_interest = ['synchronous',	'precedence',	'reason',	'result',	'arg1-as-denier',	'arg2-as-denier',	'contrast',	'similarity',	'conjunction',	'arg2-as-instance',	'arg1-as-detail',	'arg2-as-detail', 'instantiation',	'level-of-detail', 'asynchronous',	'cause',	'concession']
+thresholds = [0.1, 0.2, 0.3, 0.4, 0.5]  # for binary transfomation  if > threshold -> 1 else 0
+correlation_coefficients = ['pearson', 'spearman', 'kendall']  # for continuous data (no binary transformation)
 
-
-# folder names
+# Folder names
 raw_data_folder = '0_raw_data'
 ready_to_transform_folder = '1_ready_to_transform'
 ready_to_process_folder = '2_ready_to_process'
@@ -29,24 +26,151 @@ analysis_value_matrices_folder = 'analysis_value_matrices'
 heatmap_folder = 'heatmaps'
 csv_files_folder = 'csv_files'
 contingency_table_folder = 'contingency_tables'
-not_applicable = 'NA'
-# binary_corr_matrix_folder = 'binary corr matrix'
-# # continuous_corr_matrix_folder = 'continuous corr matrix'
-# binary_heatmap_folder = 'binary heatmap'
-# continuous_heatmap_folder = 'continuous heatmap'
-# report_file = f'{result_folder}/report.txt'
+report_folder = 'report'
 
 
-
-# dataframe dictionaries
+# Dataframe dictionaries
 dfs_ready_to_transform = {}
 dfs_ready_to_process_binary = {}
 dfs_ready_to_process_continuous = {}
 
+# Value matrices dictionaries     
+contingency_tables = {}
+chi2_p_value_matrices = {}
+fisher_exact_p_value_matrices = {}
+yuleQ_value_matrices = {}
+proposed_indicator_value_matrices = {}
+
+# Others
+not_applicable = 'NA'
+fisher_exact_test ='fisher_used'
+chi2_squared = 'chi2_used'
 
 
-# Clean all the files of the previous run to generate new results
+
+#  *** DATA PROCESSING FUNCTIONS ***
+def transform_to_binary(df_ready_to_transform, threshold):
+    """
+    Converts each value in the input DataFrame to binary (1 or 0) based on a specified threshold
+
+    Parameters:
+    - df_ready_to_transform (pandas.DataFrame): DataFrame to transform.
+    - threshold (numeric): Value serving as the cutoff point for binary conversion; values equal to or above the threshold are set to 1, others to 0.
+
+    Returns:
+    - pandas.DataFrame: Transformed DataFrame with binary values.
+    """
+    return df_ready_to_transform.map(lambda x: 1 if x >= threshold else 0)
+
+def get_contingency_matrix(s1, s2, s1_name, s2_name, df_name, isSkip):
+    """
+    Creates a contingency table comparing of two senses.
+    
+    If not skipped, the table is also appended to a text file named after the `df_name` parameter within a structured directory path.
+    
+    Parameters:
+    - s1 (pandas.Series): First sense to compare.
+    - s2 (pandas.Series): Second sense to compare.
+    - s1_name (str): Name to assign to the rows in the contingency table.
+    - s2_name (str): Name to assign to the columns in the contingency table.
+    - df_name (str): Base name for the output text file (used if `isSkip` is False).
+    - isSkip (bool): Flag to skip file writing if True. (we are effectively skipping when sense 1 and sense 2 are the same sense (i=j))
+    
+    Returns:
+    - pandas.DataFrame: The generated contingency table.
+    """
+    s1 = pd.Categorical(s1, categories=[0, 1]) # we had to explictly mention the categories because it will not be added to the table if they a col or a row has values of zeros
+    s2 = pd.Categorical(s2, categories=[0, 1])
+    contingency_table = pd.crosstab(s1, s2, rownames=[s1_name], colnames=[s2_name], dropna=False)
+    contingency_table_str = str(contingency_table)
+
+    if (not isSkip):
+        with open(f'./{result_folder}/{binary_folder}/{contingency_table_folder}/{df_name}.txt', 'a') as file:
+            file.write(contingency_table_str + '\n\n' + '-.-.-.-.-.-.-.-.-.-\n')
+    
+    return contingency_table
+
+def get_chi2_or_fisher_p_value(contingency_table):
+    """
+    Calculates the p-value using the Chi-squared test or Fisher's Exact test based on the suitability for the provided contingency table.
+
+    This function first attempts to compute the p-value using the Chi-squared test. 
+    If the Chi-squared test is not applicable due to the expected table (derived from the contingency table) contains a zero cell, 
+    the function falls back to Fisher's Exact test.
+
+    Parameters:
+    - contingency_table (pd.DataFrame): A 2x2 contingency table.
+
+    Returns:
+    - tuple: A tuple containing the p-value and a string indicating which test was used 
+    """
+    try:
+        stat, chi2_p, dof, expected = chi2_contingency(contingency_table, correction= False)
+    except ValueError as e:
+        _, fisher_exact_p = scipy.stats.fisher_exact(contingency_table)
+        return (fisher_exact_p, 'fisher_used')
+    return (chi2_p, 'chi2_used')
+
+def get_yuleQ_value(contingency_table, isSkip):
+    """
+    Calculates the Yule's Q coefficient for a given 2x2 contingency table, unless skipping
+    
+    Yule'sQ value ranges from:
+        -1 (perfect negative association) to 
+        +1 (perfect positive association), 
+        with 0 indicating no association. T
+    This function computes Yule's Q only if all cells in the contingency table have non-zero values. 
+    It skips calculation if the same sense is being compared (i=j) or if any cell in the table is zero to avoid division by zero.
+
+    Parameters:
+    - contingency_table (pd.DataFrame): A 2x2 contingency table.
+    - isSkip (bool): A flag indicating whether to skip the calculation. 
+
+    Returns:
+    - float or str: Yule's Q coefficient if calculable, otherwise 'NA' if skipped or if the table contains zero values.
+    """
+
+    one_one = contingency_table.loc[1,1]
+    one_zero = contingency_table.loc[1,0]
+    zero_one = contingency_table.loc[0,1]
+    zero_zero = contingency_table.loc[0,0]
+    if (isSkip):
+        # we set isSkip to true when we are comparing the same sense (i=j)
+        return 'NA'
+    if (one_one*one_zero*zero_one*zero_zero == 0):  
+        # none of the contingency table cells can be zero
+        return 'NA'
+    numerator = (one_one * zero_zero) - (one_zero * zero_one)
+    denominator = (one_one * zero_zero) + (one_zero * zero_one)
+    yules_q = numerator / denominator
+
+    return yules_q
+
+def get_proposed_method_value(contingency_table):
+    one_one = contingency_table.loc[1,1]
+    one_zero = contingency_table.loc[1,0]
+    zero_one = contingency_table.loc[0,1]
+
+    numerator = one_one
+    denominator = one_one + one_zero + zero_one
+
+    if denominator == 0:
+        return not_applicable  
+
+    proposed_method_value = numerator/denominator
+    return proposed_method_value
+
+
+
+
+#  *** HELPER FUNCTIONS ***
 def clean_files_within_directory(directory_name):
+    """
+    Clean all the files of the previous run to generate new results
+
+    Parameters:
+    directory_name (str): The name of the directory, relative to the script's location, to be cleaned
+    """
     # Construct the full path to the directory relative to the current script
     directory_path = os.path.join(os.path.dirname(__file__), directory_name)  
     # Walk through the directory
@@ -56,52 +180,150 @@ def clean_files_within_directory(directory_name):
             file_path = os.path.join(root, file)
             os.remove(file_path)
 
-# def annotate_sense_of_interest(df, list_of_sense):
-#     for col in df.columns:
-#         if col in list_of_sense:
-#             df.rename(columns = {col: col + '+++'}, inplace = True)
 
-# def convert_to_level2(df):
-#     df_level2 = pd.DataFrame()
-#     df_level2['synchronous'] = df['synchronous']
-#     df_level2['asynchronous'] = df['precedence'] + df['succession'] 
-#     df_level2['cause'] = df['reason'] + df['result'] 
-#     df_level2['condition'] = df['arg1-as-cond'] + df['arg2-as-cond'] 
-#     df_level2['negative-condition'] = df['arg1-as-negcond'] + df['arg2-as-negcond'] 
-#     df_level2['purpose'] = df['arg1-as-goal'] + df['arg2-as-goal'] 
-#     df_level2['concession'] = df['arg1-as-denier'] + df['arg2-as-denier'] 
-#     df_level2['contrast'] = df['contrast']
-#     df_level2['similarity'] = df['similarity']
-#     df_level2['conjunction'] = df['conjunction']
-#     df_level2['disjunction'] = df['disjunction']
-#     df_level2['instantiation'] = df['arg1-as-instance'] + df['arg2-as-instance'] 
-#     df_level2['level-of-detail'] = df['arg1-as-detail'] + df['arg2-as-detail'] 
-#     df_level2['equivalence'] = df['equivalence']
-#     df_level2['manner'] = df['arg1-as-manner'] + df['arg2-as-manner'] 
-#     df_level2['exception'] = df['arg1-as-excpt'] + df['arg2-as-excpt'] 
+def group_to_level2(df):
+    """
+    Convert the dataframe from leaves level to level 2
 
-    # not both files have the 'arg1-as-subst' column in it 
-    # if 'arg1-as-subst' in df.columns: 
-    #     df_level2['substitution'] = df['arg1-as-subst'] + df['arg2-as-subst'] 
-    # else:
-    #     df_level2['substitution'] = df['arg2-as-subst'] 
-    # return df_level2
+    Parameters:
+    df (pandas.DataFrame): The leaves level dataframe to be converted
 
+    Returns:
+    pandas.DataFrame: The converted dataframe
+    """
+    
+    df_level2 = pd.DataFrame()
+    df_level2['synchronous'] = df['synchronous']
+    df_level2['asynchronous'] = df['precedence'] + df['succession'] 
+    df_level2['cause'] = df['reason'] + df['result'] 
+    df_level2['condition'] = df['arg1-as-cond'] + df['arg2-as-cond'] 
+    df_level2['negative-condition'] = df['arg1-as-negcond'] + df['arg2-as-negcond'] 
+    df_level2['purpose'] = df['arg1-as-goal'] + df['arg2-as-goal'] 
+    df_level2['concession'] = df['arg1-as-denier'] + df['arg2-as-denier'] 
+    df_level2['contrast'] = df['contrast']
+    df_level2['similarity'] = df['similarity']
+    df_level2['conjunction'] = df['conjunction']
+    df_level2['disjunction'] = df['disjunction']
+    df_level2['instantiation'] = df['arg1-as-instance'] + df['arg2-as-instance'] 
+    df_level2['level-of-detail'] = df['arg1-as-detail'] + df['arg2-as-detail'] 
+    df_level2['equivalence'] = df['equivalence']
+    df_level2['manner'] = df['arg1-as-manner'] + df['arg2-as-manner'] 
+    df_level2['exception'] = df['arg1-as-excpt'] + df['arg2-as-excpt'] 
 
-# def convert_to_level1(df_level2):
-#     df_level1 = pd.DataFrame()
-#     df_level1['temporal'] = df_level2['synchronous'] + df_level2['asynchronous'] 
-#     df_level1['contingency'] = df_level2['cause'] + df_level2['condition'] + df_level2['negative-condition'] + df_level2['purpose'] 
-#     df_level1['comparision'] = df_level2['concession'] + df_level2['contrast'] + df_level2['similarity']
-#     df_level1['expansion'] = df_level2['conjunction'] + df_level2['disjunction'] + df_level2['equivalence'] + df_level2['exception'] + \
-#                              df_level2['instantiation'] + df_level2['level-of-detail'] + df_level2['manner'] + df_level2['substitution']
-#     return df_level1
+    # not both files have the 'arg1-as-subst' column in it, so we have to check
+    if 'arg1-as-subst' in df.columns: 
+        df_level2['substitution'] = df['arg1-as-subst'] + df['arg2-as-subst'] 
+    else:
+        df_level2['substitution'] = df['arg2-as-subst'] 
+    return df_level2
 
 
-# Transform to binary data
-def transform_to_binary(df_ready_to_transform, threshold):
-    return df_ready_to_transform.map(lambda x: 1 if x >= threshold else 0)
+def generate_csv(matrix_value_df, title):
+    matrix_value_df.to_csv(f'./{result_folder}/{binary_folder}/{analysis_value_matrices_folder}/{csv_files_folder}/{title}.csv')
 
+
+
+#________________________________ START _________________________________
+
+# 1. Clean all previous results from the previous run
+clean_files_within_directory(result_folder)
+clean_files_within_directory(ready_to_transform_folder)
+clean_files_within_directory(ready_to_process_folder)
+
+# 2. Import data form the raw_data folder
+csv_raw_files = glob.glob(f'{raw_data_folder}/*.csv')
+
+# 3. Prepare data for processing, Part 1
+# 3.1. Cleaning and Grouping (from raw_data to ready_to_transform)
+for csv_file in csv_raw_files:   
+    # Drop unnecessary columns
+    #   dropping the first 8 columns that do not have any numerical values, only text
+    #   dropping the last 2 columns (differentcon, norel) that do not show in the PDTB-3 sense hierarchy 
+    df_leaves = pd.read_csv(csv_file)
+    df_leaves = df_leaves.iloc[:, 8:-2]
+    file_name = os.path.basename(csv_file)[:-4]  # -4 to remove the '.csv' from the name
+    
+    # Group to level2
+    df_level2 = group_to_level2(df_leaves)
+
+    # Store in a dictionary
+    dfs_ready_to_transform[file_name + "_leaves"] = df_leaves  
+    dfs_ready_to_transform[file_name + "_level2"] = df_level2
+
+    # Save for checking (saved in ready_to_transform_folder)
+    df_leaves.to_csv(f'{ready_to_transform_folder}/{file_name}_leaves.csv', index = False)
+    df_level2.to_csv(f'{ready_to_transform_folder}/{file_name}_level2.csv', index = False)
+
+
+    dfs_ready_to_process_continuous[file_name + "_leaves"] = df_leaves # we want to consider the data as as without transforming so we can apply pearsom, spearman and kendall before transfomation into binary
+   
+# 3. Prepare data for processing, Part 2
+# 3.2. Data Transformation (from ready_to_transform to ready_to_process)
+
+for df_name, df_ready_to_transform in dfs_ready_to_transform.items():
+    # Transform to binary
+    for threshold in thresholds:
+        # Transform to binary based on the threshold [0.1, 0.2, 0.3, 0.4, 0.5]
+        df_transformed_to_binary = transform_to_binary(df_ready_to_transform, threshold)
+
+        # Store in a dictionary
+        dfs_ready_to_process_binary[df_name + f'_binary_{threshold}'] = df_transformed_to_binary
+        
+        # Save for checking (saved in ready_to_process_folder)
+        df_transformed_to_binary.to_csv(f'{ready_to_process_folder}/{binary_folder}/{df_name}_binary_{threshold}.csv')
+    
+ 
+# 4. Processing data
+isSkip = False
+
+for df_name, df_ready_to_process in dfs_ready_to_process_binary.items():
+    # 4.1. preparing the dictionaries 
+    column_labels = df_ready_to_process.columns
+    contingency_tables[df_name] = pd.DataFrame(index = column_labels, columns =column_labels)
+    chi2_p_value_matrices[df_name] = pd.DataFrame(index = column_labels, columns = column_labels)
+    fisher_exact_p_value_matrices[df_name] = pd.DataFrame(index = column_labels, columns = column_labels)
+    yuleQ_value_matrices[df_name] = pd.DataFrame(index= column_labels, columns = column_labels)
+    proposed_indicator_value_matrices[df_name] = pd.DataFrame(index = column_labels, columns = column_labels)
+        
+
+    for i in range(len(df_ready_to_process.columns)):
+        for j in range(i, len(df_ready_to_process.columns)): # we do from i intead of i+1 to double check our calculaitons by looking at the diagonal (for some methods only)
+            isSkip = False
+
+            # Extracting pair of sesnes info
+            s1_name = df_ready_to_process.columns[i]
+            s2_name = df_ready_to_process.columns[j]
+            s1_data = df_ready_to_process[s1_name]
+            s2_data = df_ready_to_process[s2_name]
+
+            if (i==j):
+                isSkip = True # Some of our calculations cannot be done at the diagonals
+
+            # calculating th values
+            contingency_table = get_contingency_matrix(s1_data, s2_data, s1_name, s2_name, df_name, isSkip)
+            p_value, method_used = get_chi2_or_fisher_p_value(contingency_table)    
+            yuleQ_value = get_yuleQ_value(contingency_table, isSkip)
+            proposed_indicator_value = get_proposed_method_value(contingency_table)
+
+            # Storing the pairwise value in the appropriate cells
+            contingency_tables[df_name].at[s1_name, s2_name] = contingency_table
+
+            if (method_used == chi2_squared):
+                chi2_p_value_matrices[df_name].at[s1_name, s2_name] = p_value
+                fisher_exact_p_value_matrices[df_name].at[s1_name, s2_name] = method_used
+
+            else:
+                chi2_p_value_matrices[df_name].at[s1_name, s2_name] = method_used
+                fisher_exact_p_value_matrices[df_name].at[s1_name, s2_name] = p_value
+
+            yuleQ_value_matrices[df_name].at[s1_name, s2_name] = yuleQ_value
+            proposed_indicator_value_matrices[df_name].at[s1_name, s2_name] = proposed_indicator_value
+
+    # Store the result value matrices
+    generate_csv(chi2_p_value_matrices[df_name], f'{df_name}_chi2_P_value')
+    generate_csv(fisher_exact_p_value_matrices[df_name], f'{df_name}_fisher_exact_P_value')
+    generate_csv(yuleQ_value_matrices[df_name], f'{df_name}_yuleQ_value')
+    generate_csv(proposed_indicator_value_matrices[df_name], f'{df_name}_proposed_indicator_value')
 
 
 
@@ -144,194 +366,6 @@ def transform_to_binary(df_ready_to_transform, threshold):
 #     plt.savefig(f'{file_path}/{heatmap_title}_heatmap.png')
 #     plt.close()
 
-
-
-
-
-
-#______________________________________________ START _________________________________
-
-# CLEAN ALL PREVIOUS RESULTS FROM THE PREVIOUS RUN
-clean_files_within_directory(result_folder)
-clean_files_within_directory(ready_to_transform_folder)
-clean_files_within_directory(ready_to_process_folder)
-
-
-# PREPARING THE DATA FOR PROCESSING LATER ON
-
-# *** Import all files in rawa_data folder
-csv_raw_files = glob.glob(f'{raw_data_folder}/*.csv')
-
-# *** Data Preparation   (raw_data --> read_to_transform)
-# prepare the dataframes (dropping out unecessary columns):
-#   dropping the first 8 columns that do not have any numerical values, only text
-#   dropping the last 2 columns (differentcon, norel) that do not show in the PDTB-3 sense hierarchy 
-for csv_file in csv_raw_files:
-    # for every file in the raw_data folder do below (currenly we only doing discogem)
-    df_leaves = pd.read_csv(csv_file)
-    df_leaves = df_leaves.iloc[:, 8:-2]  # dropping out unecessary columns  check the last two columns  +++++ ATTENTION +++++
-    file_name = os.path.basename(csv_file)[:-4]  # -4 to remove the '.csv' from the name
-
-    # df_level2 = convert_to_level2(df_leaves)
-    # df_level1 = convert_to_level1(df_level2)
-
-    # annotate_sense_of_interest(df_leaves, sense_of_interest)
-    # annotate_sense_of_interest(df_level2, sense_of_interest)
-
-    # dfs_ready_to_transform is a dicitoanry that has all the dataframes that we will transform
-    #   currently we are processing discogem at leaves level, later on we can add discogem level2, qadc leaves level and qadc level2
-    dfs_ready_to_transform[file_name + "_leaves"] = df_leaves 
-    # dfs_ready_to_transform[file_name + "_level2"] = df_level2
-    # dfs_ready_to_transform[file_name + "_level1"] = df_level1
-
-    # saving the file in the ready_to_transform folder so we can check everything is ok
-    df_leaves.to_csv(f'{ready_to_transform_folder}/{file_name}_leaves.csv', index = False)
-    # df_level2.to_csv(f'{ready_to_transform_folder}/{file_name}_level2.csv', index = False)
-    # df_level1.to_csv(f'{ready_to_transform_folder}/{file_name}_level1.csv', index = False)
-
-
-
-    # adding the raw data for analysis with correlation coefficients without any transformation
-    # explain it
-    dfs_ready_to_process_continuous[file_name + "_leaves"] = df_leaves # we want to consider the data as as without transforming so we can apply pearsom, spearman and kendall before transfomation into binary
-   
-
-
-# *** Data Transformation (read_to_transform --> ready to process)
-# we now have one dataframe that is (discogem leaves level, but later we can have discogem level2, qadc leaves level and qadc level2)
-for df_name, df_ready_to_transform in dfs_ready_to_transform.items():
-    # Transform to binary ( we have thresholds [0.1, 0.2, 0.3, 0.4])
-    for threshold in thresholds:
-        # transform to binary based on the threshold
-        df_transformed_to_binary = transform_to_binary(df_ready_to_transform, threshold)
-
-        # dfs_ready_to_process_binary is a dictionary that has all the data frames transformed into binary
-        # now we only have discogem at leaves level at threshold 0.1, 0.2, 0.3, 0.4 
-        # later we can do the same for discogem level2, and do the same for qadc
-        dfs_ready_to_process_binary[df_name + f'_binary_{threshold}'] = df_transformed_to_binary
-        #save it so can we examine it
-        df_transformed_to_binary.to_csv(f'{ready_to_process_folder}/{binary_folder}/{df_name}_binary_{threshold}.csv')
-    
- 
-        
-def get_contingency_matrix(s1, s2, s1_name, s2_name, df_name, isSkip):
-    s1 = pd.Categorical(s1, categories=[0, 1])
-    s2 = pd.Categorical(s2, categories=[0, 1])
-    contingency_table = pd.crosstab(s1, s2, rownames=[s1_name], colnames=[s2_name], dropna=False)
-    # contingency_table = pd.crosstab(s1, s2)
-    contingency_table_str = str(contingency_table)
-
-    if (not isSkip):
-
-        with open(f'./{result_folder}/{binary_folder}/{contingency_table_folder}/{df_name}.txt', 'a') as file:
-            file.write(contingency_table_str + '\n\n' + '-.-.-.-.-.-.-.-.-.-\n')
-    return contingency_table
-
-def get_chi2_or_fisher_p_value(contingency_table):
-    #explain why fischer
-    try:
-        stat, chi2_p, dof, expected = chi2_contingency(contingency_table, correction= False)
-    except ValueError as e:
-        _, fisher_exact_p = scipy.stats.fisher_exact(contingency_table)
-        return ('NA', fisher_exact_p)
-    return (chi2_p, 'chi2_used')
-
-def get_yuleQ_value(contingency_table, isSkip):
-    one_one = contingency_table.loc[1,1]
-    one_zero = contingency_table.loc[1,0]
-    zero_one = contingency_table.loc[0,1]
-    zero_zero = contingency_table.loc[0,0]
-    if (isSkip):
-        return 'NA'
-    if (one_one*one_zero*zero_one*zero_zero == 0):  # none of the cells should be zero
-        return 'NA'
-    numerator = (one_one * zero_zero) - (one_zero * zero_one)
-    denominator = (one_one * zero_zero) + (one_zero * zero_one)
-    
-    if denominator == 0:
-        return 'NA'  
-    
-    yules_q = numerator / denominator
-    return yules_q
-
-def get_proposed_method_value(contingency_table):
-    one_one = contingency_table.loc[1,1]
-    one_zero = contingency_table.loc[1,0]
-    zero_one = contingency_table.loc[0,1]
-
-    numerator = one_one
-    denominator = one_one + one_zero + zero_one
-
-    if denominator == 0:
-        return not_applicable  
-
-    proposed_method_value = numerator/denominator
-    return proposed_method_value
-
-def generate_csv(matrix_value_df, title):
-    matrix_value_df.to_csv(f'./{result_folder}/{binary_folder}/{analysis_value_matrices_folder}/{csv_files_folder}/{title}.csv')
-
-
- 
-contingency_tables = {}
-chi2_p_value_matrices = {}
-fisher_exact_p_value_matrices = {}
-yuleQ_value_matrices = {}
-proposed_indicator_value_matrices = {}
-isSkip = False
-
-
-
-for df_name, df_ready_to_process in dfs_ready_to_process_binary.items():
-    column_labels = df_ready_to_process.columns
-    contingency_tables[df_name] = pd.DataFrame(index=column_labels, columns=column_labels)
-    chi2_p_value_matrices[df_name] = pd.DataFrame(index=column_labels, columns= column_labels)
-    fisher_exact_p_value_matrices[df_name] = pd.DataFrame(index=column_labels, columns= column_labels)
-    yuleQ_value_matrices[df_name] = pd.DataFrame(index= column_labels, columns= column_labels)
-    proposed_indicator_value_matrices[df_name] = pd.DataFrame(index= column_labels, columns= column_labels)
-        
-
-    for i in range(len(df_ready_to_process.columns)):
-        for j in range(i, len(df_ready_to_process.columns)): # we do from i intead of i+1 to double check our calculaitons by looking at the diagonal
-            isSkip = False
-            s1_name = df_ready_to_process.columns[i]
-            s2_name = df_ready_to_process.columns[j]
-            s1_data = df_ready_to_process[s1_name]
-            s2_data = df_ready_to_process[s2_name]
-
-            if (i==j):
-                isSkip = True
-
-            contingency_table = get_contingency_matrix(s1_data, s2_data, s1_name, s2_name, df_name, isSkip)
-            # check point
-            # print(contingency_table) 
-
-            chi2_p_value, fisher_exact_p_value = get_chi2_or_fisher_p_value(contingency_table)
-            # check point
-            # print(f'chi2_p_value = {chi2_p_value}')
-            
-            yuleQ_value = get_yuleQ_value(contingency_table, isSkip)
-            # check point
-            # print(f'yuleQ_value = {yuleQ_value}')
-            
-            proposed_indicator_value = get_proposed_method_value(contingency_table)
-            # check point
-            # print(f'proposed_method_value = {get_proposed_method_value(contingency_table)*100}%')
-
-            # creating a matrix for the results, one for each a dataframe(here we have only df of discogem at leaves level transfered to binar at 0.3)
-            contingency_tables[df_name].at[s1_name, s2_name] = contingency_table
-            chi2_p_value_matrices[df_name].at[s1_name, s2_name] = chi2_p_value
-            fisher_exact_p_value_matrices[df_name].at[s1_name, s2_name] = fisher_exact_p_value
-            yuleQ_value_matrices[df_name].at[s1_name, s2_name] = yuleQ_value
-            proposed_indicator_value_matrices[df_name].at[s1_name, s2_name] = proposed_indicator_value
-
-
-    generate_csv(chi2_p_value_matrices[df_name], f'{df_name}_chi2_P_value')
-    generate_csv(fisher_exact_p_value_matrices[df_name], f'{df_name}_fisher_exact_P_value')
-    generate_csv(yuleQ_value_matrices[df_name], f'{df_name}_yuleQ_value')
-    generate_csv(proposed_indicator_value_matrices[df_name], f'{df_name}_proposed_indicator_value')
-
-
     # corr_matrix = phi_coefficient_matrix(df_ready_to_process)
     # corr_matrix.to_csv(f'{result_folder}/{binary_folder}/{binary_corr_matrix_folder}/{df_name}_Phi_corr_matrix.csv')
 
@@ -359,3 +393,23 @@ for df_name, df_ready_to_process in dfs_ready_to_process_binary.items():
 
 
 
+#
+    
+# def convert_to_level1(df_level2):
+#     df_level1 = pd.DataFrame()
+#     df_level1['temporal'] = df_level2['synchronous'] + df_level2['asynchronous'] 
+#     df_level1['contingency'] = df_level2['cause'] + df_level2['condition'] + df_level2['negative-condition'] + df_level2['purpose'] 
+#     df_level1['comparision'] = df_level2['concession'] + df_level2['contrast'] + df_level2['similarity']
+#     df_level1['expansion'] = df_level2['conjunction'] + df_level2['disjunction'] + df_level2['equivalence'] + df_level2['exception'] + \
+#                              df_level2['instantiation'] + df_level2['level-of-detail'] + df_level2['manner'] + df_level2['substitution']
+#     return df_level1
+    
+
+    # def annotate_sense_of_interest(df, list_of_sense):
+#     for col in df.columns:
+#         if col in list_of_sense:
+#             df.rename(columns = {col: col + '+++'}, inplace = True)
+    
+
+
+    # sense_of_interest = ['synchronous',	'precedence',	'reason',	'result',	'arg1-as-denier',	'arg2-as-denier',	'contrast',	'similarity',	'conjunction',	'arg2-as-instance',	'arg1-as-detail',	'arg2-as-detail', 'instantiation',	'level-of-detail', 'asynchronous',	'cause',	'concession']

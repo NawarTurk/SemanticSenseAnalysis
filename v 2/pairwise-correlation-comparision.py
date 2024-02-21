@@ -12,22 +12,14 @@ from scipy.stats import fisher_exact
 # Hyper=parameters
 # UPPER_CORR_THRESHOLD = 0.7  # recommended threshold for + correlation 
 # LOWER_CORR_THRESHOLD = -0.7 # recommended threshold for - correlation 
-thresholds = [0.1, 0.2, 0.3, 0.4, 0.5]  # for binary transfomation  if > threshold -> 1 else 0
+#   binary converstion threshold
+thresholds = [0.3, 0.4, 0.5]  # for binary transfomation  if > threshold -> 1 else 0
 correlation_coefficients = ['pearson', 'spearman', 'kendall']  # for continuous data (no binary transformation)
-
-# Folder names
-raw_data_folder = '0_raw_data'
-ready_to_transform_folder = '1_ready_to_transform'
-ready_to_process_folder = '2_ready_to_process'
-result_folder = '3_results'
-binary_folder = 'binary'
-continuous_folder = 'continuous'
-analysis_value_matrices_folder = 'analysis_value_matrices'
-heatmap_folder = 'heatmaps'
-csv_files_folder = 'csv_files'
-contingency_table_folder = 'contingency_tables'
-report_folder = 'report'
-
+report_critical_p_value = 0.05  # literature
+report_critical_upper_yule_q = 0.8  # literature
+report_critical_lower_yule_q = -0.8  # literature
+report_critical_upper_proposed_indicator = 0.8  # arbitrary
+report_critical_lower_proposed_indicator = 0.2  # arbitrary
 
 # Dataframe dictionaries
 dfs_ready_to_transform = {}
@@ -41,10 +33,26 @@ fisher_exact_p_value_matrices = {}
 yuleQ_value_matrices = {}
 proposed_indicator_value_matrices = {}
 
+# Folder & file names
+raw_data_folder = '0_raw_data'
+ready_to_transform_folder = '1_ready_to_transform'
+ready_to_process_folder = '2_ready_to_process'
+result_folder = '3_results'
+binary_folder = 'binary'
+continuous_folder = 'continuous'
+analysis_value_matrices_folder = 'analysis_value_matrices'
+heatmap_folder = 'heatmaps'
+csv_files_folder = 'csv_files'
+contingency_table_folder = 'contingency_tables'
+report_folder = 'report'
+summary_report_folder = 'summary_report'
+
 # Others
 not_applicable = 'NA'
-fisher_exact_test ='fisher_used'
-chi2_squared = 'chi2_used'
+fisher_exact_test ='fisher'
+chi2_squared_test = 'chi2'
+yule_Q_test = 'yuleQ'
+proposed_indicator = 'proposed_indicator'
 
 
 
@@ -108,8 +116,8 @@ def get_chi2_or_fisher_p_value(contingency_table):
         stat, chi2_p, dof, expected = chi2_contingency(contingency_table, correction= False)
     except ValueError as e:
         _, fisher_exact_p = scipy.stats.fisher_exact(contingency_table)
-        return (fisher_exact_p, 'fisher_used')
-    return (chi2_p, 'chi2_used')
+        return (fisher_exact_p, fisher_exact_test)
+    return (chi2_p, chi2_squared_test)
 
 def get_yuleQ_value(contingency_table, isSkip):
     """
@@ -159,7 +167,6 @@ def get_proposed_method_value(contingency_table):
 
     proposed_method_value = numerator/denominator
     return proposed_method_value
-
 
 
 
@@ -221,7 +228,19 @@ def group_to_level2(df):
 def generate_csv(matrix_value_df, title):
     matrix_value_df.to_csv(f'./{result_folder}/{binary_folder}/{analysis_value_matrices_folder}/{csv_files_folder}/{title}.csv')
 
-
+def generate_summary_report(df, df_name, method_used):
+    result = ''
+    if method_used == chi2_squared_test:
+        result += (f'*** {df_name} ***\n\n')
+        for row_label, row in df.iterrows():
+            for col_label, value in row.items():
+                if row_label != col_label:
+                    if isinstance(value, (int, float)):
+                        if value < report_critical_p_value:
+                            result += (f'{row_label:<20} | {col_label:<20} | {round(value, 4):<7} | \n')
+        result += ('______________________________\n\n\n')
+        with open(f'{result_folder}/{summary_report_folder}/{chi2_squared_test}.txt', 'a') as file:
+            file.write(result)  
 
 #________________________________ START _________________________________
 
@@ -267,7 +286,7 @@ for df_name, df_ready_to_transform in dfs_ready_to_transform.items():
         df_transformed_to_binary = transform_to_binary(df_ready_to_transform, threshold)
 
         # Store in a dictionary
-        dfs_ready_to_process_binary[df_name + f'_binary_{threshold}'] = df_transformed_to_binary
+        dfs_ready_to_process_binary[df_name + f'_binary_thresholdOf{threshold}'] = df_transformed_to_binary
         
         # Save for checking (saved in ready_to_process_folder)
         df_transformed_to_binary.to_csv(f'{ready_to_process_folder}/{binary_folder}/{df_name}_binary_{threshold}.csv')
@@ -277,7 +296,7 @@ for df_name, df_ready_to_transform in dfs_ready_to_transform.items():
 isSkip = False
 
 for df_name, df_ready_to_process in dfs_ready_to_process_binary.items():
-    # 4.1. preparing the dictionaries 
+    # 4.1. preparing the dictionaries that hold the value matrices (adding the lables)
     column_labels = df_ready_to_process.columns
     contingency_tables[df_name] = pd.DataFrame(index = column_labels, columns =column_labels)
     chi2_p_value_matrices[df_name] = pd.DataFrame(index = column_labels, columns = column_labels)
@@ -290,7 +309,7 @@ for df_name, df_ready_to_process in dfs_ready_to_process_binary.items():
         for j in range(i, len(df_ready_to_process.columns)): # we do from i intead of i+1 to double check our calculaitons by looking at the diagonal (for some methods only)
             isSkip = False
 
-            # Extracting pair of sesnes info
+            # 4.2. Extracting pair of sesnes info
             s1_name = df_ready_to_process.columns[i]
             s2_name = df_ready_to_process.columns[j]
             s1_data = df_ready_to_process[s1_name]
@@ -299,16 +318,16 @@ for df_name, df_ready_to_process in dfs_ready_to_process_binary.items():
             if (i==j):
                 isSkip = True # Some of our calculations cannot be done at the diagonals
 
-            # calculating th values
+            # 4.3. Calculating th values for each pair
             contingency_table = get_contingency_matrix(s1_data, s2_data, s1_name, s2_name, df_name, isSkip)
-            p_value, method_used = get_chi2_or_fisher_p_value(contingency_table)    
+            p_value, method_used = get_chi2_or_fisher_p_value(contingency_table)   
             yuleQ_value = get_yuleQ_value(contingency_table, isSkip)
             proposed_indicator_value = get_proposed_method_value(contingency_table)
 
-            # Storing the pairwise value in the appropriate cells
+            # 4.4 Storing the pair value in the appropriate cell
             contingency_tables[df_name].at[s1_name, s2_name] = contingency_table
 
-            if (method_used == chi2_squared):
+            if (method_used == chi2_squared_test):
                 chi2_p_value_matrices[df_name].at[s1_name, s2_name] = p_value
                 fisher_exact_p_value_matrices[df_name].at[s1_name, s2_name] = method_used
 
@@ -319,11 +338,17 @@ for df_name, df_ready_to_process in dfs_ready_to_process_binary.items():
             yuleQ_value_matrices[df_name].at[s1_name, s2_name] = yuleQ_value
             proposed_indicator_value_matrices[df_name].at[s1_name, s2_name] = proposed_indicator_value
 
-    # Store the result value matrices
+    # 4.5. Store the result value matrices
     generate_csv(chi2_p_value_matrices[df_name], f'{df_name}_chi2_P_value')
     generate_csv(fisher_exact_p_value_matrices[df_name], f'{df_name}_fisher_exact_P_value')
     generate_csv(yuleQ_value_matrices[df_name], f'{df_name}_yuleQ_value')
     generate_csv(proposed_indicator_value_matrices[df_name], f'{df_name}_proposed_indicator_value')
+
+    generate_summary_report(df=chi2_p_value_matrices[df_name], df_name= df_name, method_used = chi2_squared_test)
+    generate_summary_report(yuleQ_value_matrices[df_name], df_name= df_name, method_used = yule_Q_test)
+    generate_summary_report(chi2_p_value_matrices[df_name], df_name= df_name, method_used = proposed_indicator)
+
+
 
 
 

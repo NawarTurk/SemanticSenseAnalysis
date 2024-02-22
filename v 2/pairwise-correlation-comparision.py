@@ -230,6 +230,9 @@ def generate_csv(matrix_value_df, title):
 
 def generate_summary_report(df, df_name, method_used):
     result = ''
+    positive_assosication = ''
+    negative_assosication = ''
+
     if method_used == chi2_squared_test:
         result += (f'*** {df_name} ***\n\n')
         for row_label, row in df.iterrows():
@@ -240,7 +243,47 @@ def generate_summary_report(df, df_name, method_used):
                             result += (f'{row_label:<20} | {col_label:<20} | {round(value, 4):<7} | \n')
         result += ('______________________________\n\n\n')
         with open(f'{result_folder}/{summary_report_folder}/{chi2_squared_test}.txt', 'a') as file:
-            file.write(result)  
+            file.write(result) 
+
+
+    if method_used == yule_Q_test:
+        positive_assosication += (f'*** {df_name} ***\n\n Positivre Association \n')
+        negative_assosication += (f'*** {df_name} ***\n\n Negative Associatuin \n')
+        for row_label, row in df.iterrows():
+            for col_label, value in row.items():
+                if row_label != col_label:
+                    if isinstance(value, (int, float)):
+                        if value >= report_critical_upper_yule_q:
+                            positive_assosication += (f'{row_label:<20} | {col_label:<20} | {round(value, 4):<7} | \n')
+                        elif value <= report_critical_lower_yule_q:
+                            negative_assosication += (f'{row_label:<20} | {col_label:<20} | {round(value, 4):<7} | \n')
+        positive_assosication += ('______________________________\n\n\n')
+        negative_assosication += ('______________________________\n\n\n')
+        with open(f'{result_folder}/{summary_report_folder}/{yule_Q_test}.txt', 'a') as file:
+            file.write(positive_assosication)              
+            file.write(negative_assosication)  
+    
+    if method_used == proposed_indicator:
+        positive_assosication += (f'*** {df_name} ***\n\n Positivre Association \n')
+        negative_assosication += (f'*** {df_name} ***\n\n Negative Associatuin \n')
+        for row_label, row in df.iterrows():
+            for col_label, value in row.items():
+                if row_label != col_label:
+                    if isinstance(value, (int, float)):
+                        if value >= report_critical_upper_proposed_indicator:
+                            positive_assosication += (f'{row_label:<20} | {col_label:<20} | {round(value, 4):<7} | \n')
+                        elif value <= report_critical_lower_proposed_indicator:
+                            negative_assosication += (f'{row_label:<20} | {col_label:<20} | {round(value, 4):<7} | \n')
+        positive_assosication += ('______________________________\n\n\n')
+        negative_assosication += ('______________________________\n\n\n')
+        with open(f'{result_folder}/{summary_report_folder}/{proposed_indicator}.txt', 'a') as file:
+            file.write(positive_assosication)              
+            file.write(negative_assosication)  
+
+
+
+    
+
 
 #________________________________ START _________________________________
 
@@ -344,9 +387,9 @@ for df_name, df_ready_to_process in dfs_ready_to_process_binary.items():
     generate_csv(yuleQ_value_matrices[df_name], f'{df_name}_yuleQ_value')
     generate_csv(proposed_indicator_value_matrices[df_name], f'{df_name}_proposed_indicator_value')
 
-    generate_summary_report(df=chi2_p_value_matrices[df_name], df_name= df_name, method_used = chi2_squared_test)
-    generate_summary_report(yuleQ_value_matrices[df_name], df_name= df_name, method_used = yule_Q_test)
-    generate_summary_report(chi2_p_value_matrices[df_name], df_name= df_name, method_used = proposed_indicator)
+    generate_summary_report(df = chi2_p_value_matrices[df_name], df_name= df_name, method_used = chi2_squared_test)
+    generate_summary_report(df = yuleQ_value_matrices[df_name], df_name= df_name, method_used = yule_Q_test)
+    generate_summary_report(df = proposed_indicator_value_matrices[df_name], df_name= df_name, method_used = proposed_indicator)
 
 
 

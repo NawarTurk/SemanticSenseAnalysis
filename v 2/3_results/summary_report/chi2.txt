@@ -1,8 +1,6 @@
 *** discogem_multi_leaves_binary_thresholdOf0.3 ***
 
 synchronous          | precedence           | 0.0014  | 
-synchronous          | reason               | 0.031   | 
-synchronous          | arg2-as-instance     | 0.0481  | 
 synchronous          | arg2-as-detail       | 0.0033  | 
 precedence           | reason               | 0.0     | 
 precedence           | result               | 0.0028  | 
@@ -14,8 +12,6 @@ precedence           | conjunction          | 0.0     |
 precedence           | arg2-as-instance     | 0.0     | 
 precedence           | arg1-as-detail       | 0.0231  | 
 precedence           | arg2-as-detail       | 0.0     | 
-succession           | result               | 0.0166  | 
-succession           | arg2-as-detail       | 0.0177  | 
 reason               | result               | 0.0     | 
 reason               | arg1-as-denier       | 0.0212  | 
 reason               | arg2-as-denier       | 0.0     | 
@@ -36,7 +32,6 @@ arg1-as-denier       | conjunction          | 0.0     |
 arg1-as-denier       | arg2-as-instance     | 0.0055  | 
 arg1-as-denier       | arg2-as-detail       | 0.0014  | 
 arg2-as-denier       | contrast             | 0.0296  | 
-arg2-as-denier       | similarity           | 0.0311  | 
 arg2-as-denier       | conjunction          | 0.0     | 
 arg2-as-denier       | arg2-as-instance     | 0.0003  | 
 arg2-as-denier       | arg2-as-detail       | 0.0     | 
@@ -48,14 +43,12 @@ similarity           | arg2-as-detail       | 0.0001  |
 conjunction          | arg2-as-instance     | 0.0     | 
 conjunction          | arg1-as-detail       | 0.0     | 
 conjunction          | arg2-as-detail       | 0.0     | 
-conjunction          | arg2-as-subst        | 0.0055  | 
 arg2-as-instance     | arg2-as-detail       | 0.0     | 
 ______________________________
 
 
 *** discogem_multi_leaves_binary_thresholdOf0.4 ***
 
-synchronous          | result               | 0.0188  | 
 precedence           | reason               | 0.0003  | 
 precedence           | result               | 0.0     | 
 precedence           | arg2-as-denier       | 0.003   | 
@@ -73,7 +66,6 @@ result               | contrast             | 0.0     |
 result               | similarity           | 0.0314  | 
 result               | conjunction          | 0.0     | 
 result               | arg2-as-instance     | 0.0     | 
-result               | arg1-as-detail       | 0.0019  | 
 result               | arg2-as-detail       | 0.0     | 
 arg1-as-denier       | conjunction          | 0.0002  | 
 arg1-as-denier       | arg2-as-detail       | 0.009   | 
@@ -84,7 +76,6 @@ contrast             | conjunction          | 0.0     |
 contrast             | arg2-as-detail       | 0.0003  | 
 similarity           | conjunction          | 0.0002  | 
 conjunction          | arg2-as-instance     | 0.0     | 
-conjunction          | arg1-as-detail       | 0.0118  | 
 conjunction          | arg2-as-detail       | 0.0     | 
 arg2-as-instance     | arg2-as-detail       | 0.0202  | 
 ______________________________
@@ -108,7 +99,6 @@ result               | arg2-as-detail       | 0.0     |
 arg2-as-denier       | conjunction          | 0.0001  | 
 arg2-as-denier       | arg2-as-detail       | 0.0046  | 
 contrast             | conjunction          | 0.0031  | 
-contrast             | arg2-as-detail       | 0.0364  | 
 conjunction          | arg2-as-instance     | 0.0     | 
 conjunction          | arg2-as-detail       | 0.0     | 
 arg2-as-instance     | arg2-as-detail       | 0.0101  | 
@@ -120,7 +110,6 @@ ______________________________
 synchronous          | asynchronous         | 0.0038  | 
 synchronous          | cause                | 0.0015  | 
 synchronous          | concession           | 0.0114  | 
-synchronous          | instantiation        | 0.0437  | 
 synchronous          | level-of-detail      | 0.0004  | 
 asynchronous         | cause                | 0.0     | 
 asynchronous         | concession           | 0.0     | 
@@ -147,7 +136,6 @@ similarity           | conjunction          | 0.0     |
 similarity           | level-of-detail      | 0.0     | 
 conjunction          | instantiation        | 0.0     | 
 conjunction          | level-of-detail      | 0.0     | 
-conjunction          | substitution         | 0.0055  | 
 instantiation        | level-of-detail      | 0.0001  | 
 ______________________________
 
@@ -173,7 +161,6 @@ concession           | level-of-detail      | 0.0     |
 contrast             | conjunction          | 0.0     | 
 contrast             | level-of-detail      | 0.0     | 
 similarity           | conjunction          | 0.0002  | 
-similarity           | level-of-detail      | 0.0346  | 
 conjunction          | instantiation        | 0.0     | 
 conjunction          | level-of-detail      | 0.0     | 
 instantiation        | level-of-detail      | 0.0032  | 
@@ -193,10 +180,8 @@ cause                | conjunction          | 0.0     |
 cause                | instantiation        | 0.0     | 
 cause                | level-of-detail      | 0.0     | 
 concession           | conjunction          | 0.0     | 
-concession           | instantiation        | 0.034   | 
 concession           | level-of-detail      | 0.0     | 
 contrast             | conjunction          | 0.0031  | 
-contrast             | level-of-detail      | 0.0205  | 
 conjunction          | instantiation        | 0.0     | 
 conjunction          | level-of-detail      | 0.0     | 
 instantiation        | level-of-detail      | 0.0025  | 
@@ -205,51 +190,37 @@ ______________________________
 
 *** qadc_multi_leaves_binary_thresholdOf0.3 ***
 
-synchronous          | arg2-as-detail       | 0.0193  | 
-precedence           | succession           | 0.0     | 
 precedence           | reason               | 0.0016  | 
 precedence           | conjunction          | 0.0     | 
-precedence           | arg2-as-instance     | 0.023   | 
 precedence           | arg2-as-detail       | 0.0     | 
 succession           | conjunction          | 0.0255  | 
 reason               | result               | 0.0     | 
 reason               | contrast             | 0.0313  | 
 reason               | conjunction          | 0.0     | 
-result               | arg1-as-goal         | 0.0354  | 
 result               | contrast             | 0.006   | 
 result               | conjunction          | 0.0     | 
 result               | arg2-as-instance     | 0.0003  | 
 result               | arg2-as-detail       | 0.0     | 
-arg1-as-denier       | arg2-as-denier       | 0.0001  | 
-arg1-as-denier       | contrast             | 0.0001  | 
-arg1-as-denier       | conjunction          | 0.0309  | 
-arg1-as-denier       | arg2-as-detail       | 0.0486  | 
-arg2-as-denier       | conjunction          | 0.0484  | 
 contrast             | conjunction          | 0.0193  | 
 contrast             | arg2-as-detail       | 0.0002  | 
-conjunction          | arg1-as-instance     | 0.0309  | 
 ______________________________
 
 
 *** qadc_multi_leaves_binary_thresholdOf0.4 ***
 
-precedence           | reason               | 0.0418  | 
 precedence           | conjunction          | 0.0001  | 
 precedence           | arg2-as-detail       | 0.0032  | 
 reason               | result               | 0.0003  | 
 reason               | conjunction          | 0.0     | 
 reason               | arg2-as-detail       | 0.0005  | 
 result               | conjunction          | 0.0     | 
-result               | arg2-as-instance     | 0.0478  | 
 result               | arg2-as-detail       | 0.0     | 
 contrast             | conjunction          | 0.0113  | 
-contrast             | arg2-as-detail       | 0.025   | 
 ______________________________
 
 
 *** qadc_multi_leaves_binary_thresholdOf0.5 ***
 
-reason               | result               | 0.0181  | 
 reason               | conjunction          | 0.0008  | 
 reason               | arg2-as-detail       | 0.0046  | 
 result               | conjunction          | 0.0026  | 
@@ -260,8 +231,6 @@ ______________________________
 
 *** qadc_multi_level2_binary_thresholdOf0.3 ***
 
-synchronous          | cause                | 0.0292  | 
-synchronous          | level-of-detail      | 0.0095  | 
 asynchronous         | conjunction          | 0.0     | 
 asynchronous         | instantiation        | 0.0075  | 
 asynchronous         | level-of-detail      | 0.0     | 
@@ -270,7 +239,6 @@ cause                | contrast             | 0.0     |
 cause                | conjunction          | 0.0     | 
 cause                | instantiation        | 0.0004  | 
 cause                | level-of-detail      | 0.0     | 
-concession           | contrast             | 0.0     | 
 concession           | conjunction          | 0.0089  | 
 concession           | level-of-detail      | 0.0322  | 
 contrast             | conjunction          | 0.0193  | 
@@ -288,10 +256,7 @@ cause                | contrast             | 0.0049  |
 cause                | conjunction          | 0.0     | 
 cause                | instantiation        | 0.0009  | 
 cause                | level-of-detail      | 0.0     | 
-concession           | conjunction          | 0.0492  | 
 contrast             | conjunction          | 0.0113  | 
-contrast             | level-of-detail      | 0.017   | 
-similarity           | level-of-detail      | 0.0417  | 
 conjunction          | instantiation        | 0.0185  | 
 ______________________________
 

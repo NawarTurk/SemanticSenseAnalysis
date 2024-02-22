@@ -112,7 +112,7 @@ def get_chi2_or_fisher_p_value_and_OR(contingency_table):
     Calculates the p-value using the Chi-squared test or Fisher's Exact test based on the suitability for the provided contingency table.
 
     This function first attempts to compute the p-value using the Chi-squared test. 
-    If the Chi-squared test is not applicable due to the expected table (derived from the contingency table) contains a zero cell, 
+    If the Chi-squared test is not applicable due to the expected table (derived from the contingency table) contains a zero cell or less than 5 (zero will through an error), 
     the function falls back to Fisher's Exact test.
 
     Parameters:
@@ -130,6 +130,11 @@ def get_chi2_or_fisher_p_value_and_OR(contingency_table):
 
     try:
         stat, chi2_p, dof, expected = chi2_contingency(contingency_table, correction= False)
+        if (expected < 5).any():
+            _, fisher_exact_p = scipy.stats.fisher_exact(contingency_table)
+            if (fisher_exact_p < report_critical_p_value and (one_zero * zero_one) > 0):
+                OR_value = (one_one * zero_zero) / (one_zero * zero_one)
+            return (fisher_exact_p, fisher_exact_test, OR_value)
         if (chi2_p < report_critical_p_value and (one_zero * zero_one) > 0):
             OR_value = (one_one * zero_zero) / (one_zero * zero_one)
     except ValueError as e:
@@ -304,6 +309,17 @@ def generate_summary_report(df, df_name, method_used):
         with open(f'{result_folder}/{summary_report_folder}/{chi2_squared_test}.txt', 'a') as file:
             file.write(result) 
 
+    if method_used == fisher_exact_test:
+        result += (f'*** {df_name} ***\n\n')
+        for row_label, row in df.iterrows():
+            for col_label, value in row.items():
+                if row_label != col_label:
+                    if isinstance(value, (int, float)):
+                        if value < report_critical_p_value:
+                            result += (f'{row_label:<20} | {col_label:<20} | {round(value, 4):<7} | \n')
+        result += ('______________________________\n\n\n')
+        with open(f'{result_folder}/{summary_report_folder}/{fisher_exact_test}.txt', 'a') as file:
+            file.write(result) 
 
     elif method_used == yule_Q_test:
         positive_assosication += (f'*** {df_name} ***\n\n Positivre Association \n')
@@ -379,7 +395,7 @@ def generate_summary_report(df, df_name, method_used):
                         if value < report_critical_upper_pointwise_mutual_info and value > report_critical_lower_pointwise_mutual_info:
                             result += (f'{row_label:<20} | {col_label:<20} | {round(value, 4):<7} | \n')
         result += ('______________________________\n\n\n')
-        with open(f'{result_folder}/{summary_report_folder}/{pointwise_mutual_info}.txt', 'a') as file:
+        with open(f'{result_folder}/{summary_report_folder}/{pointwise_mutual_info} NOTE THIS IS FOR REJECTION.txt', 'a') as file:
             file.write(result) 
 
 
@@ -500,12 +516,10 @@ for df_name, df_ready_to_process in dfs_ready_to_process_binary.items():
     generate_csv(conditional_probability_value_matrices[df_name], f'{df_name}_conditional_probability_value')
     generate_csv(proposed_indicator_value_matrices[df_name], f'{df_name}_proposed_indicator_value')
 
-
-
-
     generate_summary_report(df = chi2_p_value_matrices[df_name], df_name= df_name, method_used = chi2_squared_test)
-    generate_summary_report(df = yuleQ_value_matrices[df_name], df_name= df_name, method_used = yule_Q_test)
+    generate_summary_report(df = fisher_exact_p_value_matrices[df_name], df_name= df_name, method_used = fisher_exact_test)
     generate_summary_report(df = OR_ratio_matrices[df_name], df_name= df_name, method_used = OR_ratio)
+    generate_summary_report(df = yuleQ_value_matrices[df_name], df_name= df_name, method_used = yule_Q_test)
     generate_summary_report(df = pointwise_mutual_info_value_matrices[df_name], df_name= df_name, method_used = pointwise_mutual_info)
     generate_summary_report(df = conditional_probability_value_matrices[df_name], df_name= df_name, method_used = conditional_probability)
     generate_summary_report(df = proposed_indicator_value_matrices[df_name], df_name= df_name, method_used = proposed_indicator)

@@ -15,7 +15,7 @@ ______________________________
 
  Negative Associatuin 
 synchronous          | reason               | 0.0     | 
-synchronous          | arg2-as-instance     | 0.0     | 
+synchronous          | arg2-as-denier       | 0.0     | 
 synchronous          | arg2-as-detail       | 0.2457  | 
 precedence           | reason               | 0.0406  | 
 precedence           | result               | 0.7515  | 
@@ -249,7 +249,6 @@ ______________________________
 
  Positivre Association 
 precedence           | succession           | 23.1188 | 
-arg1-as-denier       | arg2-as-denier       | 24.6111 | 
 arg1-as-denier       | contrast             | 9.3516  | 
 ______________________________
 
@@ -271,8 +270,6 @@ result               | conjunction          | 0.1857  |
 result               | arg2-as-instance     | 0.0     | 
 result               | arg2-as-detail       | 0.1944  | 
 arg1-as-denier       | conjunction          | 0.1412  | 
-arg1-as-denier       | arg2-as-detail       | 0.0     | 
-arg2-as-denier       | conjunction          | 0.0     | 
 contrast             | conjunction          | 0.4422  | 
 contrast             | arg2-as-detail       | 0.0597  | 
 conjunction          | arg1-as-instance     | 0.1412  | 
@@ -295,7 +292,6 @@ reason               | result               | 0.0     |
 reason               | conjunction          | 0.1182  | 
 reason               | arg2-as-detail       | 0.1602  | 
 result               | conjunction          | 0.083   | 
-result               | arg2-as-instance     | 0.0     | 
 result               | arg2-as-detail       | 0.0745  | 
 contrast             | conjunction          | 0.1153  | 
 contrast             | arg2-as-detail       | 0.0     | 
@@ -364,7 +360,6 @@ cause                | contrast             | 0.0     |
 cause                | conjunction          | 0.0937  | 
 cause                | instantiation        | 0.0     | 
 cause                | level-of-detail      | 0.1114  | 
-concession           | conjunction          | 0.0     | 
 contrast             | conjunction          | 0.1153  | 
 contrast             | level-of-detail      | 0.0     | 
 conjunction          | instantiation        | 0.2616  | 

@@ -1,0 +1,88 @@
+*** discogem_multi_leaves_binary_thresholdOf0.3 ***
+
+synchronous          | reason               | 0.0209  | 
+synchronous          | arg2-as-denier       | 0.049   | 
+succession           | result               | 0.0122  | 
+succession           | arg2-as-detail       | 0.0288  | 
+arg2-as-denier       | similarity           | 0.022   | 
+conjunction          | arg2-as-subst        | 0.0034  | 
+______________________________
+
+
+*** discogem_multi_leaves_binary_thresholdOf0.4 ***
+
+synchronous          | result               | 0.0118  | 
+result               | arg1-as-detail       | 0.0042  | 
+conjunction          | arg1-as-detail       | 0.0078  | 
+______________________________
+
+
+*** discogem_multi_leaves_binary_thresholdOf0.5 ***
+
+contrast             | arg2-as-detail       | 0.0323  | 
+______________________________
+
+
+*** discogem_multi_level2_binary_thresholdOf0.3 ***
+
+synchronous          | instantiation        | 0.032   | 
+conjunction          | substitution         | 0.0034  | 
+______________________________
+
+
+*** discogem_multi_level2_binary_thresholdOf0.4 ***
+
+similarity           | level-of-detail      | 0.0244  | 
+______________________________
+
+
+*** discogem_multi_level2_binary_thresholdOf0.5 ***
+
+concession           | instantiation        | 0.0226  | 
+contrast             | level-of-detail      | 0.0137  | 
+______________________________
+
+
+*** qadc_multi_leaves_binary_thresholdOf0.3 ***
+
+synchronous          | arg2-as-detail       | 0.0145  | 
+precedence           | succession           | 0.0     | 
+precedence           | arg2-as-instance     | 0.0179  | 
+arg1-as-denier       | contrast             | 0.009   | 
+arg1-as-denier       | conjunction          | 0.0493  | 
+conjunction          | arg1-as-instance     | 0.0493  | 
+______________________________
+
+
+*** qadc_multi_leaves_binary_thresholdOf0.4 ***
+
+precedence           | reason               | 0.0423  | 
+contrast             | arg2-as-detail       | 0.0222  | 
+______________________________
+
+
+*** qadc_multi_leaves_binary_thresholdOf0.5 ***
+
+reason               | result               | 0.0112  | 
+______________________________
+
+
+*** qadc_multi_level2_binary_thresholdOf0.3 ***
+
+synchronous          | cause                | 0.043   | 
+synchronous          | level-of-detail      | 0.007   | 
+concession           | contrast             | 0.0002  | 
+______________________________
+
+
+*** qadc_multi_level2_binary_thresholdOf0.4 ***
+
+contrast             | level-of-detail      | 0.013   | 
+______________________________
+
+
+*** qadc_multi_level2_binary_thresholdOf0.5 ***
+
+______________________________
+
+

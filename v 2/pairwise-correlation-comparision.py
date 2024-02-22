@@ -10,16 +10,18 @@ from scipy.stats import fisher_exact
 
 
 # Hyper=parameters
-# UPPER_CORR_THRESHOLD = 0.7  # recommended threshold for + correlation 
-# LOWER_CORR_THRESHOLD = -0.7 # recommended threshold for - correlation 
-#   binary converstion threshold
 thresholds = [0.3, 0.4, 0.5]  # for binary transfomation  if > threshold -> 1 else 0
-correlation_coefficients = ['pearson', 'spearman', 'kendall']  # for continuous data (no binary transformation)
 report_critical_p_value = 0.05  # literature
 report_critical_upper_yule_q = 0.8  # literature
 report_critical_lower_yule_q = -0.8  # literature
 report_critical_upper_proposed_indicator = 0.8  # arbitrary
 report_critical_lower_proposed_indicator = 0.2  # arbitrary
+report_critical_conditional_probability = 0.7  # often considered high
+report_critical_OR_value = 1  # > 1 means positive association, negative association otherwise
+report_critical_upper_pointwise_mutual_info = 1 # values close to zero?
+report_critical_lower_pointwise_mutual_info = -1 # values close to zero?
+
+
 
 # Dataframe dictionaries
 dfs_ready_to_transform = {}
@@ -30,8 +32,12 @@ dfs_ready_to_process_continuous = {}
 contingency_tables = {}
 chi2_p_value_matrices = {}
 fisher_exact_p_value_matrices = {}
+OR_ratio_matrices = {}
 yuleQ_value_matrices = {}
 proposed_indicator_value_matrices = {}
+conditional_probability_value_matrices = {}
+pointwise_mutual_info_value_matrices = {}
+
 
 # Folder & file names
 raw_data_folder = '0_raw_data'
@@ -53,6 +59,9 @@ fisher_exact_test ='fisher'
 chi2_squared_test = 'chi2'
 yule_Q_test = 'yuleQ'
 proposed_indicator = 'proposed_indicator'
+conditional_probability = 'conditional_probability'
+OR_ratio = 'OR'
+pointwise_mutual_info = 'pointwise_mutual_info_mutual_info'
 
 
 
@@ -98,7 +107,7 @@ def get_contingency_matrix(s1, s2, s1_name, s2_name, df_name, isSkip):
     
     return contingency_table
 
-def get_chi2_or_fisher_p_value(contingency_table):
+def get_chi2_or_fisher_p_value_and_OR(contingency_table):
     """
     Calculates the p-value using the Chi-squared test or Fisher's Exact test based on the suitability for the provided contingency table.
 
@@ -112,12 +121,23 @@ def get_chi2_or_fisher_p_value(contingency_table):
     Returns:
     - tuple: A tuple containing the p-value and a string indicating which test was used 
     """
+    one_one = contingency_table.loc[1,1]
+    one_zero = contingency_table.loc[1,0]
+    zero_one = contingency_table.loc[0,1]
+    zero_zero = contingency_table.loc[0,0]
+
+    OR_value = not_applicable
+
     try:
         stat, chi2_p, dof, expected = chi2_contingency(contingency_table, correction= False)
+        if (chi2_p < report_critical_p_value and (one_zero * zero_one) > 0):
+            OR_value = (one_one * zero_zero) / (one_zero * zero_one)
     except ValueError as e:
         _, fisher_exact_p = scipy.stats.fisher_exact(contingency_table)
-        return (fisher_exact_p, fisher_exact_test)
-    return (chi2_p, chi2_squared_test)
+        if (fisher_exact_p < report_critical_p_value and (one_zero * zero_one) > 0):
+            OR_value = (one_one * zero_zero) / (one_zero * zero_one)
+        return (fisher_exact_p, fisher_exact_test, OR_value)
+    return (chi2_p, chi2_squared_test, OR_value)
 
 def get_yuleQ_value(contingency_table, isSkip):
     """
@@ -137,17 +157,17 @@ def get_yuleQ_value(contingency_table, isSkip):
     Returns:
     - float or str: Yule's Q coefficient if calculable, otherwise 'NA' if skipped or if the table contains zero values.
     """
-
     one_one = contingency_table.loc[1,1]
     one_zero = contingency_table.loc[1,0]
     zero_one = contingency_table.loc[0,1]
     zero_zero = contingency_table.loc[0,0]
+
     if (isSkip):
         # we set isSkip to true when we are comparing the same sense (i=j)
-        return 'NA'
+        return not_applicable
     if (one_one*one_zero*zero_one*zero_zero == 0):  
         # none of the contingency table cells can be zero
-        return 'NA'
+        return not_applicable
     numerator = (one_one * zero_zero) - (one_zero * zero_one)
     denominator = (one_one * zero_zero) + (one_zero * zero_one)
     yules_q = numerator / denominator
@@ -168,7 +188,45 @@ def get_proposed_method_value(contingency_table):
     proposed_method_value = numerator/denominator
     return proposed_method_value
 
+def get_conditional_probability_value(contingency_table):
+    one_one = contingency_table.loc[1,1]
+    one_zero = contingency_table.loc[1,0]
+    zero_one = contingency_table.loc[0,1]
+    s1_given_s2_probability = None
+    s2_given_s1_probability = None
+    
+    if (one_one + zero_one) > 0:
+        s1_given_s2_probability = one_one / (one_one + zero_one)
+    if (one_one + one_zero) > 0:
+        s2_given_s1_probability = one_one / (one_one + one_zero)
+    
+    if s1_given_s2_probability is not None and s2_given_s1_probability is not None:
+        return (s1_given_s2_probability + s2_given_s1_probability) / 2
+    elif s1_given_s2_probability is not None:
+        return s1_given_s2_probability
+    elif s2_given_s1_probability is not None:
+        return s2_given_s1_probability
+    else:
+        return not_applicable
+    
+def get_pointwise_mutual_info_value(contingency_table):
+    one_one = contingency_table.loc[1,1]
+    one_zero = contingency_table.loc[1,0]
+    zero_one = contingency_table.loc[0,1]
+    zero_zero = contingency_table.loc[0,0]
 
+
+    total = one_one + one_zero + zero_one + zero_zero
+    p_1_1 = one_one / total
+    p_1_s1 = (one_one + one_zero) / total
+    p_1_s2 = (one_one + zero_one) / total
+
+    if (p_1_1 > 0 and (p_1_s1 * p_1_s2) > 0):
+        pointwise_mutual_info_value = np.log2(p_1_1 / (p_1_s1 * p_1_s2))
+    else:
+        pointwise_mutual_info_value = not_applicable
+
+    return pointwise_mutual_info_value
 
 #  *** HELPER FUNCTIONS ***
 def clean_files_within_directory(directory_name):
@@ -228,6 +286,7 @@ def group_to_level2(df):
 def generate_csv(matrix_value_df, title):
     matrix_value_df.to_csv(f'./{result_folder}/{binary_folder}/{analysis_value_matrices_folder}/{csv_files_folder}/{title}.csv')
 
+# NEED REFACTORING
 def generate_summary_report(df, df_name, method_used):
     result = ''
     positive_assosication = ''
@@ -246,7 +305,7 @@ def generate_summary_report(df, df_name, method_used):
             file.write(result) 
 
 
-    if method_used == yule_Q_test:
+    elif method_used == yule_Q_test:
         positive_assosication += (f'*** {df_name} ***\n\n Positivre Association \n')
         negative_assosication += (f'*** {df_name} ***\n\n Negative Associatuin \n')
         for row_label, row in df.iterrows():
@@ -263,7 +322,7 @@ def generate_summary_report(df, df_name, method_used):
             file.write(positive_assosication)              
             file.write(negative_assosication)  
     
-    if method_used == proposed_indicator:
+    elif method_used == proposed_indicator:
         positive_assosication += (f'*** {df_name} ***\n\n Positivre Association \n')
         negative_assosication += (f'*** {df_name} ***\n\n Negative Associatuin \n')
         for row_label, row in df.iterrows():
@@ -280,6 +339,48 @@ def generate_summary_report(df, df_name, method_used):
             file.write(positive_assosication)              
             file.write(negative_assosication)  
 
+  
+    elif method_used == conditional_probability:
+        positive_assosication += (f'*** {df_name} ***\n\n Positive Association\n')
+        for row_label, row in df.iterrows():
+            for col_label, value in row.items():
+                if row_label != col_label:
+                    if isinstance(value, (int, float)):
+                        if value >= report_critical_conditional_probability:
+                            positive_assosication += (f'{row_label:<20} | {col_label:<20} | {round(value, 4):<7} | \n')
+        positive_assosication += ('______________________________\n\n\n')
+        with open(f'{result_folder}/{summary_report_folder}/{conditional_probability}.txt', 'a') as file:
+            file.write(positive_assosication) 
+        
+    elif method_used == OR_ratio:
+        positive_assosication += (f'*** {df_name} ***\n\n Positivre Association \n')
+        negative_assosication += (f'*** {df_name} ***\n\n Negative Associatuin \n')
+        for row_label, row in df.iterrows():
+            for col_label, value in row.items():
+                if row_label != col_label:
+                    if isinstance(value, (int, float)):
+                        if value >= report_critical_OR_value:
+                            positive_assosication += (f'{row_label:<20} | {col_label:<20} | {round(value, 4):<7} | \n')
+                        elif value <= report_critical_OR_value:
+                            negative_assosication += (f'{row_label:<20} | {col_label:<20} | {round(value, 4):<7} | \n')
+        positive_assosication += ('______________________________\n\n\n')
+        negative_assosication += ('______________________________\n\n\n')
+        with open(f'{result_folder}/{summary_report_folder}/{OR_ratio}.txt', 'a') as file:
+            file.write(positive_assosication)              
+            file.write(negative_assosication)  
+
+    
+    elif method_used == pointwise_mutual_info:
+        result += (f'*** {df_name} ***\n\n')
+        for row_label, row in df.iterrows():
+            for col_label, value in row.items():
+                if row_label != col_label:
+                    if isinstance(value, (int, float)):
+                        if value < report_critical_upper_pointwise_mutual_info and value > report_critical_lower_pointwise_mutual_info:
+                            result += (f'{row_label:<20} | {col_label:<20} | {round(value, 4):<7} | \n')
+        result += ('______________________________\n\n\n')
+        with open(f'{result_folder}/{summary_report_folder}/{pointwise_mutual_info}.txt', 'a') as file:
+            file.write(result) 
 
 
     
@@ -342,11 +443,16 @@ for df_name, df_ready_to_process in dfs_ready_to_process_binary.items():
     # 4.1. preparing the dictionaries that hold the value matrices (adding the lables)
     column_labels = df_ready_to_process.columns
     contingency_tables[df_name] = pd.DataFrame(index = column_labels, columns =column_labels)
+
     chi2_p_value_matrices[df_name] = pd.DataFrame(index = column_labels, columns = column_labels)
     fisher_exact_p_value_matrices[df_name] = pd.DataFrame(index = column_labels, columns = column_labels)
+    OR_ratio_matrices[df_name] = pd.DataFrame(index = column_labels, columns = column_labels)
     yuleQ_value_matrices[df_name] = pd.DataFrame(index= column_labels, columns = column_labels)
+    pointwise_mutual_info_value_matrices[df_name] = pd.DataFrame(index = column_labels, columns = column_labels)
+    conditional_probability_value_matrices[df_name] = pd.DataFrame(index = column_labels, columns = column_labels)
     proposed_indicator_value_matrices[df_name] = pd.DataFrame(index = column_labels, columns = column_labels)
-        
+
+
 
     for i in range(len(df_ready_to_process.columns)):
         for j in range(i, len(df_ready_to_process.columns)): # we do from i intead of i+1 to double check our calculaitons by looking at the diagonal (for some methods only)
@@ -363,9 +469,12 @@ for df_name, df_ready_to_process in dfs_ready_to_process_binary.items():
 
             # 4.3. Calculating th values for each pair
             contingency_table = get_contingency_matrix(s1_data, s2_data, s1_name, s2_name, df_name, isSkip)
-            p_value, method_used = get_chi2_or_fisher_p_value(contingency_table)   
+            p_value, method_used, OR_value = get_chi2_or_fisher_p_value_and_OR(contingency_table)   
             yuleQ_value = get_yuleQ_value(contingency_table, isSkip)
             proposed_indicator_value = get_proposed_method_value(contingency_table)
+            conditional_probability_value = get_conditional_probability_value(contingency_table)
+            pointwise_mutual_info_value = get_pointwise_mutual_info_value(contingency_table)
+
 
             # 4.4 Storing the pair value in the appropriate cell
             contingency_tables[df_name].at[s1_name, s2_name] = contingency_table
@@ -373,22 +482,32 @@ for df_name, df_ready_to_process in dfs_ready_to_process_binary.items():
             if (method_used == chi2_squared_test):
                 chi2_p_value_matrices[df_name].at[s1_name, s2_name] = p_value
                 fisher_exact_p_value_matrices[df_name].at[s1_name, s2_name] = method_used
-
             else:
                 chi2_p_value_matrices[df_name].at[s1_name, s2_name] = method_used
                 fisher_exact_p_value_matrices[df_name].at[s1_name, s2_name] = p_value
-
+            OR_ratio_matrices[df_name].at[s1_name, s2_name] = OR_value
             yuleQ_value_matrices[df_name].at[s1_name, s2_name] = yuleQ_value
             proposed_indicator_value_matrices[df_name].at[s1_name, s2_name] = proposed_indicator_value
+            conditional_probability_value_matrices[df_name].at[s1_name, s2_name] = conditional_probability_value
+            pointwise_mutual_info_value_matrices[df_name].at[s1_name, s2_name] = pointwise_mutual_info_value
 
     # 4.5. Store the result value matrices
     generate_csv(chi2_p_value_matrices[df_name], f'{df_name}_chi2_P_value')
     generate_csv(fisher_exact_p_value_matrices[df_name], f'{df_name}_fisher_exact_P_value')
-    generate_csv(yuleQ_value_matrices[df_name], f'{df_name}_yuleQ_value')
+    generate_csv(OR_ratio_matrices[df_name], f'{df_name}_OR_value')
+    generate_csv(yuleQ_value_matrices[df_name], f'{df_name}_yuleQ_value')    
+    generate_csv(pointwise_mutual_info_value_matrices[df_name], f'{df_name}_pointwise_mutualinfo_value')
+    generate_csv(conditional_probability_value_matrices[df_name], f'{df_name}_conditional_probability_value')
     generate_csv(proposed_indicator_value_matrices[df_name], f'{df_name}_proposed_indicator_value')
+
+
+
 
     generate_summary_report(df = chi2_p_value_matrices[df_name], df_name= df_name, method_used = chi2_squared_test)
     generate_summary_report(df = yuleQ_value_matrices[df_name], df_name= df_name, method_used = yule_Q_test)
+    generate_summary_report(df = OR_ratio_matrices[df_name], df_name= df_name, method_used = OR_ratio)
+    generate_summary_report(df = pointwise_mutual_info_value_matrices[df_name], df_name= df_name, method_used = pointwise_mutual_info)
+    generate_summary_report(df = conditional_probability_value_matrices[df_name], df_name= df_name, method_used = conditional_probability)
     generate_summary_report(df = proposed_indicator_value_matrices[df_name], df_name= df_name, method_used = proposed_indicator)
 
 

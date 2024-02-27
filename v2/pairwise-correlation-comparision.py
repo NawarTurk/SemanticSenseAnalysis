@@ -479,7 +479,7 @@ for df_name, df_ready_to_process in dfs_ready_to_process_binary.items():
 
 
     for i in range(len(df_ready_to_process.columns)):
-        for j in range(i, len(df_ready_to_process.columns)): # we do from i intead of i+1 to double check our calculaitons by looking at the diagonal (for some methods only)
+        for j in range(i+1, len(df_ready_to_process.columns)): # we do from i intead of i+1 to double check our calculaitons by looking at the diagonal (for some methods only)
             isSkip = False
 
             # 4.2. Extracting pair of sesnes info

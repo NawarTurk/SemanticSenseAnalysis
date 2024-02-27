@@ -1,816 +1,816 @@
-precedence     0   1
+precedence    V   ¬V
 synchronous         
-0            856  39
-1              5   0
+V             0    5
+¬V           39  856
 
 -.-.-.-.-.-.-.-.-.-
-succession     0  1
+succession   V   ¬V
 synchronous        
-0            893  2
-1              5  0
+V            0    5
+¬V           2  893
 
 -.-.-.-.-.-.-.-.-.-
-reason         0   1
+reason        V   ¬V
 synchronous         
-0            812  83
-1              5   0
+V             0    5
+¬V           83  812
 
 -.-.-.-.-.-.-.-.-.-
-result         0    1
+result         V   ¬V
 synchronous          
-0            784  111
-1              5    0
+V              0    5
+¬V           111  784
 
 -.-.-.-.-.-.-.-.-.-
-arg2-as-goal    0  1
+arg2-as-goal  V   ¬V
 synchronous         
-0             894  1
-1               5  0
+V             0    5
+¬V            1  894
 
 -.-.-.-.-.-.-.-.-.-
-arg1-as-denier    0  1
+arg1-as-denier  V   ¬V
 synchronous           
-0               893  2
-1                 5  0
+V               0    5
+¬V              2  893
 
 -.-.-.-.-.-.-.-.-.-
-arg2-as-denier    0  1
+arg2-as-denier  V   ¬V
 synchronous           
-0               892  3
-1                 5  0
+V               0    5
+¬V              3  892
 
 -.-.-.-.-.-.-.-.-.-
-contrast       0   1
+contrast      V   ¬V
 synchronous         
-0            872  23
-1              5   0
+V             0    5
+¬V           23  872
 
 -.-.-.-.-.-.-.-.-.-
-similarity     0  1
+similarity   V   ¬V
 synchronous        
-0            894  1
-1              5  0
+V            0    5
+¬V           1  894
 
 -.-.-.-.-.-.-.-.-.-
-conjunction    0    1
+conjunction    V   ¬V
 synchronous          
-0            646  249
-1              5    0
+V              0    5
+¬V           249  646
 
 -.-.-.-.-.-.-.-.-.-
-disjunction    0  1
+disjunction  V   ¬V
 synchronous        
-0            892  3
-1              5  0
+V            0    5
+¬V           3  892
 
 -.-.-.-.-.-.-.-.-.-
-arg1-as-instance    0  1
+arg1-as-instance  V   ¬V
 synchronous             
-0                 892  3
-1                   5  0
+V                 0    5
+¬V                3  892
 
 -.-.-.-.-.-.-.-.-.-
-arg2-as-instance    0   1
+arg2-as-instance   V   ¬V
 synchronous              
-0                 868  27
-1                   5   0
+V                  0    5
+¬V                27  868
 
 -.-.-.-.-.-.-.-.-.-
-arg1-as-detail    0  1
+arg1-as-detail  V   ¬V
 synchronous           
-0               889  6
-1                 5  0
+V               0    5
+¬V              6  889
 
 -.-.-.-.-.-.-.-.-.-
-arg2-as-detail    0    1
+arg2-as-detail    V   ¬V
 synchronous             
-0               737  158
-1                 5    0
+V                 0    5
+¬V              158  737
 
 -.-.-.-.-.-.-.-.-.-
-arg2-as-manner    0  1
+arg2-as-manner  V   ¬V
 synchronous           
-0               894  1
-1                 5  0
+V               0    5
+¬V              1  894
 
 -.-.-.-.-.-.-.-.-.-
-succession    0  1
+succession  V   ¬V
 precedence        
-0           859  2
-1            39  0
+V           0   39
+¬V          2  859
 
 -.-.-.-.-.-.-.-.-.-
-reason        0   1
+reason       V   ¬V
 precedence         
-0           778  83
-1            39   0
+V            0   39
+¬V          83  778
 
 -.-.-.-.-.-.-.-.-.-
-result        0    1
+result        V   ¬V
 precedence          
-0           755  106
-1            34    5
+V             5   34
+¬V          106  755
 
 -.-.-.-.-.-.-.-.-.-
-arg2-as-goal    0  1
+arg2-as-goal  V   ¬V
 precedence          
-0             860  1
-1              39  0
+V             0   39
+¬V            1  860
 
 -.-.-.-.-.-.-.-.-.-
-arg1-as-denier    0  1
+arg1-as-denier  V   ¬V
 precedence            
-0               859  2
-1                39  0
+V               0   39
+¬V              2  859
 
 -.-.-.-.-.-.-.-.-.-
-arg2-as-denier    0  1
+arg2-as-denier  V   ¬V
 precedence            
-0               858  3
-1                39  0
+V               0   39
+¬V              3  858
 
 -.-.-.-.-.-.-.-.-.-
-contrast      0   1
+contrast     V   ¬V
 precedence         
-0           839  22
-1            38   1
+V            1   38
+¬V          22  839
 
 -.-.-.-.-.-.-.-.-.-
-similarity    0  1
+similarity  V   ¬V
 precedence        
-0           860  1
-1            39  0
+V           0   39
+¬V          1  860
 
 -.-.-.-.-.-.-.-.-.-
-conjunction    0    1
+conjunction    V   ¬V
 precedence           
-0            612  249
-1             39    0
+V              0   39
+¬V           249  612
 
 -.-.-.-.-.-.-.-.-.-
-disjunction    0  1
+disjunction  V   ¬V
 precedence         
-0            858  3
-1             39  0
+V            0   39
+¬V           3  858
 
 -.-.-.-.-.-.-.-.-.-
-arg1-as-instance    0  1
+arg1-as-instance  V   ¬V
 precedence              
-0                 858  3
-1                  39  0
+V                 0   39
+¬V                3  858
 
 -.-.-.-.-.-.-.-.-.-
-arg2-as-instance    0   1
+arg2-as-instance   V   ¬V
 precedence               
-0                 834  27
-1                  39   0
+V                  0   39
+¬V                27  834
 
 -.-.-.-.-.-.-.-.-.-
-arg1-as-detail    0  1
+arg1-as-detail  V   ¬V
 precedence            
-0               855  6
-1                39  0
+V               0   39
+¬V              6  855
 
 -.-.-.-.-.-.-.-.-.-
-arg2-as-detail    0    1
+arg2-as-detail    V   ¬V
 precedence              
-0               703  158
-1                39    0
+V                 0   39
+¬V              158  703
 
 -.-.-.-.-.-.-.-.-.-
-arg2-as-manner    0  1
+arg2-as-manner  V   ¬V
 precedence            
-0               860  1
-1                39  0
+V               0   39
+¬V              1  860
 
 -.-.-.-.-.-.-.-.-.-
-reason        0   1
+reason       V   ¬V
 succession         
-0           815  83
-1             2   0
+V            0    2
+¬V          83  815
 
 -.-.-.-.-.-.-.-.-.-
-result        0    1
+result        V   ¬V
 succession          
-0           787  111
-1             2    0
+V             0    2
+¬V          111  787
 
 -.-.-.-.-.-.-.-.-.-
-arg2-as-goal    0  1
+arg2-as-goal  V   ¬V
 succession          
-0             897  1
-1               2  0
+V             0    2
+¬V            1  897
 
 -.-.-.-.-.-.-.-.-.-
-arg1-as-denier    0  1
+arg1-as-denier  V   ¬V
 succession            
-0               896  2
-1                 2  0
+V               0    2
+¬V              2  896
 
 -.-.-.-.-.-.-.-.-.-
-arg2-as-denier    0  1
+arg2-as-denier  V   ¬V
 succession            
-0               895  3
-1                 2  0
+V               0    2
+¬V              3  895
 
 -.-.-.-.-.-.-.-.-.-
-contrast      0   1
+contrast     V   ¬V
 succession         
-0           875  23
-1             2   0
+V            0    2
+¬V          23  875
 
 -.-.-.-.-.-.-.-.-.-
-similarity    0  1
+similarity  V   ¬V
 succession        
-0           897  1
-1             2  0
+V           0    2
+¬V          1  897
 
 -.-.-.-.-.-.-.-.-.-
-conjunction    0    1
+conjunction    V   ¬V
 succession           
-0            650  248
-1              1    1
+V              1    1
+¬V           248  650
 
 -.-.-.-.-.-.-.-.-.-
-disjunction    0  1
+disjunction  V   ¬V
 succession         
-0            895  3
-1              2  0
+V            0    2
+¬V           3  895
 
 -.-.-.-.-.-.-.-.-.-
-arg1-as-instance    0  1
+arg1-as-instance  V   ¬V
 succession              
-0                 895  3
-1                   2  0
+V                 0    2
+¬V                3  895
 
 -.-.-.-.-.-.-.-.-.-
-arg2-as-instance    0   1
+arg2-as-instance   V   ¬V
 succession               
-0                 871  27
-1                   2   0
+V                  0    2
+¬V                27  871
 
 -.-.-.-.-.-.-.-.-.-
-arg1-as-detail    0  1
+arg1-as-detail  V   ¬V
 succession            
-0               892  6
-1                 2  0
+V               0    2
+¬V              6  892
 
 -.-.-.-.-.-.-.-.-.-
-arg2-as-detail    0    1
+arg2-as-detail    V   ¬V
 succession              
-0               740  158
-1                 2    0
+V                 0    2
+¬V              158  740
 
 -.-.-.-.-.-.-.-.-.-
-arg2-as-manner    0  1
+arg2-as-manner  V   ¬V
 succession            
-0               897  1
-1                 2  0
+V               0    2
+¬V              1  897
 
 -.-.-.-.-.-.-.-.-.-
-result    0    1
+result    V   ¬V
 reason          
-0       706  111
-1        83    0
+V         0   83
+¬V      111  706
 
 -.-.-.-.-.-.-.-.-.-
-arg2-as-goal    0  1
+arg2-as-goal  V   ¬V
 reason              
-0             816  1
-1              83  0
+V             0   83
+¬V            1  816
 
 -.-.-.-.-.-.-.-.-.-
-arg1-as-denier    0  1
+arg1-as-denier  V   ¬V
 reason                
-0               815  2
-1                83  0
+V               0   83
+¬V              2  815
 
 -.-.-.-.-.-.-.-.-.-
-arg2-as-denier    0  1
+arg2-as-denier  V   ¬V
 reason                
-0               814  3
-1                83  0
+V               0   83
+¬V              3  814
 
 -.-.-.-.-.-.-.-.-.-
-contrast    0   1
+contrast   V   ¬V
 reason           
-0         794  23
-1          83   0
+V          0   83
+¬V        23  794
 
 -.-.-.-.-.-.-.-.-.-
-similarity    0  1
+similarity  V   ¬V
 reason            
-0           816  1
-1            83  0
+V           0   83
+¬V          1  816
 
 -.-.-.-.-.-.-.-.-.-
-conjunction    0    1
+conjunction    V   ¬V
 reason               
-0            572  245
-1             79    4
+V              4   79
+¬V           245  572
 
 -.-.-.-.-.-.-.-.-.-
-disjunction    0  1
+disjunction  V   ¬V
 reason             
-0            814  3
-1             83  0
+V            0   83
+¬V           3  814
 
 -.-.-.-.-.-.-.-.-.-
-arg1-as-instance    0  1
+arg1-as-instance  V   ¬V
 reason                  
-0                 814  3
-1                  83  0
+V                 0   83
+¬V                3  814
 
 -.-.-.-.-.-.-.-.-.-
-arg2-as-instance    0   1
+arg2-as-instance   V   ¬V
 reason                   
-0                 790  27
-1                  83   0
+V                  0   83
+¬V                27  790
 
 -.-.-.-.-.-.-.-.-.-
-arg1-as-detail    0  1
+arg1-as-detail  V   ¬V
 reason                
-0               811  6
-1                83  0
+V               0   83
+¬V              6  811
 
 -.-.-.-.-.-.-.-.-.-
-arg2-as-detail    0    1
+arg2-as-detail    V   ¬V
 reason                  
-0               662  155
-1                80    3
+V                 3   80
+¬V              155  662
 
 -.-.-.-.-.-.-.-.-.-
-arg2-as-manner    0  1
+arg2-as-manner  V   ¬V
 reason                
-0               816  1
-1                83  0
+V               0   83
+¬V              1  816
 
 -.-.-.-.-.-.-.-.-.-
-arg2-as-goal    0  1
+arg2-as-goal  V   ¬V
 result              
-0             788  1
-1             111  0
+V             0  111
+¬V            1  788
 
 -.-.-.-.-.-.-.-.-.-
-arg1-as-denier    0  1
+arg1-as-denier  V   ¬V
 result                
-0               787  2
-1               111  0
+V               0  111
+¬V              2  787
 
 -.-.-.-.-.-.-.-.-.-
-arg2-as-denier    0  1
+arg2-as-denier  V   ¬V
 result                
-0               786  3
-1               111  0
+V               0  111
+¬V              3  786
 
 -.-.-.-.-.-.-.-.-.-
-contrast    0   1
+contrast   V   ¬V
 result           
-0         766  23
-1         111   0
+V          0  111
+¬V        23  766
 
 -.-.-.-.-.-.-.-.-.-
-similarity    0  1
+similarity  V   ¬V
 result            
-0           788  1
-1           111  0
+V           0  111
+¬V          1  788
 
 -.-.-.-.-.-.-.-.-.-
-conjunction    0    1
+conjunction    V   ¬V
 result               
-0            544  245
-1            107    4
+V              4  107
+¬V           245  544
 
 -.-.-.-.-.-.-.-.-.-
-disjunction    0  1
+disjunction  V   ¬V
 result             
-0            786  3
-1            111  0
+V            0  111
+¬V           3  786
 
 -.-.-.-.-.-.-.-.-.-
-arg1-as-instance    0  1
+arg1-as-instance  V   ¬V
 result                  
-0                 786  3
-1                 111  0
+V                 0  111
+¬V                3  786
 
 -.-.-.-.-.-.-.-.-.-
-arg2-as-instance    0   1
+arg2-as-instance   V   ¬V
 result                   
-0                 762  27
-1                 111   0
+V                  0  111
+¬V                27  762
 
 -.-.-.-.-.-.-.-.-.-
-arg1-as-detail    0  1
+arg1-as-detail  V   ¬V
 result                
-0               783  6
-1               111  0
+V               0  111
+¬V              6  783
 
 -.-.-.-.-.-.-.-.-.-
-arg2-as-detail    0    1
+arg2-as-detail    V   ¬V
 result                  
-0               633  156
-1               109    2
+V                 2  109
+¬V              156  633
 
 -.-.-.-.-.-.-.-.-.-
-arg2-as-manner    0  1
+arg2-as-manner  V   ¬V
 result                
-0               788  1
-1               111  0
+V               0  111
+¬V              1  788
 
 -.-.-.-.-.-.-.-.-.-
-arg1-as-denier    0  1
+arg1-as-denier  V   ¬V
 arg2-as-goal          
-0               897  2
-1                 1  0
+V               0    1
+¬V              2  897
 
 -.-.-.-.-.-.-.-.-.-
-arg2-as-denier    0  1
+arg2-as-denier  V   ¬V
 arg2-as-goal          
-0               896  3
-1                 1  0
+V               0    1
+¬V              3  896
 
 -.-.-.-.-.-.-.-.-.-
-contrast        0   1
+contrast       V   ¬V
 arg2-as-goal         
-0             876  23
-1               1   0
+V              0    1
+¬V            23  876
 
 -.-.-.-.-.-.-.-.-.-
-similarity      0  1
+similarity    V   ¬V
 arg2-as-goal        
-0             898  1
-1               1  0
+V             0    1
+¬V            1  898
 
 -.-.-.-.-.-.-.-.-.-
-conjunction     0    1
+conjunction     V   ¬V
 arg2-as-goal          
-0             650  249
-1               1    0
+V               0    1
+¬V            249  650
 
 -.-.-.-.-.-.-.-.-.-
-disjunction     0  1
+disjunction   V   ¬V
 arg2-as-goal        
-0             896  3
-1               1  0
+V             0    1
+¬V            3  896
 
 -.-.-.-.-.-.-.-.-.-
-arg1-as-instance    0  1
+arg1-as-instance  V   ¬V
 arg2-as-goal            
-0                 896  3
-1                   1  0
+V                 0    1
+¬V                3  896
 
 -.-.-.-.-.-.-.-.-.-
-arg2-as-instance    0   1
+arg2-as-instance   V   ¬V
 arg2-as-goal             
-0                 872  27
-1                   1   0
+V                  0    1
+¬V                27  872
 
 -.-.-.-.-.-.-.-.-.-
-arg1-as-detail    0  1
+arg1-as-detail  V   ¬V
 arg2-as-goal          
-0               893  6
-1                 1  0
+V               0    1
+¬V              6  893
 
 -.-.-.-.-.-.-.-.-.-
-arg2-as-detail    0    1
+arg2-as-detail    V   ¬V
 arg2-as-goal            
-0               741  158
-1                 1    0
+V                 0    1
+¬V              158  741
 
 -.-.-.-.-.-.-.-.-.-
-arg2-as-manner    0  1
+arg2-as-manner  V   ¬V
 arg2-as-goal          
-0               898  1
-1                 1  0
+V               0    1
+¬V              1  898
 
 -.-.-.-.-.-.-.-.-.-
-arg2-as-denier    0  1
+arg2-as-denier  V   ¬V
 arg1-as-denier        
-0               895  3
-1                 2  0
+V               0    2
+¬V              3  895
 
 -.-.-.-.-.-.-.-.-.-
-contrast          0   1
+contrast         V   ¬V
 arg1-as-denier         
-0               875  23
-1                 2   0
+V                0    2
+¬V              23  875
 
 -.-.-.-.-.-.-.-.-.-
-similarity        0  1
+similarity      V   ¬V
 arg1-as-denier        
-0               897  1
-1                 2  0
+V               0    2
+¬V              1  897
 
 -.-.-.-.-.-.-.-.-.-
-conjunction       0    1
+conjunction       V   ¬V
 arg1-as-denier          
-0               649  249
-1                 2    0
+V                 0    2
+¬V              249  649
 
 -.-.-.-.-.-.-.-.-.-
-disjunction       0  1
+disjunction     V   ¬V
 arg1-as-denier        
-0               895  3
-1                 2  0
+V               0    2
+¬V              3  895
 
 -.-.-.-.-.-.-.-.-.-
-arg1-as-instance    0  1
+arg1-as-instance  V   ¬V
 arg1-as-denier          
-0                 895  3
-1                   2  0
+V                 0    2
+¬V                3  895
 
 -.-.-.-.-.-.-.-.-.-
-arg2-as-instance    0   1
+arg2-as-instance   V   ¬V
 arg1-as-denier           
-0                 871  27
-1                   2   0
+V                  0    2
+¬V                27  871
 
 -.-.-.-.-.-.-.-.-.-
-arg1-as-detail    0  1
+arg1-as-detail  V   ¬V
 arg1-as-denier        
-0               892  6
-1                 2  0
+V               0    2
+¬V              6  892
 
 -.-.-.-.-.-.-.-.-.-
-arg2-as-detail    0    1
+arg2-as-detail    V   ¬V
 arg1-as-denier          
-0               740  158
-1                 2    0
+V                 0    2
+¬V              158  740
 
 -.-.-.-.-.-.-.-.-.-
-arg2-as-manner    0  1
+arg2-as-manner  V   ¬V
 arg1-as-denier        
-0               897  1
-1                 2  0
+V               0    2
+¬V              1  897
 
 -.-.-.-.-.-.-.-.-.-
-contrast          0   1
+contrast         V   ¬V
 arg2-as-denier         
-0               874  23
-1                 3   0
+V                0    3
+¬V              23  874
 
 -.-.-.-.-.-.-.-.-.-
-similarity        0  1
+similarity      V   ¬V
 arg2-as-denier        
-0               896  1
-1                 3  0
+V               0    3
+¬V              1  896
 
 -.-.-.-.-.-.-.-.-.-
-conjunction       0    1
+conjunction       V   ¬V
 arg2-as-denier          
-0               648  249
-1                 3    0
+V                 0    3
+¬V              249  648
 
 -.-.-.-.-.-.-.-.-.-
-disjunction       0  1
+disjunction     V   ¬V
 arg2-as-denier        
-0               894  3
-1                 3  0
+V               0    3
+¬V              3  894
 
 -.-.-.-.-.-.-.-.-.-
-arg1-as-instance    0  1
+arg1-as-instance  V   ¬V
 arg2-as-denier          
-0                 894  3
-1                   3  0
+V                 0    3
+¬V                3  894
 
 -.-.-.-.-.-.-.-.-.-
-arg2-as-instance    0   1
+arg2-as-instance   V   ¬V
 arg2-as-denier           
-0                 870  27
-1                   3   0
+V                  0    3
+¬V                27  870
 
 -.-.-.-.-.-.-.-.-.-
-arg1-as-detail    0  1
+arg1-as-detail  V   ¬V
 arg2-as-denier        
-0               891  6
-1                 3  0
+V               0    3
+¬V              6  891
 
 -.-.-.-.-.-.-.-.-.-
-arg2-as-detail    0    1
+arg2-as-detail    V   ¬V
 arg2-as-denier          
-0               739  158
-1                 3    0
+V                 0    3
+¬V              158  739
 
 -.-.-.-.-.-.-.-.-.-
-arg2-as-manner    0  1
+arg2-as-manner  V   ¬V
 arg2-as-denier        
-0               896  1
-1                 3  0
+V               0    3
+¬V              1  896
 
 -.-.-.-.-.-.-.-.-.-
-similarity    0  1
+similarity  V   ¬V
 contrast          
-0           876  1
-1            23  0
+V           0   23
+¬V          1  876
 
 -.-.-.-.-.-.-.-.-.-
-conjunction    0    1
+conjunction    V   ¬V
 contrast             
-0            629  248
-1             22    1
+V              1   22
+¬V           248  629
 
 -.-.-.-.-.-.-.-.-.-
-disjunction    0  1
+disjunction  V   ¬V
 contrast           
-0            874  3
-1             23  0
+V            0   23
+¬V           3  874
 
 -.-.-.-.-.-.-.-.-.-
-arg1-as-instance    0  1
+arg1-as-instance  V   ¬V
 contrast                
-0                 874  3
-1                  23  0
+V                 0   23
+¬V                3  874
 
 -.-.-.-.-.-.-.-.-.-
-arg2-as-instance    0   1
+arg2-as-instance   V   ¬V
 contrast                 
-0                 850  27
-1                  23   0
+V                  0   23
+¬V                27  850
 
 -.-.-.-.-.-.-.-.-.-
-arg1-as-detail    0  1
+arg1-as-detail  V   ¬V
 contrast              
-0               871  6
-1                23  0
+V               0   23
+¬V              6  871
 
 -.-.-.-.-.-.-.-.-.-
-arg2-as-detail    0    1
+arg2-as-detail    V   ¬V
 contrast                
-0               719  158
-1                23    0
+V                 0   23
+¬V              158  719
 
 -.-.-.-.-.-.-.-.-.-
-arg2-as-manner    0  1
+arg2-as-manner  V   ¬V
 contrast              
-0               876  1
-1                23  0
+V               0   23
+¬V              1  876
 
 -.-.-.-.-.-.-.-.-.-
-conjunction    0    1
+conjunction    V   ¬V
 similarity           
-0            650  249
-1              1    0
+V              0    1
+¬V           249  650
 
 -.-.-.-.-.-.-.-.-.-
-disjunction    0  1
+disjunction  V   ¬V
 similarity         
-0            896  3
-1              1  0
+V            0    1
+¬V           3  896
 
 -.-.-.-.-.-.-.-.-.-
-arg1-as-instance    0  1
+arg1-as-instance  V   ¬V
 similarity              
-0                 896  3
-1                   1  0
+V                 0    1
+¬V                3  896
 
 -.-.-.-.-.-.-.-.-.-
-arg2-as-instance    0   1
+arg2-as-instance   V   ¬V
 similarity               
-0                 872  27
-1                   1   0
+V                  0    1
+¬V                27  872
 
 -.-.-.-.-.-.-.-.-.-
-arg1-as-detail    0  1
+arg1-as-detail  V   ¬V
 similarity            
-0               893  6
-1                 1  0
+V               0    1
+¬V              6  893
 
 -.-.-.-.-.-.-.-.-.-
-arg2-as-detail    0    1
+arg2-as-detail    V   ¬V
 similarity              
-0               741  158
-1                 1    0
+V                 0    1
+¬V              158  741
 
 -.-.-.-.-.-.-.-.-.-
-arg2-as-manner    0  1
+arg2-as-manner  V   ¬V
 similarity            
-0               898  1
-1                 1  0
+V               0    1
+¬V              1  898
 
 -.-.-.-.-.-.-.-.-.-
-disjunction    0  1
+disjunction  V   ¬V
 conjunction        
-0            649  2
-1            248  1
+V            1  248
+¬V           2  649
 
 -.-.-.-.-.-.-.-.-.-
-arg1-as-instance    0  1
+arg1-as-instance  V   ¬V
 conjunction             
-0                 648  3
-1                 249  0
+V                 0  249
+¬V                3  648
 
 -.-.-.-.-.-.-.-.-.-
-arg2-as-instance    0   1
+arg2-as-instance   V   ¬V
 conjunction              
-0                 627  24
-1                 246   3
+V                  3  246
+¬V                24  627
 
 -.-.-.-.-.-.-.-.-.-
-arg1-as-detail    0  1
+arg1-as-detail  V   ¬V
 conjunction           
-0               647  4
-1               247  2
+V               2  247
+¬V              4  647
 
 -.-.-.-.-.-.-.-.-.-
-arg2-as-detail    0    1
+arg2-as-detail    V   ¬V
 conjunction             
-0               532  119
-1               210   39
+V                39  210
+¬V              119  532
 
 -.-.-.-.-.-.-.-.-.-
-arg2-as-manner    0  1
+arg2-as-manner  V   ¬V
 conjunction           
-0               650  1
-1               249  0
+V               0  249
+¬V              1  650
 
 -.-.-.-.-.-.-.-.-.-
-arg1-as-instance    0  1
+arg1-as-instance  V   ¬V
 disjunction             
-0                 894  3
-1                   3  0
+V                 0    3
+¬V                3  894
 
 -.-.-.-.-.-.-.-.-.-
-arg2-as-instance    0   1
+arg2-as-instance   V   ¬V
 disjunction              
-0                 870  27
-1                   3   0
+V                  0    3
+¬V                27  870
 
 -.-.-.-.-.-.-.-.-.-
-arg1-as-detail    0  1
+arg1-as-detail  V   ¬V
 disjunction           
-0               891  6
-1                 3  0
+V               0    3
+¬V              6  891
 
 -.-.-.-.-.-.-.-.-.-
-arg2-as-detail    0    1
+arg2-as-detail    V   ¬V
 disjunction             
-0               739  158
-1                 3    0
+V                 0    3
+¬V              158  739
 
 -.-.-.-.-.-.-.-.-.-
-arg2-as-manner    0  1
+arg2-as-manner  V   ¬V
 disjunction           
-0               896  1
-1                 3  0
+V               0    3
+¬V              1  896
 
 -.-.-.-.-.-.-.-.-.-
-arg2-as-instance    0   1
+arg2-as-instance   V   ¬V
 arg1-as-instance         
-0                 870  27
-1                   3   0
+V                  0    3
+¬V                27  870
 
 -.-.-.-.-.-.-.-.-.-
-arg1-as-detail      0  1
+arg1-as-detail    V   ¬V
 arg1-as-instance        
-0                 891  6
-1                   3  0
+V                 0    3
+¬V                6  891
 
 -.-.-.-.-.-.-.-.-.-
-arg2-as-detail      0    1
+arg2-as-detail      V   ¬V
 arg1-as-instance          
-0                 739  158
-1                   3    0
+V                   0    3
+¬V                158  739
 
 -.-.-.-.-.-.-.-.-.-
-arg2-as-manner      0  1
+arg2-as-manner    V   ¬V
 arg1-as-instance        
-0                 896  1
-1                   3  0
+V                 0    3
+¬V                1  896
 
 -.-.-.-.-.-.-.-.-.-
-arg1-as-detail      0  1
+arg1-as-detail    V   ¬V
 arg2-as-instance        
-0                 867  6
-1                  27  0
+V                 0   27
+¬V                6  867
 
 -.-.-.-.-.-.-.-.-.-
-arg2-as-detail      0    1
+arg2-as-detail      V   ¬V
 arg2-as-instance          
-0                 717  156
-1                  25    2
+V                   2   25
+¬V                156  717
 
 -.-.-.-.-.-.-.-.-.-
-arg2-as-manner      0  1
+arg2-as-manner    V   ¬V
 arg2-as-instance        
-0                 872  1
-1                  27  0
+V                 0   27
+¬V                1  872
 
 -.-.-.-.-.-.-.-.-.-
-arg2-as-detail    0    1
+arg2-as-detail    V   ¬V
 arg1-as-detail          
-0               736  158
-1                 6    0
+V                 0    6
+¬V              158  736
 
 -.-.-.-.-.-.-.-.-.-
-arg2-as-manner    0  1
+arg2-as-manner  V   ¬V
 arg1-as-detail        
-0               893  1
-1                 6  0
+V               0    6
+¬V              1  893
 
 -.-.-.-.-.-.-.-.-.-
-arg2-as-manner    0  1
+arg2-as-manner  V   ¬V
 arg2-as-detail        
-0               741  1
-1               158  0
+V               0  158
+¬V              1  741
 
 -.-.-.-.-.-.-.-.-.-

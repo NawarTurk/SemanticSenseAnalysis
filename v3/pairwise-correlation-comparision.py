@@ -77,11 +77,12 @@ def transform_to_binary(df_ready_to_transform, threshold):
     Returns:
     - pandas.DataFrame: Transformed DataFrame with binary values.
     """
-    return df_ready_to_transform.map(lambda x: 1 if x >= threshold else 0)
+    return df_ready_to_transform.map(lambda x: 'V' if x >= threshold else '¬V')
 
 def remove_all_zeros_columns(df_transformed_to_binary):
-    all_zero_columns = df_transformed_to_binary.columns[(df_transformed_to_binary == 0).all()]
+    all_zero_columns = df_transformed_to_binary.columns[(df_transformed_to_binary == '¬V').all()]
     df_binary_cleaned = df_transformed_to_binary.drop(all_zero_columns, axis=1)
+    print(df_binary_cleaned)
     return df_binary_cleaned
 
 def get_contingency_matrix(s1, s2, s1_name, s2_name, df_name, isSkip):
@@ -101,15 +102,15 @@ def get_contingency_matrix(s1, s2, s1_name, s2_name, df_name, isSkip):
     Returns:
     - pandas.DataFrame: The generated contingency table.
     """
-    s1 = pd.Categorical(s1, categories=[0, 1]) # we had to explictly mention the categories because it will not be added to the table if they a col or a row has values of zeros
-    s2 = pd.Categorical(s2, categories=[0, 1])
+    # s1 = pd.Categorical(s1, categories=[0, 1]) # we had to explictly mention the categories because it will not be added to the table if they a col or a row has values of zeros
+    # s2 = pd.Categorical(s2, categories=[0, 1])
     contingency_table = pd.crosstab(s1, s2, rownames=[s1_name], colnames=[s2_name], dropna=False)
     contingency_table_str = str(contingency_table)
 
     if (not isSkip):
         with open(f'./{result_folder}/{binary_folder}/{contingency_table_folder}/{df_name}.txt', 'a') as file:
             file.write(contingency_table_str + '\n\n' + '-.-.-.-.-.-.-.-.-.-\n')
-    
+    print()
     return contingency_table
 
 def get_chi2_or_fisher_p_value_and_OR(contingency_table):
@@ -126,10 +127,10 @@ def get_chi2_or_fisher_p_value_and_OR(contingency_table):
     Returns:
     - tuple: A tuple containing the p-value and a string indicating which test was used 
     """
-    one_one = contingency_table.loc[1,1]
-    one_zero = contingency_table.loc[1,0]
-    zero_one = contingency_table.loc[0,1]
-    zero_zero = contingency_table.loc[0,0]
+    one_one = contingency_table.loc['V','V']
+    one_zero = contingency_table.loc['V','¬V']
+    zero_one = contingency_table.loc['¬V','V']
+    zero_zero = contingency_table.loc['¬V','¬V']
 
     OR_value = not_applicable
 
@@ -171,10 +172,10 @@ def get_yuleQ_value(contingency_table, isSkip):
     Returns:
     - float or str: Yule's Q coefficient if calculable, otherwise 'NA' if skipped or if the table contains zero values.
     """
-    one_one = contingency_table.loc[1,1]
-    one_zero = contingency_table.loc[1,0]
-    zero_one = contingency_table.loc[0,1]
-    zero_zero = contingency_table.loc[0,0]
+    one_one = contingency_table.loc['V','V']
+    one_zero = contingency_table.loc['V','¬V']
+    zero_one = contingency_table.loc['¬V','V']
+    zero_zero = contingency_table.loc['¬V','¬V']
 
     if (isSkip):
         # we set isSkip to true when we are comparing the same sense (i=j)
@@ -189,9 +190,10 @@ def get_yuleQ_value(contingency_table, isSkip):
     return yules_q
 
 def get_proposed_method_value(contingency_table):
-    one_one = contingency_table.loc[1,1]
-    one_zero = contingency_table.loc[1,0]
-    zero_one = contingency_table.loc[0,1]
+    one_one = contingency_table.loc['V','V']
+    one_zero = contingency_table.loc['V','¬V']
+    zero_one = contingency_table.loc['¬V','V']
+    zero_zero = contingency_table.loc['¬V','¬V']
 
     numerator = one_one
     denominator = one_one + one_zero + zero_one
@@ -203,9 +205,11 @@ def get_proposed_method_value(contingency_table):
     return proposed_method_value
 
 def get_conditional_probability_value(contingency_table):
-    one_one = contingency_table.loc[1,1]
-    one_zero = contingency_table.loc[1,0]
-    zero_one = contingency_table.loc[0,1]
+    one_one = contingency_table.loc['V','V']
+    one_zero = contingency_table.loc['V','¬V']
+    zero_one = contingency_table.loc['¬V','V']
+    zero_zero = contingency_table.loc['¬V','¬V']
+
     s1_given_s2_probability = None
     s2_given_s1_probability = None
     
@@ -224,10 +228,11 @@ def get_conditional_probability_value(contingency_table):
         return not_applicable
     
 def get_pointwise_mutual_info_value(contingency_table):
-    one_one = contingency_table.loc[1,1]
-    one_zero = contingency_table.loc[1,0]
-    zero_one = contingency_table.loc[0,1]
-    zero_zero = contingency_table.loc[0,0]
+    one_one = contingency_table.loc['V','V']
+    one_zero = contingency_table.loc['V','¬V']
+    zero_one = contingency_table.loc['¬V','V']
+    zero_zero = contingency_table.loc['¬V','¬V']
+
 
 
     total = one_one + one_zero + zero_one + zero_zero

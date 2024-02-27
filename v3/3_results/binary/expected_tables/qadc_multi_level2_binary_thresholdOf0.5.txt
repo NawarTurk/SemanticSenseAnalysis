@@ -1,270 +1,270 @@
-asynchronous    0   1
+asynchronous   V   ¬V
 synchronous          
-0             849  47
-1               2   0
+V              0    2
+¬V            47  849
 
 -.-.-.-.-.-.-.-.-.-
-cause          0    1
+cause          V   ¬V
 synchronous          
-0            741  155
-1              2    0
+V              0    2
+¬V           155  741
 
 -.-.-.-.-.-.-.-.-.-
-concession     0  1
+concession   V   ¬V
 synchronous        
-0            889  7
-1              2  0
+V            0    2
+¬V           7  889
 
 -.-.-.-.-.-.-.-.-.-
-contrast       0   1
+contrast      V   ¬V
 synchronous         
-0            886  10
-1              2   0
+V             0    2
+¬V           10  886
 
 -.-.-.-.-.-.-.-.-.-
-conjunction    0    1
+conjunction    V   ¬V
 synchronous          
-0            763  133
-1              2    0
+V              0    2
+¬V           133  763
 
 -.-.-.-.-.-.-.-.-.-
-disjunction    0  1
+disjunction  V   ¬V
 synchronous        
-0            896  0
-1              2  0
+V            0    2
+¬V           0  896
 
 -.-.-.-.-.-.-.-.-.-
-instantiation    0   1
+instantiation   V   ¬V
 synchronous           
-0              885  11
-1                2   0
+V               0    2
+¬V             11  885
 
 -.-.-.-.-.-.-.-.-.-
-level-of-detail    0    1
+level-of-detail    V   ¬V
 synchronous              
-0                775  121
-1                  2    0
+V                  0    2
+¬V               121  775
 
 -.-.-.-.-.-.-.-.-.-
-manner         0  1
+manner       V   ¬V
 synchronous        
-0            896  0
-1              2  0
+V            0    2
+¬V           0  896
 
 -.-.-.-.-.-.-.-.-.-
-cause           0    1
+cause           V   ¬V
 asynchronous          
-0             704  147
-1              39    8
+V               8   39
+¬V            147  704
 
 -.-.-.-.-.-.-.-.-.-
-concession      0  1
+concession    V   ¬V
 asynchronous        
-0             844  7
-1              47  0
+V             0   47
+¬V            7  844
 
 -.-.-.-.-.-.-.-.-.-
-contrast        0   1
+contrast       V   ¬V
 asynchronous         
-0             841  10
-1              47   0
+V              0   47
+¬V            10  841
 
 -.-.-.-.-.-.-.-.-.-
-conjunction     0    1
+conjunction     V   ¬V
 asynchronous          
-0             725  126
-1              40    7
+V               7   40
+¬V            126  725
 
 -.-.-.-.-.-.-.-.-.-
-disjunction     0  1
+disjunction   V   ¬V
 asynchronous        
-0             851  0
-1              47  0
+V             0   47
+¬V            0  851
 
 -.-.-.-.-.-.-.-.-.-
-instantiation    0   1
+instantiation   V   ¬V
 asynchronous          
-0              840  11
-1               47   0
+V               0   47
+¬V             11  840
 
 -.-.-.-.-.-.-.-.-.-
-level-of-detail    0    1
+level-of-detail    V   ¬V
 asynchronous             
-0                736  115
-1                 41    6
+V                  6   41
+¬V               115  736
 
 -.-.-.-.-.-.-.-.-.-
-manner          0  1
+manner        V   ¬V
 asynchronous        
-0             851  0
-1              47  0
+V             0   47
+¬V            0  851
 
 -.-.-.-.-.-.-.-.-.-
-concession    0  1
+concession  V   ¬V
 cause             
-0           737  6
-1           154  1
+V           1  154
+¬V          6  737
 
 -.-.-.-.-.-.-.-.-.-
-contrast    0  1
+contrast  V   ¬V
 cause           
-0         734  9
-1         154  1
+V         1  154
+¬V        9  734
 
 -.-.-.-.-.-.-.-.-.-
-conjunction    0    1
+conjunction    V   ¬V
 cause                
-0            633  110
-1            132   23
+V             23  132
+¬V           110  633
 
 -.-.-.-.-.-.-.-.-.-
-disjunction    0  1
+disjunction  V   ¬V
 cause              
-0            743  0
-1            155  0
+V            0  155
+¬V           0  743
 
 -.-.-.-.-.-.-.-.-.-
-instantiation    0  1
+instantiation  V   ¬V
 cause                
-0              734  9
-1              153  2
+V              2  153
+¬V             9  734
 
 -.-.-.-.-.-.-.-.-.-
-level-of-detail    0    1
+level-of-detail    V   ¬V
 cause                    
-0                643  100
-1                134   21
+V                 21  134
+¬V               100  643
 
 -.-.-.-.-.-.-.-.-.-
-manner    0  1
+manner  V   ¬V
 cause         
-0       743  0
-1       155  0
+V       0  155
+¬V      0  743
 
 -.-.-.-.-.-.-.-.-.-
-contrast      0   1
+contrast     V   ¬V
 concession         
-0           881  10
-1             7   0
+V            0    7
+¬V          10  881
 
 -.-.-.-.-.-.-.-.-.-
-conjunction    0    1
+conjunction    V   ¬V
 concession           
-0            759  132
-1              6    1
+V              1    6
+¬V           132  759
 
 -.-.-.-.-.-.-.-.-.-
-disjunction    0  1
+disjunction  V   ¬V
 concession         
-0            891  0
-1              7  0
+V            0    7
+¬V           0  891
 
 -.-.-.-.-.-.-.-.-.-
-instantiation    0   1
+instantiation   V   ¬V
 concession            
-0              880  11
-1                7   0
+V               0    7
+¬V             11  880
 
 -.-.-.-.-.-.-.-.-.-
-level-of-detail    0    1
+level-of-detail    V   ¬V
 concession               
-0                771  120
-1                  6    1
+V                  1    6
+¬V               120  771
 
 -.-.-.-.-.-.-.-.-.-
-manner        0  1
+manner      V   ¬V
 concession        
-0           891  0
-1             7  0
+V           0    7
+¬V          0  891
 
 -.-.-.-.-.-.-.-.-.-
-conjunction    0    1
+conjunction    V   ¬V
 contrast             
-0            756  132
-1              9    1
+V              1    9
+¬V           132  756
 
 -.-.-.-.-.-.-.-.-.-
-disjunction    0  1
+disjunction  V   ¬V
 contrast           
-0            888  0
-1             10  0
+V            0   10
+¬V           0  888
 
 -.-.-.-.-.-.-.-.-.-
-instantiation    0   1
+instantiation   V   ¬V
 contrast              
-0              877  11
-1               10   0
+V               0   10
+¬V             11  877
 
 -.-.-.-.-.-.-.-.-.-
-level-of-detail    0    1
+level-of-detail    V   ¬V
 contrast                 
-0                768  120
-1                  9    1
+V                  1    9
+¬V               120  768
 
 -.-.-.-.-.-.-.-.-.-
-manner      0  1
+manner    V   ¬V
 contrast        
-0         888  0
-1          10  0
+V         0   10
+¬V        0  888
 
 -.-.-.-.-.-.-.-.-.-
-disjunction    0  1
+disjunction  V   ¬V
 conjunction        
-0            765  0
-1            133  0
+V            0  133
+¬V           0  765
 
 -.-.-.-.-.-.-.-.-.-
-instantiation    0   1
+instantiation   V   ¬V
 conjunction           
-0              755  10
-1              132   1
+V               1  132
+¬V             10  755
 
 -.-.-.-.-.-.-.-.-.-
-level-of-detail    0    1
+level-of-detail    V   ¬V
 conjunction              
-0                662  103
-1                115   18
+V                 18  115
+¬V               103  662
 
 -.-.-.-.-.-.-.-.-.-
-manner         0  1
+manner       V   ¬V
 conjunction        
-0            765  0
-1            133  0
+V            0  133
+¬V           0  765
 
 -.-.-.-.-.-.-.-.-.-
-instantiation    0   1
+instantiation   V   ¬V
 disjunction           
-0              887  11
-1                0   0
+V               0    0
+¬V             11  887
 
 -.-.-.-.-.-.-.-.-.-
-level-of-detail    0    1
+level-of-detail    V   ¬V
 disjunction              
-0                777  121
-1                  0    0
+V                  0    0
+¬V               121  777
 
 -.-.-.-.-.-.-.-.-.-
-manner         0  1
+manner       V   ¬V
 disjunction        
-0            898  0
-1              0  0
+V            0    0
+¬V           0  898
 
 -.-.-.-.-.-.-.-.-.-
-level-of-detail    0    1
+level-of-detail    V   ¬V
 instantiation            
-0                767  120
-1                 10    1
+V                  1   10
+¬V               120  767
 
 -.-.-.-.-.-.-.-.-.-
-manner           0  1
+manner         V   ¬V
 instantiation        
-0              887  0
-1               11  0
+V              0   11
+¬V             0  887
 
 -.-.-.-.-.-.-.-.-.-
-manner             0  1
+manner           V   ¬V
 level-of-detail        
-0                777  0
-1                121  0
+V                0  121
+¬V               0  777
 
 -.-.-.-.-.-.-.-.-.-

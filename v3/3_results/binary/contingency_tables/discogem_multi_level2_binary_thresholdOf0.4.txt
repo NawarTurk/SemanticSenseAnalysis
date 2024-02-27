@@ -1,330 +1,330 @@
-asynchronous     0    1
+asynchronous    V    ¬V
 synchronous            
-0             6077  409
-1               16    3
+V               3    16
+¬V            409  6077
 
 -.-.-.-.-.-.-.-.-.-
-cause           0     1
+cause           V    ¬V
 synchronous            
-0            4460  2026
-1              19     0
+V               0    19
+¬V           2026  4460
 
 -.-.-.-.-.-.-.-.-.-
-concession      0    1
+concession     V    ¬V
 synchronous           
-0            6120  366
-1              19    0
+V              0    19
+¬V           366  6120
 
 -.-.-.-.-.-.-.-.-.-
-contrast        0   1
+contrast      V    ¬V
 synchronous          
-0            6396  90
-1              19   0
+V             0    19
+¬V           90  6396
 
 -.-.-.-.-.-.-.-.-.-
-similarity      0   1
+similarity    V    ¬V
 synchronous          
-0            6462  24
-1              19   0
+V             0    19
+¬V           24  6462
 
 -.-.-.-.-.-.-.-.-.-
-conjunction     0     1
+conjunction     V    ¬V
 synchronous            
-0            5037  1449
-1              16     3
+V               3    16
+¬V           1449  5037
 
 -.-.-.-.-.-.-.-.-.-
-disjunction     0  1
+disjunction  V    ¬V
 synchronous         
-0            6485  1
-1              19  0
+V            0    19
+¬V           1  6485
 
 -.-.-.-.-.-.-.-.-.-
-instantiation     0    1
+instantiation    V    ¬V
 synchronous             
-0              6256  230
-1                19    0
+V                0    19
+¬V             230  6256
 
 -.-.-.-.-.-.-.-.-.-
-level-of-detail     0     1
+level-of-detail     V    ¬V
 synchronous                
-0                5469  1017
-1                  19     0
+V                   0    19
+¬V               1017  5469
 
 -.-.-.-.-.-.-.-.-.-
-substitution     0  1
+substitution  V    ¬V
 synchronous          
-0             6479  7
-1               19  0
+V             0    19
+¬V            7  6479
 
 -.-.-.-.-.-.-.-.-.-
-cause            0     1
+cause            V    ¬V
 asynchronous            
-0             4110  1983
-1              369    43
+V               43   369
+¬V            1983  4110
 
 -.-.-.-.-.-.-.-.-.-
-concession       0    1
+concession      V    ¬V
 asynchronous           
-0             5729  364
-1              410    2
+V               2   410
+¬V            364  5729
 
 -.-.-.-.-.-.-.-.-.-
-contrast         0   1
+contrast       V    ¬V
 asynchronous          
-0             6003  90
-1              412   0
+V              0   412
+¬V            90  6003
 
 -.-.-.-.-.-.-.-.-.-
-similarity       0   1
+similarity     V    ¬V
 asynchronous          
-0             6069  24
-1              412   0
+V              0   412
+¬V            24  6069
 
 -.-.-.-.-.-.-.-.-.-
-conjunction      0     1
+conjunction      V    ¬V
 asynchronous            
-0             4673  1420
-1              380    32
+V               32   380
+¬V            1420  4673
 
 -.-.-.-.-.-.-.-.-.-
-disjunction      0  1
+disjunction   V    ¬V
 asynchronous         
-0             6092  1
-1              412  0
+V             0   412
+¬V            1  6092
 
 -.-.-.-.-.-.-.-.-.-
-instantiation     0    1
+instantiation    V    ¬V
 asynchronous            
-0              5863  230
-1               412    0
+V                0   412
+¬V             230  5863
 
 -.-.-.-.-.-.-.-.-.-
-level-of-detail     0     1
+level-of-detail     V    ¬V
 asynchronous               
-0                5076  1017
-1                 412     0
+V                   0   412
+¬V               1017  5076
 
 -.-.-.-.-.-.-.-.-.-
-substitution     0  1
+substitution  V    ¬V
 asynchronous         
-0             6086  7
-1              412  0
+V             0   412
+¬V            7  6086
 
 -.-.-.-.-.-.-.-.-.-
-concession     0    1
+concession    V    ¬V
 cause                
-0           4137  342
-1           2002   24
+V            24  2002
+¬V          342  4137
 
 -.-.-.-.-.-.-.-.-.-
-contrast     0   1
+contrast   V    ¬V
 cause             
-0         4393  86
-1         2022   4
+V          4  2022
+¬V        86  4393
 
 -.-.-.-.-.-.-.-.-.-
-similarity     0   1
+similarity   V    ¬V
 cause               
-0           4456  23
-1           2025   1
+V            1  2025
+¬V          23  4456
 
 -.-.-.-.-.-.-.-.-.-
-conjunction     0     1
+conjunction     V    ¬V
 cause                  
-0            3146  1333
-1            1907   119
+V             119  1907
+¬V           1333  3146
 
 -.-.-.-.-.-.-.-.-.-
-disjunction     0  1
+disjunction  V    ¬V
 cause               
-0            4478  1
-1            2026  0
+V            0  2026
+¬V           1  4478
 
 -.-.-.-.-.-.-.-.-.-
-instantiation     0    1
+instantiation    V    ¬V
 cause                   
-0              4262  217
-1              2013   13
+V               13  2013
+¬V             217  4262
 
 -.-.-.-.-.-.-.-.-.-
-level-of-detail     0    1
+level-of-detail    V    ¬V
 cause                     
-0                3569  910
-1                1919  107
+V                107  1919
+¬V               910  3569
 
 -.-.-.-.-.-.-.-.-.-
-substitution     0  1
+substitution  V    ¬V
 cause                
-0             4473  6
-1             2025  1
+V             1  2025
+¬V            6  4473
 
 -.-.-.-.-.-.-.-.-.-
-contrast       0   1
+contrast     V    ¬V
 concession          
-0           6054  85
-1            361   5
+V            5   361
+¬V          85  6054
 
 -.-.-.-.-.-.-.-.-.-
-similarity     0   1
+similarity   V    ¬V
 concession          
-0           6115  24
-1            366   0
+V            0   366
+¬V          24  6115
 
 -.-.-.-.-.-.-.-.-.-
-conjunction     0     1
+conjunction     V    ¬V
 concession             
-0            4700  1439
-1             353    13
+V              13   353
+¬V           1439  4700
 
 -.-.-.-.-.-.-.-.-.-
-disjunction     0  1
+disjunction  V    ¬V
 concession          
-0            6138  1
-1             366  0
+V            0   366
+¬V           1  6138
 
 -.-.-.-.-.-.-.-.-.-
-instantiation     0    1
+instantiation    V    ¬V
 concession              
-0              5910  229
-1               365    1
+V                1   365
+¬V             229  5910
 
 -.-.-.-.-.-.-.-.-.-
-level-of-detail     0     1
+level-of-detail     V    ¬V
 concession                 
-0                5127  1012
-1                 361     5
+V                   5   361
+¬V               1012  5127
 
 -.-.-.-.-.-.-.-.-.-
-substitution     0  1
+substitution  V    ¬V
 concession           
-0             6132  7
-1              366  0
+V             0   366
+¬V            7  6132
 
 -.-.-.-.-.-.-.-.-.-
-similarity     0   1
+similarity   V    ¬V
 contrast            
-0           6391  24
-1             90   0
+V            0    90
+¬V          24  6391
 
 -.-.-.-.-.-.-.-.-.-
-conjunction     0     1
+conjunction     V    ¬V
 contrast               
-0            4967  1448
-1              86     4
+V               4    86
+¬V           1448  4967
 
 -.-.-.-.-.-.-.-.-.-
-disjunction     0  1
+disjunction  V    ¬V
 contrast            
-0            6414  1
-1              90  0
+V            0    90
+¬V           1  6414
 
 -.-.-.-.-.-.-.-.-.-
-instantiation     0    1
+instantiation    V    ¬V
 contrast                
-0              6185  230
-1                90    0
+V                0    90
+¬V             230  6185
 
 -.-.-.-.-.-.-.-.-.-
-level-of-detail     0     1
+level-of-detail     V    ¬V
 contrast                   
-0                5398  1017
-1                  90     0
+V                   0    90
+¬V               1017  5398
 
 -.-.-.-.-.-.-.-.-.-
-substitution     0  1
+substitution  V    ¬V
 contrast             
-0             6408  7
-1               90  0
+V             0    90
+¬V            7  6408
 
 -.-.-.-.-.-.-.-.-.-
-conjunction     0     1
+conjunction     V    ¬V
 similarity             
-0            5042  1439
-1              11    13
+V              13    11
+¬V           1439  5042
 
 -.-.-.-.-.-.-.-.-.-
-disjunction     0  1
+disjunction  V    ¬V
 similarity          
-0            6480  1
-1              24  0
+V            0    24
+¬V           1  6480
 
 -.-.-.-.-.-.-.-.-.-
-instantiation     0    1
+instantiation    V    ¬V
 similarity              
-0              6251  230
-1                24    0
+V                0    24
+¬V             230  6251
 
 -.-.-.-.-.-.-.-.-.-
-level-of-detail     0     1
+level-of-detail     V    ¬V
 similarity                 
-0                5464  1017
-1                  24     0
+V                   0    24
+¬V               1017  5464
 
 -.-.-.-.-.-.-.-.-.-
-substitution     0  1
+substitution  V    ¬V
 similarity           
-0             6474  7
-1               24  0
+V             0    24
+¬V            7  6474
 
 -.-.-.-.-.-.-.-.-.-
-disjunction     0  1
+disjunction  V    ¬V
 conjunction         
-0            5052  1
-1            1452  0
+V            0  1452
+¬V           1  5052
 
 -.-.-.-.-.-.-.-.-.-
-instantiation     0    1
+instantiation    V    ¬V
 conjunction             
-0              4829  224
-1              1446    6
+V                6  1446
+¬V             224  4829
 
 -.-.-.-.-.-.-.-.-.-
-level-of-detail     0    1
+level-of-detail    V    ¬V
 conjunction               
-0                4124  929
-1                1364   88
+V                 88  1364
+¬V               929  4124
 
 -.-.-.-.-.-.-.-.-.-
-substitution     0  1
+substitution  V    ¬V
 conjunction          
-0             5046  7
-1             1452  0
+V             0  1452
+¬V            7  5046
 
 -.-.-.-.-.-.-.-.-.-
-instantiation     0    1
+instantiation    V    ¬V
 disjunction             
-0              6274  230
-1                 1    0
+V                0     1
+¬V             230  6274
 
 -.-.-.-.-.-.-.-.-.-
-level-of-detail     0     1
+level-of-detail     V    ¬V
 disjunction                
-0                5487  1017
-1                   1     0
+V                   0     1
+¬V               1017  5487
 
 -.-.-.-.-.-.-.-.-.-
-substitution     0  1
+substitution  V    ¬V
 disjunction          
-0             6497  7
-1                1  0
+V             0     1
+¬V            7  6497
 
 -.-.-.-.-.-.-.-.-.-
-level-of-detail     0    1
+level-of-detail    V    ¬V
 instantiation             
-0                5278  997
-1                 210   20
+V                 20   210
+¬V               997  5278
 
 -.-.-.-.-.-.-.-.-.-
-substitution      0  1
+substitution   V    ¬V
 instantiation         
-0              6268  7
-1               230  0
+V              0   230
+¬V             7  6268
 
 -.-.-.-.-.-.-.-.-.-
-substitution        0  1
+substitution     V    ¬V
 level-of-detail         
-0                5482  6
-1                1016  1
+V                1  1016
+¬V               6  5482
 
 -.-.-.-.-.-.-.-.-.-

@@ -1,6 +1,6 @@
 ,synchronous,asynchronous,cause,concession,contrast,similarity,conjunction,instantiation,level-of-detail,substitution
 synchronous,,fisher,fisher,fisher,fisher,fisher,fisher,fisher,fisher,fisher
-asynchronous,,,3.3815977598718624e-17,0.005790112945168094,fisher,fisher,3.682756186883654e-10,0.01294177545902332,9.750636644880676e-08,fisher
+asynchronous,,,3.3815977598718624e-17,0.005790112945168081,fisher,fisher,3.682756186883654e-10,0.01294177545902332,9.750636644880676e-08,fisher
 cause,,,,4.786858166500888e-13,0.0001136727538514106,fisher,1.2818503584084929e-58,1.3503240105646401e-09,8.072130402209949e-33,fisher
 concession,,,,,fisher,fisher,6.535514725188247e-09,fisher,5.394560885754075e-06,fisher
 contrast,,,,,,fisher,0.003121788690101572,fisher,fisher,fisher

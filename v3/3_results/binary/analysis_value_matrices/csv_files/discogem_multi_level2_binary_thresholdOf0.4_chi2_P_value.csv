@@ -1,12 +1,12 @@
 ,synchronous,asynchronous,cause,concession,contrast,similarity,conjunction,disjunction,instantiation,level-of-detail,substitution
 synchronous,,fisher,0.0033258217608759418,fisher,fisher,fisher,fisher,fisher,fisher,fisher,fisher
-asynchronous,,,6.6829529793249104e-21,2.8813308492778495e-06,0.012985738634100795,fisher,2.291868312508309e-13,fisher,5.9380181066410845e-05,1.7422312657765735e-19,fisher
+asynchronous,,,6.682952979324863e-21,2.8813308492778567e-06,0.012985738634100795,fisher,2.291868312508309e-13,fisher,5.9380181066410845e-05,1.7422312657765735e-19,fisher
 cause,,,,1.372534138130708e-25,3.6255641688584964e-08,0.0042453215689509565,7.6078755798143e-102,fisher,1.8890596081703858e-17,6.179338552747518e-54,fisher
-concession,,,,,0.9765555333899565,fisher,6.883434005257528e-19,fisher,0.000503433918463902,1.0199159708134285e-14,fisher
-contrast,,,,,,fisher,4.1074663302768926e-05,fisher,fisher,3.9149240775033524e-05,fisher
+concession,,,,,0.9765555333899565,fisher,6.883434005257478e-19,fisher,0.0005034339184639036,1.0199159708134285e-14,fisher
+contrast,,,,,,fisher,4.107466330276883e-05,fisher,fisher,3.9149240775033524e-05,fisher
 similarity,,,,,,,0.00017433708524596637,fisher,fisher,fisher,fisher
 conjunction,,,,,,,,fisher,2.6726007054178373e-13,4.336571923112794e-30,fisher
 disjunction,,,,,,,,,fisher,fisher,fisher
-instantiation,,,,,,,,,,0.0031775636172455936,fisher
+instantiation,,,,,,,,,,0.0031775636172455927,fisher
 level-of-detail,,,,,,,,,,,fisher
 substitution,,,,,,,,,,,

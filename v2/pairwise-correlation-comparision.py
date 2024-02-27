@@ -29,7 +29,6 @@ dfs_ready_to_process_binary = {}
 dfs_ready_to_process_continuous = {}
 
 # Value matrices dictionaries     
-contingency_tables = {}
 chi2_p_value_matrices = {}
 fisher_exact_p_value_matrices = {}
 OR_ratio_matrices = {}
@@ -50,6 +49,7 @@ analysis_value_matrices_folder = 'analysis_value_matrices'
 heatmap_folder = 'heatmaps'
 csv_files_folder = 'csv_files'
 contingency_table_folder = 'contingency_tables'
+expected_table_folder = 'expected_tables'
 report_folder = 'report'
 summary_report_folder = 'summary_report'
 
@@ -134,7 +134,8 @@ def get_chi2_or_fisher_p_value_and_OR(contingency_table):
     OR_value = not_applicable
 
     try:
-        stat, chi2_p, dof, expected = chi2_contingency(contingency_table, correction= False)
+        stat, chi2_p, dof, expected_table = chi2_contingency(contingency_table, correction= False)
+        save_expected_table(expected_table)
         if (expected < 5).any():
             _, fisher_exact_p = scipy.stats.fisher_exact(contingency_table)
             if (fisher_exact_p < report_critical_p_value and (one_zero * zero_one) > 0):
@@ -295,6 +296,11 @@ def group_to_level2(df):
 
 def generate_csv(matrix_value_df, title):
     matrix_value_df.to_csv(f'./{result_folder}/{binary_folder}/{analysis_value_matrices_folder}/{csv_files_folder}/{title}.csv')
+
+def save_expected_table(expected_table):
+    with open(f'./{result_folder}/{binary_folder}/{expected_table_folder}/{df_name}.txt', 'a') as file:
+        expected_table_str = str(expected_table)
+        file.write(expected_table_str + '\n\n' + '-.-.-.-.-.-.-.-.-.-\n')   
 
 # NEED REFACTORING
 def generate_summary_report(df, df_name, method_used):
@@ -466,7 +472,6 @@ isSkip = False
 for df_name, df_ready_to_process in dfs_ready_to_process_binary.items():
     # 4.1. preparing the dictionaries that hold the value matrices (adding the lables)
     column_labels = df_ready_to_process.columns
-    contingency_tables[df_name] = pd.DataFrame(index = column_labels, columns =column_labels)
 
     chi2_p_value_matrices[df_name] = pd.DataFrame(index = column_labels, columns = column_labels)
     fisher_exact_p_value_matrices[df_name] = pd.DataFrame(index = column_labels, columns = column_labels)
@@ -501,8 +506,6 @@ for df_name, df_ready_to_process in dfs_ready_to_process_binary.items():
 
 
             # 4.4 Storing the pair value in the appropriate cell
-            contingency_tables[df_name].at[s1_name, s2_name] = contingency_table
-
             if (method_used == chi2_squared_test):
                 chi2_p_value_matrices[df_name].at[s1_name, s2_name] = p_value
                 fisher_exact_p_value_matrices[df_name].at[s1_name, s2_name] = method_used

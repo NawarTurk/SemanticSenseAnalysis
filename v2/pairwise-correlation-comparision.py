@@ -79,6 +79,11 @@ def transform_to_binary(df_ready_to_transform, threshold):
     """
     return df_ready_to_transform.map(lambda x: 1 if x >= threshold else 0)
 
+def remove_all_zeros_columns(df_transformed_to_binary):
+    all_zero_columns = df_transformed_to_binary.columns[(df_transformed_to_binary == 0).all()]
+    df_binary_cleaned = df_transformed_to_binary.drop(all_zero_columns, axis=1)
+    return df_binary_cleaned
+
 def get_contingency_matrix(s1, s2, s1_name, s2_name, df_name, isSkip):
     """
     Creates a contingency table comparing of two senses.
@@ -445,11 +450,14 @@ for df_name, df_ready_to_transform in dfs_ready_to_transform.items():
         # Transform to binary based on the threshold [0.1, 0.2, 0.3, 0.4, 0.5]
         df_transformed_to_binary = transform_to_binary(df_ready_to_transform, threshold)
 
+        # remove all rows and columns that have all zeros
+        df_binary_cleaned = remove_all_zeros_columns(df_transformed_to_binary) 
+
         # Store in a dictionary
-        dfs_ready_to_process_binary[df_name + f'_binary_thresholdOf{threshold}'] = df_transformed_to_binary
+        dfs_ready_to_process_binary[df_name + f'_binary_thresholdOf{threshold}'] = df_binary_cleaned
         
         # Save for checking (saved in ready_to_process_folder)
-        df_transformed_to_binary.to_csv(f'{ready_to_process_folder}/{binary_folder}/{df_name}_binary_{threshold}.csv')
+        df_binary_cleaned.to_csv(f'{ready_to_process_folder}/{binary_folder}/{df_name}_binary_cleaned_{threshold}.csv')
     
  
 # 4. Processing data

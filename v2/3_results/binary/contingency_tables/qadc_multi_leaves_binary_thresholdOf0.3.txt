@@ -22,30 +22,6 @@ synchronous
 1             13    1
 
 -.-.-.-.-.-.-.-.-.-
-arg1-as-cond    0  1
-synchronous         
-0             886  0
-1              14  0
-
--.-.-.-.-.-.-.-.-.-
-arg2-as-cond    0  1
-synchronous         
-0             886  0
-1              14  0
-
--.-.-.-.-.-.-.-.-.-
-arg1-as-negcond    0  1
-synchronous            
-0                886  0
-1                 14  0
-
--.-.-.-.-.-.-.-.-.-
-arg2-as-negcond    0  1
-synchronous            
-0                886  0
-1                 14  0
-
--.-.-.-.-.-.-.-.-.-
 arg1-as-goal    0  1
 synchronous         
 0             885  1
@@ -118,46 +94,10 @@ synchronous
 1                14    0
 
 -.-.-.-.-.-.-.-.-.-
-equivalence    0  1
-synchronous        
-0            886  0
-1             14  0
-
--.-.-.-.-.-.-.-.-.-
-arg1-as-manner    0  1
-synchronous           
-0               886  0
-1                14  0
-
--.-.-.-.-.-.-.-.-.-
 arg2-as-manner    0  1
 synchronous           
 0               885  1
 1                14  0
-
--.-.-.-.-.-.-.-.-.-
-arg1-as-excpt    0  1
-synchronous          
-0              886  0
-1               14  0
-
--.-.-.-.-.-.-.-.-.-
-arg2-as-excpt    0  1
-synchronous          
-0              886  0
-1               14  0
-
--.-.-.-.-.-.-.-.-.-
-arg2-as-subst    0  1
-synchronous          
-0              886  0
-1               14  0
-
--.-.-.-.-.-.-.-.-.-
-arg1-as-subst    0  1
-synchronous          
-0              886  0
-1               14  0
 
 -.-.-.-.-.-.-.-.-.-
 succession    0  1
@@ -176,30 +116,6 @@ result        0    1
 precedence          
 0           678  149
 1            56   17
-
--.-.-.-.-.-.-.-.-.-
-arg1-as-cond    0  1
-precedence          
-0             827  0
-1              73  0
-
--.-.-.-.-.-.-.-.-.-
-arg2-as-cond    0  1
-precedence          
-0             827  0
-1              73  0
-
--.-.-.-.-.-.-.-.-.-
-arg1-as-negcond    0  1
-precedence             
-0                827  0
-1                 73  0
-
--.-.-.-.-.-.-.-.-.-
-arg2-as-negcond    0  1
-precedence             
-0                827  0
-1                 73  0
 
 -.-.-.-.-.-.-.-.-.-
 arg1-as-goal    0  1
@@ -274,46 +190,10 @@ precedence
 1                68    5
 
 -.-.-.-.-.-.-.-.-.-
-equivalence    0  1
-precedence         
-0            827  0
-1             73  0
-
--.-.-.-.-.-.-.-.-.-
-arg1-as-manner    0  1
-precedence            
-0               827  0
-1                73  0
-
--.-.-.-.-.-.-.-.-.-
 arg2-as-manner    0  1
 precedence            
 0               826  1
 1                73  0
-
--.-.-.-.-.-.-.-.-.-
-arg1-as-excpt    0  1
-precedence           
-0              827  0
-1               73  0
-
--.-.-.-.-.-.-.-.-.-
-arg2-as-excpt    0  1
-precedence           
-0              827  0
-1               73  0
-
--.-.-.-.-.-.-.-.-.-
-arg2-as-subst    0  1
-precedence           
-0              827  0
-1               73  0
-
--.-.-.-.-.-.-.-.-.-
-arg1-as-subst    0  1
-precedence           
-0              827  0
-1               73  0
 
 -.-.-.-.-.-.-.-.-.-
 reason        0    1
@@ -326,30 +206,6 @@ result        0    1
 succession          
 0           721  165
 1            13    1
-
--.-.-.-.-.-.-.-.-.-
-arg1-as-cond    0  1
-succession          
-0             886  0
-1              14  0
-
--.-.-.-.-.-.-.-.-.-
-arg2-as-cond    0  1
-succession          
-0             886  0
-1              14  0
-
--.-.-.-.-.-.-.-.-.-
-arg1-as-negcond    0  1
-succession             
-0                886  0
-1                 14  0
-
--.-.-.-.-.-.-.-.-.-
-arg2-as-negcond    0  1
-succession             
-0                886  0
-1                 14  0
 
 -.-.-.-.-.-.-.-.-.-
 arg1-as-goal    0  1
@@ -424,76 +280,16 @@ succession
 1                13    1
 
 -.-.-.-.-.-.-.-.-.-
-equivalence    0  1
-succession         
-0            886  0
-1             14  0
-
--.-.-.-.-.-.-.-.-.-
-arg1-as-manner    0  1
-succession            
-0               886  0
-1                14  0
-
--.-.-.-.-.-.-.-.-.-
 arg2-as-manner    0  1
 succession            
 0               885  1
 1                14  0
 
 -.-.-.-.-.-.-.-.-.-
-arg1-as-excpt    0  1
-succession           
-0              886  0
-1               14  0
-
--.-.-.-.-.-.-.-.-.-
-arg2-as-excpt    0  1
-succession           
-0              886  0
-1               14  0
-
--.-.-.-.-.-.-.-.-.-
-arg2-as-subst    0  1
-succession           
-0              886  0
-1               14  0
-
--.-.-.-.-.-.-.-.-.-
-arg1-as-subst    0  1
-succession           
-0              886  0
-1               14  0
-
--.-.-.-.-.-.-.-.-.-
 result    0    1
 reason          
 0       615  164
 1       119    2
-
--.-.-.-.-.-.-.-.-.-
-arg1-as-cond    0  1
-reason              
-0             779  0
-1             121  0
-
--.-.-.-.-.-.-.-.-.-
-arg2-as-cond    0  1
-reason              
-0             779  0
-1             121  0
-
--.-.-.-.-.-.-.-.-.-
-arg1-as-negcond    0  1
-reason                 
-0                779  0
-1                121  0
-
--.-.-.-.-.-.-.-.-.-
-arg2-as-negcond    0  1
-reason                 
-0                779  0
-1                121  0
 
 -.-.-.-.-.-.-.-.-.-
 arg1-as-goal    0  1
@@ -568,70 +364,10 @@ reason
 1                96   25
 
 -.-.-.-.-.-.-.-.-.-
-equivalence    0  1
-reason             
-0            779  0
-1            121  0
-
--.-.-.-.-.-.-.-.-.-
-arg1-as-manner    0  1
-reason                
-0               779  0
-1               121  0
-
--.-.-.-.-.-.-.-.-.-
 arg2-as-manner    0  1
 reason                
 0               778  1
 1               121  0
-
--.-.-.-.-.-.-.-.-.-
-arg1-as-excpt    0  1
-reason               
-0              779  0
-1              121  0
-
--.-.-.-.-.-.-.-.-.-
-arg2-as-excpt    0  1
-reason               
-0              779  0
-1              121  0
-
--.-.-.-.-.-.-.-.-.-
-arg2-as-subst    0  1
-reason               
-0              779  0
-1              121  0
-
--.-.-.-.-.-.-.-.-.-
-arg1-as-subst    0  1
-reason               
-0              779  0
-1              121  0
-
--.-.-.-.-.-.-.-.-.-
-arg1-as-cond    0  1
-result              
-0             734  0
-1             166  0
-
--.-.-.-.-.-.-.-.-.-
-arg2-as-cond    0  1
-result              
-0             734  0
-1             166  0
-
--.-.-.-.-.-.-.-.-.-
-arg1-as-negcond    0  1
-result                 
-0                734  0
-1                166  0
-
--.-.-.-.-.-.-.-.-.-
-arg2-as-negcond    0  1
-result                 
-0                734  0
-1                166  0
 
 -.-.-.-.-.-.-.-.-.-
 arg1-as-goal    0  1
@@ -706,538 +442,10 @@ result
 1               152   14
 
 -.-.-.-.-.-.-.-.-.-
-equivalence    0  1
-result             
-0            734  0
-1            166  0
-
--.-.-.-.-.-.-.-.-.-
-arg1-as-manner    0  1
-result                
-0               734  0
-1               166  0
-
--.-.-.-.-.-.-.-.-.-
 arg2-as-manner    0  1
 result                
 0               733  1
 1               166  0
-
--.-.-.-.-.-.-.-.-.-
-arg1-as-excpt    0  1
-result               
-0              734  0
-1              166  0
-
--.-.-.-.-.-.-.-.-.-
-arg2-as-excpt    0  1
-result               
-0              734  0
-1              166  0
-
--.-.-.-.-.-.-.-.-.-
-arg2-as-subst    0  1
-result               
-0              734  0
-1              166  0
-
--.-.-.-.-.-.-.-.-.-
-arg1-as-subst    0  1
-result               
-0              734  0
-1              166  0
-
--.-.-.-.-.-.-.-.-.-
-arg2-as-cond    0  1
-arg1-as-cond        
-0             900  0
-1               0  0
-
--.-.-.-.-.-.-.-.-.-
-arg1-as-negcond    0  1
-arg1-as-cond           
-0                900  0
-1                  0  0
-
--.-.-.-.-.-.-.-.-.-
-arg2-as-negcond    0  1
-arg1-as-cond           
-0                900  0
-1                  0  0
-
--.-.-.-.-.-.-.-.-.-
-arg1-as-goal    0  1
-arg1-as-cond        
-0             899  1
-1               0  0
-
--.-.-.-.-.-.-.-.-.-
-arg2-as-goal    0  1
-arg1-as-cond        
-0             897  3
-1               0  0
-
--.-.-.-.-.-.-.-.-.-
-arg1-as-denier    0   1
-arg1-as-cond           
-0               890  10
-1                 0   0
-
--.-.-.-.-.-.-.-.-.-
-arg2-as-denier    0  1
-arg1-as-cond          
-0               895  5
-1                 0  0
-
--.-.-.-.-.-.-.-.-.-
-contrast        0   1
-arg1-as-cond         
-0             858  42
-1               0   0
-
--.-.-.-.-.-.-.-.-.-
-similarity      0  1
-arg1-as-cond        
-0             894  6
-1               0  0
-
--.-.-.-.-.-.-.-.-.-
-conjunction     0    1
-arg1-as-cond          
-0             507  393
-1               0    0
-
--.-.-.-.-.-.-.-.-.-
-disjunction     0  1
-arg1-as-cond        
-0             895  5
-1               0  0
-
--.-.-.-.-.-.-.-.-.-
-arg1-as-instance    0   1
-arg1-as-cond             
-0                 890  10
-1                   0   0
-
--.-.-.-.-.-.-.-.-.-
-arg2-as-instance    0   1
-arg1-as-cond             
-0                 845  55
-1                   0   0
-
--.-.-.-.-.-.-.-.-.-
-arg1-as-detail    0   1
-arg1-as-cond           
-0               889  11
-1                 0   0
-
--.-.-.-.-.-.-.-.-.-
-arg2-as-detail    0    1
-arg1-as-cond            
-0               650  250
-1                 0    0
-
--.-.-.-.-.-.-.-.-.-
-equivalence     0  1
-arg1-as-cond        
-0             900  0
-1               0  0
-
--.-.-.-.-.-.-.-.-.-
-arg1-as-manner    0  1
-arg1-as-cond          
-0               900  0
-1                 0  0
-
--.-.-.-.-.-.-.-.-.-
-arg2-as-manner    0  1
-arg1-as-cond          
-0               899  1
-1                 0  0
-
--.-.-.-.-.-.-.-.-.-
-arg1-as-excpt    0  1
-arg1-as-cond         
-0              900  0
-1                0  0
-
--.-.-.-.-.-.-.-.-.-
-arg2-as-excpt    0  1
-arg1-as-cond         
-0              900  0
-1                0  0
-
--.-.-.-.-.-.-.-.-.-
-arg2-as-subst    0  1
-arg1-as-cond         
-0              900  0
-1                0  0
-
--.-.-.-.-.-.-.-.-.-
-arg1-as-subst    0  1
-arg1-as-cond         
-0              900  0
-1                0  0
-
--.-.-.-.-.-.-.-.-.-
-arg1-as-negcond    0  1
-arg2-as-cond           
-0                900  0
-1                  0  0
-
--.-.-.-.-.-.-.-.-.-
-arg2-as-negcond    0  1
-arg2-as-cond           
-0                900  0
-1                  0  0
-
--.-.-.-.-.-.-.-.-.-
-arg1-as-goal    0  1
-arg2-as-cond        
-0             899  1
-1               0  0
-
--.-.-.-.-.-.-.-.-.-
-arg2-as-goal    0  1
-arg2-as-cond        
-0             897  3
-1               0  0
-
--.-.-.-.-.-.-.-.-.-
-arg1-as-denier    0   1
-arg2-as-cond           
-0               890  10
-1                 0   0
-
--.-.-.-.-.-.-.-.-.-
-arg2-as-denier    0  1
-arg2-as-cond          
-0               895  5
-1                 0  0
-
--.-.-.-.-.-.-.-.-.-
-contrast        0   1
-arg2-as-cond         
-0             858  42
-1               0   0
-
--.-.-.-.-.-.-.-.-.-
-similarity      0  1
-arg2-as-cond        
-0             894  6
-1               0  0
-
--.-.-.-.-.-.-.-.-.-
-conjunction     0    1
-arg2-as-cond          
-0             507  393
-1               0    0
-
--.-.-.-.-.-.-.-.-.-
-disjunction     0  1
-arg2-as-cond        
-0             895  5
-1               0  0
-
--.-.-.-.-.-.-.-.-.-
-arg1-as-instance    0   1
-arg2-as-cond             
-0                 890  10
-1                   0   0
-
--.-.-.-.-.-.-.-.-.-
-arg2-as-instance    0   1
-arg2-as-cond             
-0                 845  55
-1                   0   0
-
--.-.-.-.-.-.-.-.-.-
-arg1-as-detail    0   1
-arg2-as-cond           
-0               889  11
-1                 0   0
-
--.-.-.-.-.-.-.-.-.-
-arg2-as-detail    0    1
-arg2-as-cond            
-0               650  250
-1                 0    0
-
--.-.-.-.-.-.-.-.-.-
-equivalence     0  1
-arg2-as-cond        
-0             900  0
-1               0  0
-
--.-.-.-.-.-.-.-.-.-
-arg1-as-manner    0  1
-arg2-as-cond          
-0               900  0
-1                 0  0
-
--.-.-.-.-.-.-.-.-.-
-arg2-as-manner    0  1
-arg2-as-cond          
-0               899  1
-1                 0  0
-
--.-.-.-.-.-.-.-.-.-
-arg1-as-excpt    0  1
-arg2-as-cond         
-0              900  0
-1                0  0
-
--.-.-.-.-.-.-.-.-.-
-arg2-as-excpt    0  1
-arg2-as-cond         
-0              900  0
-1                0  0
-
--.-.-.-.-.-.-.-.-.-
-arg2-as-subst    0  1
-arg2-as-cond         
-0              900  0
-1                0  0
-
--.-.-.-.-.-.-.-.-.-
-arg1-as-subst    0  1
-arg2-as-cond         
-0              900  0
-1                0  0
-
--.-.-.-.-.-.-.-.-.-
-arg2-as-negcond    0  1
-arg1-as-negcond        
-0                900  0
-1                  0  0
-
--.-.-.-.-.-.-.-.-.-
-arg1-as-goal       0  1
-arg1-as-negcond        
-0                899  1
-1                  0  0
-
--.-.-.-.-.-.-.-.-.-
-arg2-as-goal       0  1
-arg1-as-negcond        
-0                897  3
-1                  0  0
-
--.-.-.-.-.-.-.-.-.-
-arg1-as-denier     0   1
-arg1-as-negcond         
-0                890  10
-1                  0   0
-
--.-.-.-.-.-.-.-.-.-
-arg2-as-denier     0  1
-arg1-as-negcond        
-0                895  5
-1                  0  0
-
--.-.-.-.-.-.-.-.-.-
-contrast           0   1
-arg1-as-negcond         
-0                858  42
-1                  0   0
-
--.-.-.-.-.-.-.-.-.-
-similarity         0  1
-arg1-as-negcond        
-0                894  6
-1                  0  0
-
--.-.-.-.-.-.-.-.-.-
-conjunction        0    1
-arg1-as-negcond          
-0                507  393
-1                  0    0
-
--.-.-.-.-.-.-.-.-.-
-disjunction        0  1
-arg1-as-negcond        
-0                895  5
-1                  0  0
-
--.-.-.-.-.-.-.-.-.-
-arg1-as-instance    0   1
-arg1-as-negcond          
-0                 890  10
-1                   0   0
-
--.-.-.-.-.-.-.-.-.-
-arg2-as-instance    0   1
-arg1-as-negcond          
-0                 845  55
-1                   0   0
-
--.-.-.-.-.-.-.-.-.-
-arg1-as-detail     0   1
-arg1-as-negcond         
-0                889  11
-1                  0   0
-
--.-.-.-.-.-.-.-.-.-
-arg2-as-detail     0    1
-arg1-as-negcond          
-0                650  250
-1                  0    0
-
--.-.-.-.-.-.-.-.-.-
-equivalence        0  1
-arg1-as-negcond        
-0                900  0
-1                  0  0
-
--.-.-.-.-.-.-.-.-.-
-arg1-as-manner     0  1
-arg1-as-negcond        
-0                900  0
-1                  0  0
-
--.-.-.-.-.-.-.-.-.-
-arg2-as-manner     0  1
-arg1-as-negcond        
-0                899  1
-1                  0  0
-
--.-.-.-.-.-.-.-.-.-
-arg1-as-excpt      0  1
-arg1-as-negcond        
-0                900  0
-1                  0  0
-
--.-.-.-.-.-.-.-.-.-
-arg2-as-excpt      0  1
-arg1-as-negcond        
-0                900  0
-1                  0  0
-
--.-.-.-.-.-.-.-.-.-
-arg2-as-subst      0  1
-arg1-as-negcond        
-0                900  0
-1                  0  0
-
--.-.-.-.-.-.-.-.-.-
-arg1-as-subst      0  1
-arg1-as-negcond        
-0                900  0
-1                  0  0
-
--.-.-.-.-.-.-.-.-.-
-arg1-as-goal       0  1
-arg2-as-negcond        
-0                899  1
-1                  0  0
-
--.-.-.-.-.-.-.-.-.-
-arg2-as-goal       0  1
-arg2-as-negcond        
-0                897  3
-1                  0  0
-
--.-.-.-.-.-.-.-.-.-
-arg1-as-denier     0   1
-arg2-as-negcond         
-0                890  10
-1                  0   0
-
--.-.-.-.-.-.-.-.-.-
-arg2-as-denier     0  1
-arg2-as-negcond        
-0                895  5
-1                  0  0
-
--.-.-.-.-.-.-.-.-.-
-contrast           0   1
-arg2-as-negcond         
-0                858  42
-1                  0   0
-
--.-.-.-.-.-.-.-.-.-
-similarity         0  1
-arg2-as-negcond        
-0                894  6
-1                  0  0
-
--.-.-.-.-.-.-.-.-.-
-conjunction        0    1
-arg2-as-negcond          
-0                507  393
-1                  0    0
-
--.-.-.-.-.-.-.-.-.-
-disjunction        0  1
-arg2-as-negcond        
-0                895  5
-1                  0  0
-
--.-.-.-.-.-.-.-.-.-
-arg1-as-instance    0   1
-arg2-as-negcond          
-0                 890  10
-1                   0   0
-
--.-.-.-.-.-.-.-.-.-
-arg2-as-instance    0   1
-arg2-as-negcond          
-0                 845  55
-1                   0   0
-
--.-.-.-.-.-.-.-.-.-
-arg1-as-detail     0   1
-arg2-as-negcond         
-0                889  11
-1                  0   0
-
--.-.-.-.-.-.-.-.-.-
-arg2-as-detail     0    1
-arg2-as-negcond          
-0                650  250
-1                  0    0
-
--.-.-.-.-.-.-.-.-.-
-equivalence        0  1
-arg2-as-negcond        
-0                900  0
-1                  0  0
-
--.-.-.-.-.-.-.-.-.-
-arg1-as-manner     0  1
-arg2-as-negcond        
-0                900  0
-1                  0  0
-
--.-.-.-.-.-.-.-.-.-
-arg2-as-manner     0  1
-arg2-as-negcond        
-0                899  1
-1                  0  0
-
--.-.-.-.-.-.-.-.-.-
-arg1-as-excpt      0  1
-arg2-as-negcond        
-0                900  0
-1                  0  0
-
--.-.-.-.-.-.-.-.-.-
-arg2-as-excpt      0  1
-arg2-as-negcond        
-0                900  0
-1                  0  0
-
--.-.-.-.-.-.-.-.-.-
-arg2-as-subst      0  1
-arg2-as-negcond        
-0                900  0
-1                  0  0
-
--.-.-.-.-.-.-.-.-.-
-arg1-as-subst      0  1
-arg2-as-negcond        
-0                900  0
-1                  0  0
 
 -.-.-.-.-.-.-.-.-.-
 arg2-as-goal    0  1
@@ -1306,46 +514,10 @@ arg1-as-goal
 1                 1    0
 
 -.-.-.-.-.-.-.-.-.-
-equivalence     0  1
-arg1-as-goal        
-0             899  0
-1               1  0
-
--.-.-.-.-.-.-.-.-.-
-arg1-as-manner    0  1
-arg1-as-goal          
-0               899  0
-1                 1  0
-
--.-.-.-.-.-.-.-.-.-
 arg2-as-manner    0  1
 arg1-as-goal          
 0               898  1
 1                 1  0
-
--.-.-.-.-.-.-.-.-.-
-arg1-as-excpt    0  1
-arg1-as-goal         
-0              899  0
-1                1  0
-
--.-.-.-.-.-.-.-.-.-
-arg2-as-excpt    0  1
-arg1-as-goal         
-0              899  0
-1                1  0
-
--.-.-.-.-.-.-.-.-.-
-arg2-as-subst    0  1
-arg1-as-goal         
-0              899  0
-1                1  0
-
--.-.-.-.-.-.-.-.-.-
-arg1-as-subst    0  1
-arg1-as-goal         
-0              899  0
-1                1  0
 
 -.-.-.-.-.-.-.-.-.-
 arg1-as-denier    0   1
@@ -1408,46 +580,10 @@ arg2-as-goal
 1                 2    1
 
 -.-.-.-.-.-.-.-.-.-
-equivalence     0  1
-arg2-as-goal        
-0             897  0
-1               3  0
-
--.-.-.-.-.-.-.-.-.-
-arg1-as-manner    0  1
-arg2-as-goal          
-0               897  0
-1                 3  0
-
--.-.-.-.-.-.-.-.-.-
 arg2-as-manner    0  1
 arg2-as-goal          
 0               896  1
 1                 3  0
-
--.-.-.-.-.-.-.-.-.-
-arg1-as-excpt    0  1
-arg2-as-goal         
-0              897  0
-1                3  0
-
--.-.-.-.-.-.-.-.-.-
-arg2-as-excpt    0  1
-arg2-as-goal         
-0              897  0
-1                3  0
-
--.-.-.-.-.-.-.-.-.-
-arg2-as-subst    0  1
-arg2-as-goal         
-0              897  0
-1                3  0
-
--.-.-.-.-.-.-.-.-.-
-arg1-as-subst    0  1
-arg2-as-goal         
-0              897  0
-1                3  0
 
 -.-.-.-.-.-.-.-.-.-
 arg2-as-denier    0  1
@@ -1504,45 +640,9 @@ arg1-as-denier
 1                10    0
 
 -.-.-.-.-.-.-.-.-.-
-equivalence       0  1
-arg1-as-denier        
-0               890  0
-1                10  0
-
--.-.-.-.-.-.-.-.-.-
-arg1-as-manner    0  1
-arg1-as-denier        
-0               890  0
-1                10  0
-
--.-.-.-.-.-.-.-.-.-
 arg2-as-manner    0  1
 arg1-as-denier        
 0               889  1
-1                10  0
-
--.-.-.-.-.-.-.-.-.-
-arg1-as-excpt     0  1
-arg1-as-denier        
-0               890  0
-1                10  0
-
--.-.-.-.-.-.-.-.-.-
-arg2-as-excpt     0  1
-arg1-as-denier        
-0               890  0
-1                10  0
-
--.-.-.-.-.-.-.-.-.-
-arg2-as-subst     0  1
-arg1-as-denier        
-0               890  0
-1                10  0
-
--.-.-.-.-.-.-.-.-.-
-arg1-as-subst     0  1
-arg1-as-denier        
-0               890  0
 1                10  0
 
 -.-.-.-.-.-.-.-.-.-
@@ -1594,45 +694,9 @@ arg2-as-denier
 1                 4    1
 
 -.-.-.-.-.-.-.-.-.-
-equivalence       0  1
-arg2-as-denier        
-0               895  0
-1                 5  0
-
--.-.-.-.-.-.-.-.-.-
-arg1-as-manner    0  1
-arg2-as-denier        
-0               895  0
-1                 5  0
-
--.-.-.-.-.-.-.-.-.-
 arg2-as-manner    0  1
 arg2-as-denier        
 0               894  1
-1                 5  0
-
--.-.-.-.-.-.-.-.-.-
-arg1-as-excpt     0  1
-arg2-as-denier        
-0               895  0
-1                 5  0
-
--.-.-.-.-.-.-.-.-.-
-arg2-as-excpt     0  1
-arg2-as-denier        
-0               895  0
-1                 5  0
-
--.-.-.-.-.-.-.-.-.-
-arg2-as-subst     0  1
-arg2-as-denier        
-0               895  0
-1                 5  0
-
--.-.-.-.-.-.-.-.-.-
-arg1-as-subst     0  1
-arg2-as-denier        
-0               895  0
 1                 5  0
 
 -.-.-.-.-.-.-.-.-.-
@@ -1678,46 +742,10 @@ contrast
 1                41    1
 
 -.-.-.-.-.-.-.-.-.-
-equivalence    0  1
-contrast           
-0            858  0
-1             42  0
-
--.-.-.-.-.-.-.-.-.-
-arg1-as-manner    0  1
-contrast              
-0               858  0
-1                42  0
-
--.-.-.-.-.-.-.-.-.-
 arg2-as-manner    0  1
 contrast              
 0               857  1
 1                42  0
-
--.-.-.-.-.-.-.-.-.-
-arg1-as-excpt    0  1
-contrast             
-0              858  0
-1               42  0
-
--.-.-.-.-.-.-.-.-.-
-arg2-as-excpt    0  1
-contrast             
-0              858  0
-1               42  0
-
--.-.-.-.-.-.-.-.-.-
-arg2-as-subst    0  1
-contrast             
-0              858  0
-1               42  0
-
--.-.-.-.-.-.-.-.-.-
-arg1-as-subst    0  1
-contrast             
-0              858  0
-1               42  0
 
 -.-.-.-.-.-.-.-.-.-
 conjunction    0    1
@@ -1756,46 +784,10 @@ similarity
 1                 5    1
 
 -.-.-.-.-.-.-.-.-.-
-equivalence    0  1
-similarity         
-0            894  0
-1              6  0
-
--.-.-.-.-.-.-.-.-.-
-arg1-as-manner    0  1
-similarity            
-0               894  0
-1                 6  0
-
--.-.-.-.-.-.-.-.-.-
 arg2-as-manner    0  1
 similarity            
 0               893  1
 1                 6  0
-
--.-.-.-.-.-.-.-.-.-
-arg1-as-excpt    0  1
-similarity           
-0              894  0
-1                6  0
-
--.-.-.-.-.-.-.-.-.-
-arg2-as-excpt    0  1
-similarity           
-0              894  0
-1                6  0
-
--.-.-.-.-.-.-.-.-.-
-arg2-as-subst    0  1
-similarity           
-0              894  0
-1                6  0
-
--.-.-.-.-.-.-.-.-.-
-arg1-as-subst    0  1
-similarity           
-0              894  0
-1                6  0
 
 -.-.-.-.-.-.-.-.-.-
 disjunction    0  1
@@ -1828,46 +820,10 @@ conjunction
 1               283  110
 
 -.-.-.-.-.-.-.-.-.-
-equivalence    0  1
-conjunction        
-0            507  0
-1            393  0
-
--.-.-.-.-.-.-.-.-.-
-arg1-as-manner    0  1
-conjunction           
-0               507  0
-1               393  0
-
--.-.-.-.-.-.-.-.-.-
 arg2-as-manner    0  1
 conjunction           
 0               506  1
 1               393  0
-
--.-.-.-.-.-.-.-.-.-
-arg1-as-excpt    0  1
-conjunction          
-0              507  0
-1              393  0
-
--.-.-.-.-.-.-.-.-.-
-arg2-as-excpt    0  1
-conjunction          
-0              507  0
-1              393  0
-
--.-.-.-.-.-.-.-.-.-
-arg2-as-subst    0  1
-conjunction          
-0              507  0
-1              393  0
-
--.-.-.-.-.-.-.-.-.-
-arg1-as-subst    0  1
-conjunction          
-0              507  0
-1              393  0
 
 -.-.-.-.-.-.-.-.-.-
 arg1-as-instance    0   1
@@ -1894,46 +850,10 @@ disjunction
 1                 5    0
 
 -.-.-.-.-.-.-.-.-.-
-equivalence    0  1
-disjunction        
-0            895  0
-1              5  0
-
--.-.-.-.-.-.-.-.-.-
-arg1-as-manner    0  1
-disjunction           
-0               895  0
-1                 5  0
-
--.-.-.-.-.-.-.-.-.-
 arg2-as-manner    0  1
 disjunction           
 0               894  1
 1                 5  0
-
--.-.-.-.-.-.-.-.-.-
-arg1-as-excpt    0  1
-disjunction          
-0              895  0
-1                5  0
-
--.-.-.-.-.-.-.-.-.-
-arg2-as-excpt    0  1
-disjunction          
-0              895  0
-1                5  0
-
--.-.-.-.-.-.-.-.-.-
-arg2-as-subst    0  1
-disjunction          
-0              895  0
-1                5  0
-
--.-.-.-.-.-.-.-.-.-
-arg1-as-subst    0  1
-disjunction          
-0              895  0
-1                5  0
 
 -.-.-.-.-.-.-.-.-.-
 arg2-as-instance    0   1
@@ -1954,45 +874,9 @@ arg1-as-instance
 1                   9    1
 
 -.-.-.-.-.-.-.-.-.-
-equivalence         0  1
-arg1-as-instance        
-0                 890  0
-1                  10  0
-
--.-.-.-.-.-.-.-.-.-
-arg1-as-manner      0  1
-arg1-as-instance        
-0                 890  0
-1                  10  0
-
--.-.-.-.-.-.-.-.-.-
 arg2-as-manner      0  1
 arg1-as-instance        
 0                 889  1
-1                  10  0
-
--.-.-.-.-.-.-.-.-.-
-arg1-as-excpt       0  1
-arg1-as-instance        
-0                 890  0
-1                  10  0
-
--.-.-.-.-.-.-.-.-.-
-arg2-as-excpt       0  1
-arg1-as-instance        
-0                 890  0
-1                  10  0
-
--.-.-.-.-.-.-.-.-.-
-arg2-as-subst       0  1
-arg1-as-instance        
-0                 890  0
-1                  10  0
-
--.-.-.-.-.-.-.-.-.-
-arg1-as-subst       0  1
-arg1-as-instance        
-0                 890  0
 1                  10  0
 
 -.-.-.-.-.-.-.-.-.-
@@ -2008,45 +892,9 @@ arg2-as-instance
 1                  41   14
 
 -.-.-.-.-.-.-.-.-.-
-equivalence         0  1
-arg2-as-instance        
-0                 845  0
-1                  55  0
-
--.-.-.-.-.-.-.-.-.-
-arg1-as-manner      0  1
-arg2-as-instance        
-0                 845  0
-1                  55  0
-
--.-.-.-.-.-.-.-.-.-
 arg2-as-manner      0  1
 arg2-as-instance        
 0                 844  1
-1                  55  0
-
--.-.-.-.-.-.-.-.-.-
-arg1-as-excpt       0  1
-arg2-as-instance        
-0                 845  0
-1                  55  0
-
--.-.-.-.-.-.-.-.-.-
-arg2-as-excpt       0  1
-arg2-as-instance        
-0                 845  0
-1                  55  0
-
--.-.-.-.-.-.-.-.-.-
-arg2-as-subst       0  1
-arg2-as-instance        
-0                 845  0
-1                  55  0
-
--.-.-.-.-.-.-.-.-.-
-arg1-as-subst       0  1
-arg2-as-instance        
-0                 845  0
 1                  55  0
 
 -.-.-.-.-.-.-.-.-.-
@@ -2056,213 +904,15 @@ arg1-as-detail
 1                 9    2
 
 -.-.-.-.-.-.-.-.-.-
-equivalence       0  1
-arg1-as-detail        
-0               889  0
-1                11  0
-
--.-.-.-.-.-.-.-.-.-
-arg1-as-manner    0  1
-arg1-as-detail        
-0               889  0
-1                11  0
-
--.-.-.-.-.-.-.-.-.-
 arg2-as-manner    0  1
 arg1-as-detail        
 0               888  1
 1                11  0
 
 -.-.-.-.-.-.-.-.-.-
-arg1-as-excpt     0  1
-arg1-as-detail        
-0               889  0
-1                11  0
-
--.-.-.-.-.-.-.-.-.-
-arg2-as-excpt     0  1
-arg1-as-detail        
-0               889  0
-1                11  0
-
--.-.-.-.-.-.-.-.-.-
-arg2-as-subst     0  1
-arg1-as-detail        
-0               889  0
-1                11  0
-
--.-.-.-.-.-.-.-.-.-
-arg1-as-subst     0  1
-arg1-as-detail        
-0               889  0
-1                11  0
-
--.-.-.-.-.-.-.-.-.-
-equivalence       0  1
-arg2-as-detail        
-0               650  0
-1               250  0
-
--.-.-.-.-.-.-.-.-.-
-arg1-as-manner    0  1
-arg2-as-detail        
-0               650  0
-1               250  0
-
--.-.-.-.-.-.-.-.-.-
 arg2-as-manner    0  1
 arg2-as-detail        
 0               649  1
 1               250  0
-
--.-.-.-.-.-.-.-.-.-
-arg1-as-excpt     0  1
-arg2-as-detail        
-0               650  0
-1               250  0
-
--.-.-.-.-.-.-.-.-.-
-arg2-as-excpt     0  1
-arg2-as-detail        
-0               650  0
-1               250  0
-
--.-.-.-.-.-.-.-.-.-
-arg2-as-subst     0  1
-arg2-as-detail        
-0               650  0
-1               250  0
-
--.-.-.-.-.-.-.-.-.-
-arg1-as-subst     0  1
-arg2-as-detail        
-0               650  0
-1               250  0
-
--.-.-.-.-.-.-.-.-.-
-arg1-as-manner    0  1
-equivalence           
-0               900  0
-1                 0  0
-
--.-.-.-.-.-.-.-.-.-
-arg2-as-manner    0  1
-equivalence           
-0               899  1
-1                 0  0
-
--.-.-.-.-.-.-.-.-.-
-arg1-as-excpt    0  1
-equivalence          
-0              900  0
-1                0  0
-
--.-.-.-.-.-.-.-.-.-
-arg2-as-excpt    0  1
-equivalence          
-0              900  0
-1                0  0
-
--.-.-.-.-.-.-.-.-.-
-arg2-as-subst    0  1
-equivalence          
-0              900  0
-1                0  0
-
--.-.-.-.-.-.-.-.-.-
-arg1-as-subst    0  1
-equivalence          
-0              900  0
-1                0  0
-
--.-.-.-.-.-.-.-.-.-
-arg2-as-manner    0  1
-arg1-as-manner        
-0               899  1
-1                 0  0
-
--.-.-.-.-.-.-.-.-.-
-arg1-as-excpt     0  1
-arg1-as-manner        
-0               900  0
-1                 0  0
-
--.-.-.-.-.-.-.-.-.-
-arg2-as-excpt     0  1
-arg1-as-manner        
-0               900  0
-1                 0  0
-
--.-.-.-.-.-.-.-.-.-
-arg2-as-subst     0  1
-arg1-as-manner        
-0               900  0
-1                 0  0
-
--.-.-.-.-.-.-.-.-.-
-arg1-as-subst     0  1
-arg1-as-manner        
-0               900  0
-1                 0  0
-
--.-.-.-.-.-.-.-.-.-
-arg1-as-excpt     0  1
-arg2-as-manner        
-0               899  0
-1                 1  0
-
--.-.-.-.-.-.-.-.-.-
-arg2-as-excpt     0  1
-arg2-as-manner        
-0               899  0
-1                 1  0
-
--.-.-.-.-.-.-.-.-.-
-arg2-as-subst     0  1
-arg2-as-manner        
-0               899  0
-1                 1  0
-
--.-.-.-.-.-.-.-.-.-
-arg1-as-subst     0  1
-arg2-as-manner        
-0               899  0
-1                 1  0
-
--.-.-.-.-.-.-.-.-.-
-arg2-as-excpt    0  1
-arg1-as-excpt        
-0              900  0
-1                0  0
-
--.-.-.-.-.-.-.-.-.-
-arg2-as-subst    0  1
-arg1-as-excpt        
-0              900  0
-1                0  0
-
--.-.-.-.-.-.-.-.-.-
-arg1-as-subst    0  1
-arg1-as-excpt        
-0              900  0
-1                0  0
-
--.-.-.-.-.-.-.-.-.-
-arg2-as-subst    0  1
-arg2-as-excpt        
-0              900  0
-1                0  0
-
--.-.-.-.-.-.-.-.-.-
-arg1-as-subst    0  1
-arg2-as-excpt        
-0              900  0
-1                0  0
-
--.-.-.-.-.-.-.-.-.-
-arg1-as-subst    0  1
-arg2-as-subst        
-0              900  0
-1                0  0
 
 -.-.-.-.-.-.-.-.-.-

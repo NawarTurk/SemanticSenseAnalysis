@@ -1,0 +1,13 @@
+,synchronous,asynchronous,cause,purpose,concession,contrast,similarity,conjunction,disjunction,instantiation,level-of-detail,manner
+synchronous,,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+asynchronous,,,-0.5070535611882097,NA,NA,-0.2832523199292974,NA,-0.7355371900826446,NA,NA,-0.8914601004694063,NA
+cause,,,,NA,NA,NA,NA,-0.8286102276382089,NA,NA,-0.7995155948791459,NA
+purpose,,,,,NA,NA,NA,NA,NA,NA,NA,NA
+concession,,,,,,NA,NA,NA,NA,NA,NA,NA
+contrast,,,,,,,NA,-0.7932621199671323,NA,NA,NA,NA
+similarity,,,,,,,,NA,NA,NA,NA,NA
+conjunction,,,,,,,,,0.13362445414847163,-0.5853333333333334,-0.043327556325823226,NA
+disjunction,,,,,,,,,,NA,NA,NA
+instantiation,,,,,,,,,,,-0.5775075987841946,NA
+level-of-detail,,,,,,,,,,,,NA
+manner,,,,,,,,,,,,

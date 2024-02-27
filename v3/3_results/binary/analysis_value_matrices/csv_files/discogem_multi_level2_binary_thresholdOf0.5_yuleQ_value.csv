@@ -1,0 +1,11 @@
+,synchronous,asynchronous,cause,concession,contrast,similarity,conjunction,instantiation,level-of-detail,substitution
+synchronous,,NA,NA,NA,NA,NA,NA,NA,NA,NA
+asynchronous,,,-0.9266118903869143,-0.8110458727118591,NA,NA,-0.8772997680134139,NA,NA,NA
+cause,,,,-0.9324971462458993,NA,NA,-0.9654240599055836,NA,-0.8882232791430125,NA
+concession,,,,,-0.2809765085214187,NA,NA,NA,NA,NA
+contrast,,,,,,NA,NA,NA,NA,NA
+similarity,,,,,,,0.2898259320962831,NA,NA,NA
+conjunction,,,,,,,,-0.8278706520716369,-0.9802689320710976,NA
+instantiation,,,,,,,,,-0.7336915340635117,NA
+level-of-detail,,,,,,,,,,NA
+substitution,,,,,,,,,,

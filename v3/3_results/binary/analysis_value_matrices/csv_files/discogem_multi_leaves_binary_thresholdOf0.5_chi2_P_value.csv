@@ -1,0 +1,14 @@
+,synchronous,precedence,reason,result,arg1-as-denier,arg2-as-denier,contrast,similarity,conjunction,arg2-as-instance,arg1-as-detail,arg2-as-detail,arg2-as-subst
+synchronous,,fisher,fisher,fisher,fisher,fisher,fisher,fisher,fisher,fisher,fisher,fisher,fisher
+precedence,,,0.01195703268800216,4.306805500978178e-12,fisher,fisher,fisher,fisher,5.21476462962416e-10,0.014749254253694817,fisher,1.758509648145639e-06,fisher
+reason,,,,3.552853904392969e-07,fisher,fisher,fisher,fisher,2.252427505451857e-06,fisher,fisher,0.0008118640280899276,fisher
+result,,,,,fisher,0.00017862732168801384,0.0014636916697092388,fisher,8.697568613297376e-41,7.824865737446138e-07,fisher,3.607548497894654e-22,fisher
+arg1-as-denier,,,,,,fisher,fisher,fisher,fisher,fisher,fisher,fisher,fisher
+arg2-as-denier,,,,,,,fisher,fisher,6.357071108321609e-05,fisher,fisher,0.004630346039856647,fisher
+contrast,,,,,,,,fisher,0.003121788690101572,fisher,fisher,fisher,fisher
+similarity,,,,,,,,,fisher,fisher,fisher,fisher,fisher
+conjunction,,,,,,,,,,4.632055725999438e-05,fisher,8.42854963911048e-19,fisher
+arg2-as-instance,,,,,,,,,,,fisher,0.010139539041252152,fisher
+arg1-as-detail,,,,,,,,,,,,fisher,fisher
+arg2-as-detail,,,,,,,,,,,,,fisher
+arg2-as-subst,,,,,,,,,,,,,

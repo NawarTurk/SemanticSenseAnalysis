@@ -1,0 +1,16 @@
+,synchronous,precedence,succession,reason,result,arg1-as-denier,arg2-as-denier,contrast,conjunction,disjunction,arg1-as-instance,arg2-as-instance,arg1-as-detail,arg2-as-detail,arg2-as-manner
+synchronous,,fisher,fisher,fisher,fisher,fisher,fisher,fisher,fisher,fisher,fisher,fisher,fisher,fisher,fisher
+precedence,,,fisher,fisher,fisher,fisher,fisher,fisher,fisher,fisher,fisher,fisher,fisher,fisher,fisher
+succession,,,,fisher,fisher,fisher,fisher,fisher,fisher,fisher,fisher,fisher,fisher,fisher,fisher
+reason,,,,,fisher,fisher,fisher,fisher,0.0007980322590794087,fisher,fisher,fisher,fisher,0.0045863920802535025,fisher
+result,,,,,,fisher,fisher,fisher,0.0026145310758096127,fisher,fisher,fisher,fisher,0.001761701921433807,fisher
+arg1-as-denier,,,,,,,fisher,fisher,fisher,fisher,fisher,fisher,fisher,fisher,fisher
+arg2-as-denier,,,,,,,,fisher,fisher,fisher,fisher,fisher,fisher,fisher,fisher
+contrast,,,,,,,,,fisher,fisher,fisher,fisher,fisher,fisher,fisher
+conjunction,,,,,,,,,,fisher,fisher,fisher,fisher,0.00039655699915473714,fisher
+disjunction,,,,,,,,,,,fisher,fisher,fisher,fisher,fisher
+arg1-as-instance,,,,,,,,,,,,fisher,fisher,fisher,fisher
+arg2-as-instance,,,,,,,,,,,,,fisher,fisher,fisher
+arg1-as-detail,,,,,,,,,,,,,,fisher,fisher
+arg2-as-detail,,,,,,,,,,,,,,,fisher
+arg2-as-manner,,,,,,,,,,,,,,,

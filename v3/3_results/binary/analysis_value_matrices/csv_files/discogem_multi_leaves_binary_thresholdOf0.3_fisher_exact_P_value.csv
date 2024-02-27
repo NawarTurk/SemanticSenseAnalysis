@@ -1,0 +1,17 @@
+,synchronous,precedence,succession,reason,result,arg1-as-goal,arg1-as-denier,arg2-as-denier,contrast,similarity,conjunction,disjunction,arg2-as-instance,arg1-as-detail,arg2-as-detail,arg2-as-subst
+synchronous,,chi2,1.0,0.02091175522752419,chi2,1.0,0.6316408481883613,0.04898194704185695,0.41630193557633455,1.0,chi2,1.0,0.05056483364316047,1.0,chi2,1.0
+precedence,,,0.6180813566043146,chi2,chi2,1.0,chi2,chi2,chi2,chi2,chi2,1.0,chi2,chi2,chi2,1.0
+succession,,,,1.0,0.01219354708563716,1.0,1.0,1.0,1.0,1.0,1.0,1.0,0.5165759365432304,1.0,0.02884692802248216,1.0
+reason,,,,,chi2,1.0,chi2,chi2,chi2,chi2,chi2,1.0,chi2,1.0,chi2,1.0
+result,,,,,,0.3232897770945427,chi2,chi2,chi2,chi2,chi2,1.0,chi2,chi2,chi2,0.5689685855012827
+arg1-as-goal,,,,,,,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0
+arg1-as-denier,,,,,,,,chi2,0.2645852046228383,0.4067255308050024,chi2,1.0,chi2,0.642214800164874,chi2,1.0
+arg2-as-denier,,,,,,,,,chi2,0.02198109540679239,chi2,1.0,chi2,0.5899327664486259,chi2,1.0
+contrast,,,,,,,,,,0.7261478593624549,chi2,1.0,chi2,0.26569305094782086,chi2,0.3191366765354569
+similarity,,,,,,,,,,,chi2,1.0,0.6294122563724207,0.5814126489797122,chi2,1.0
+conjunction,,,,,,,,,,,,0.3546502690238279,chi2,chi2,chi2,0.003398102161059349
+disjunction,,,,,,,,,,,,,1.0,1.0,1.0,1.0
+arg2-as-instance,,,,,,,,,,,,,,0.4391083128158505,chi2,1.0
+arg1-as-detail,,,,,,,,,,,,,,,chi2,1.0
+arg2-as-detail,,,,,,,,,,,,,,,,1.0
+arg2-as-subst,,,,,,,,,,,,,,,,

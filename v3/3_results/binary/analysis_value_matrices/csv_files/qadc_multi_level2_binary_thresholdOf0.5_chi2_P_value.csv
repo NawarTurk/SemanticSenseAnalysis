@@ -1,0 +1,11 @@
+,synchronous,asynchronous,cause,concession,contrast,conjunction,disjunction,instantiation,level-of-detail,manner
+synchronous,,fisher,fisher,fisher,fisher,fisher,fisher,fisher,fisher,fisher
+asynchronous,,,0.0011117562831502096,fisher,fisher,0.0028990629553257135,fisher,fisher,0.0048059533385788,fisher
+cause,,,,fisher,fisher,1.5139494706051564e-07,fisher,fisher,5.3324405898022393e-08,fisher
+concession,,,,,fisher,fisher,fisher,fisher,fisher,fisher
+contrast,,,,,,fisher,fisher,fisher,fisher,fisher
+conjunction,,,,,,,fisher,fisher,3.351823046688051e-05,fisher
+disjunction,,,,,,,,fisher,fisher,fisher
+instantiation,,,,,,,,,fisher,fisher
+level-of-detail,,,,,,,,,,fisher
+manner,,,,,,,,,,

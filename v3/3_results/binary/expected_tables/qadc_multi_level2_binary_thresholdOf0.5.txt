@@ -1,0 +1,270 @@
+asynchronous    0   1
+synchronous          
+0             849  47
+1               2   0
+
+-.-.-.-.-.-.-.-.-.-
+cause          0    1
+synchronous          
+0            741  155
+1              2    0
+
+-.-.-.-.-.-.-.-.-.-
+concession     0  1
+synchronous        
+0            889  7
+1              2  0
+
+-.-.-.-.-.-.-.-.-.-
+contrast       0   1
+synchronous         
+0            886  10
+1              2   0
+
+-.-.-.-.-.-.-.-.-.-
+conjunction    0    1
+synchronous          
+0            763  133
+1              2    0
+
+-.-.-.-.-.-.-.-.-.-
+disjunction    0  1
+synchronous        
+0            896  0
+1              2  0
+
+-.-.-.-.-.-.-.-.-.-
+instantiation    0   1
+synchronous           
+0              885  11
+1                2   0
+
+-.-.-.-.-.-.-.-.-.-
+level-of-detail    0    1
+synchronous              
+0                775  121
+1                  2    0
+
+-.-.-.-.-.-.-.-.-.-
+manner         0  1
+synchronous        
+0            896  0
+1              2  0
+
+-.-.-.-.-.-.-.-.-.-
+cause           0    1
+asynchronous          
+0             704  147
+1              39    8
+
+-.-.-.-.-.-.-.-.-.-
+concession      0  1
+asynchronous        
+0             844  7
+1              47  0
+
+-.-.-.-.-.-.-.-.-.-
+contrast        0   1
+asynchronous         
+0             841  10
+1              47   0
+
+-.-.-.-.-.-.-.-.-.-
+conjunction     0    1
+asynchronous          
+0             725  126
+1              40    7
+
+-.-.-.-.-.-.-.-.-.-
+disjunction     0  1
+asynchronous        
+0             851  0
+1              47  0
+
+-.-.-.-.-.-.-.-.-.-
+instantiation    0   1
+asynchronous          
+0              840  11
+1               47   0
+
+-.-.-.-.-.-.-.-.-.-
+level-of-detail    0    1
+asynchronous             
+0                736  115
+1                 41    6
+
+-.-.-.-.-.-.-.-.-.-
+manner          0  1
+asynchronous        
+0             851  0
+1              47  0
+
+-.-.-.-.-.-.-.-.-.-
+concession    0  1
+cause             
+0           737  6
+1           154  1
+
+-.-.-.-.-.-.-.-.-.-
+contrast    0  1
+cause           
+0         734  9
+1         154  1
+
+-.-.-.-.-.-.-.-.-.-
+conjunction    0    1
+cause                
+0            633  110
+1            132   23
+
+-.-.-.-.-.-.-.-.-.-
+disjunction    0  1
+cause              
+0            743  0
+1            155  0
+
+-.-.-.-.-.-.-.-.-.-
+instantiation    0  1
+cause                
+0              734  9
+1              153  2
+
+-.-.-.-.-.-.-.-.-.-
+level-of-detail    0    1
+cause                    
+0                643  100
+1                134   21
+
+-.-.-.-.-.-.-.-.-.-
+manner    0  1
+cause         
+0       743  0
+1       155  0
+
+-.-.-.-.-.-.-.-.-.-
+contrast      0   1
+concession         
+0           881  10
+1             7   0
+
+-.-.-.-.-.-.-.-.-.-
+conjunction    0    1
+concession           
+0            759  132
+1              6    1
+
+-.-.-.-.-.-.-.-.-.-
+disjunction    0  1
+concession         
+0            891  0
+1              7  0
+
+-.-.-.-.-.-.-.-.-.-
+instantiation    0   1
+concession            
+0              880  11
+1                7   0
+
+-.-.-.-.-.-.-.-.-.-
+level-of-detail    0    1
+concession               
+0                771  120
+1                  6    1
+
+-.-.-.-.-.-.-.-.-.-
+manner        0  1
+concession        
+0           891  0
+1             7  0
+
+-.-.-.-.-.-.-.-.-.-
+conjunction    0    1
+contrast             
+0            756  132
+1              9    1
+
+-.-.-.-.-.-.-.-.-.-
+disjunction    0  1
+contrast           
+0            888  0
+1             10  0
+
+-.-.-.-.-.-.-.-.-.-
+instantiation    0   1
+contrast              
+0              877  11
+1               10   0
+
+-.-.-.-.-.-.-.-.-.-
+level-of-detail    0    1
+contrast                 
+0                768  120
+1                  9    1
+
+-.-.-.-.-.-.-.-.-.-
+manner      0  1
+contrast        
+0         888  0
+1          10  0
+
+-.-.-.-.-.-.-.-.-.-
+disjunction    0  1
+conjunction        
+0            765  0
+1            133  0
+
+-.-.-.-.-.-.-.-.-.-
+instantiation    0   1
+conjunction           
+0              755  10
+1              132   1
+
+-.-.-.-.-.-.-.-.-.-
+level-of-detail    0    1
+conjunction              
+0                662  103
+1                115   18
+
+-.-.-.-.-.-.-.-.-.-
+manner         0  1
+conjunction        
+0            765  0
+1            133  0
+
+-.-.-.-.-.-.-.-.-.-
+instantiation    0   1
+disjunction           
+0              887  11
+1                0   0
+
+-.-.-.-.-.-.-.-.-.-
+level-of-detail    0    1
+disjunction              
+0                777  121
+1                  0    0
+
+-.-.-.-.-.-.-.-.-.-
+manner         0  1
+disjunction        
+0            898  0
+1              0  0
+
+-.-.-.-.-.-.-.-.-.-
+level-of-detail    0    1
+instantiation            
+0                767  120
+1                 10    1
+
+-.-.-.-.-.-.-.-.-.-
+manner           0  1
+instantiation        
+0              887  0
+1               11  0
+
+-.-.-.-.-.-.-.-.-.-
+manner             0  1
+level-of-detail        
+0                777  0
+1                121  0
+
+-.-.-.-.-.-.-.-.-.-

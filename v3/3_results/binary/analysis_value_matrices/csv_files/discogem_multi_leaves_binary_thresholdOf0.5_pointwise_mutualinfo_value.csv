@@ -1,0 +1,14 @@
+,synchronous,precedence,reason,result,arg1-as-denier,arg2-as-denier,contrast,similarity,conjunction,arg2-as-instance,arg1-as-detail,arg2-as-detail,arg2-as-subst
+synchronous,,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+precedence,,,NA,-4.417952378394802,NA,-2.090265014218755,NA,NA,-3.650979968693234,NA,NA,NA,NA
+reason,,,,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+result,,,,,NA,-2.9480664021203387,NA,NA,-5.508781356594818,NA,0.11082728693322992,NA,NA
+arg1-as-denier,,,,,,NA,NA,NA,NA,NA,NA,NA,NA
+arg2-as-denier,,,,,,,NA,NA,NA,NA,NA,NA,NA
+contrast,,,,,,,,NA,NA,NA,NA,NA,NA
+similarity,,,,,,,,,0.7078746951924857,NA,NA,NA,NA
+conjunction,,,,,,,,,,-3.1556233049026523,NA,-6.017018066673145,NA
+arg2-as-instance,,,,,,,,,,,NA,-2.260907423240236,NA
+arg1-as-detail,,,,,,,,,,,,NA,NA
+arg2-as-detail,,,,,,,,,,,,,NA
+arg2-as-subst,,,,,,,,,,,,,

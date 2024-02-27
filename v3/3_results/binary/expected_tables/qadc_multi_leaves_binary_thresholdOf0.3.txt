@@ -1,0 +1,918 @@
+precedence     0   1
+synchronous         
+0            814  71
+1             12   1
+
+-.-.-.-.-.-.-.-.-.-
+succession     0   1
+synchronous         
+0            872  13
+1             13   0
+
+-.-.-.-.-.-.-.-.-.-
+reason         0    1
+synchronous          
+0            766  119
+1             12    1
+
+-.-.-.-.-.-.-.-.-.-
+result         0    1
+synchronous          
+0            722  163
+1             11    2
+
+-.-.-.-.-.-.-.-.-.-
+arg1-as-goal    0  1
+synchronous         
+0             885  0
+1              13  0
+
+-.-.-.-.-.-.-.-.-.-
+arg2-as-goal    0  1
+synchronous         
+0             883  2
+1              13  0
+
+-.-.-.-.-.-.-.-.-.-
+arg1-as-denier    0  1
+synchronous           
+0               876  9
+1                13  0
+
+-.-.-.-.-.-.-.-.-.-
+arg2-as-denier    0  1
+synchronous           
+0               881  4
+1                13  0
+
+-.-.-.-.-.-.-.-.-.-
+contrast       0   1
+synchronous         
+0            844  41
+1             13   0
+
+-.-.-.-.-.-.-.-.-.-
+similarity     0  1
+synchronous        
+0            880  5
+1             13  0
+
+-.-.-.-.-.-.-.-.-.-
+conjunction    0    1
+synchronous          
+0            499  386
+1              7    6
+
+-.-.-.-.-.-.-.-.-.-
+disjunction    0  1
+synchronous        
+0            881  4
+1             13  0
+
+-.-.-.-.-.-.-.-.-.-
+arg1-as-instance    0  1
+synchronous             
+0                 876  9
+1                  13  0
+
+-.-.-.-.-.-.-.-.-.-
+arg2-as-instance    0   1
+synchronous              
+0                 831  54
+1                  13   0
+
+-.-.-.-.-.-.-.-.-.-
+arg1-as-detail    0   1
+synchronous            
+0               875  10
+1                13   0
+
+-.-.-.-.-.-.-.-.-.-
+arg2-as-detail    0    1
+synchronous             
+0               639  246
+1                10    3
+
+-.-.-.-.-.-.-.-.-.-
+arg2-as-manner    0  1
+synchronous           
+0               885  0
+1                13  0
+
+-.-.-.-.-.-.-.-.-.-
+succession    0   1
+precedence         
+0           814  12
+1            71   1
+
+-.-.-.-.-.-.-.-.-.-
+reason        0    1
+precedence          
+0           715  111
+1            63    9
+
+-.-.-.-.-.-.-.-.-.-
+result        0    1
+precedence          
+0           674  152
+1            59   13
+
+-.-.-.-.-.-.-.-.-.-
+arg1-as-goal    0  1
+precedence          
+0             826  0
+1              72  0
+
+-.-.-.-.-.-.-.-.-.-
+arg2-as-goal    0  1
+precedence          
+0             824  2
+1              72  0
+
+-.-.-.-.-.-.-.-.-.-
+arg1-as-denier    0  1
+precedence            
+0               817  9
+1                72  0
+
+-.-.-.-.-.-.-.-.-.-
+arg2-as-denier    0  1
+precedence            
+0               822  4
+1                72  0
+
+-.-.-.-.-.-.-.-.-.-
+contrast      0   1
+precedence         
+0           788  38
+1            69   3
+
+-.-.-.-.-.-.-.-.-.-
+similarity    0  1
+precedence        
+0           821  5
+1            72  0
+
+-.-.-.-.-.-.-.-.-.-
+conjunction    0    1
+precedence           
+0            465  361
+1             41   31
+
+-.-.-.-.-.-.-.-.-.-
+disjunction    0  1
+precedence         
+0            822  4
+1             72  0
+
+-.-.-.-.-.-.-.-.-.-
+arg1-as-instance    0  1
+precedence              
+0                 817  9
+1                  72  0
+
+-.-.-.-.-.-.-.-.-.-
+arg2-as-instance    0   1
+precedence               
+0                 776  50
+1                  68   4
+
+-.-.-.-.-.-.-.-.-.-
+arg1-as-detail    0   1
+precedence             
+0               816  10
+1                72   0
+
+-.-.-.-.-.-.-.-.-.-
+arg2-as-detail    0    1
+precedence              
+0               597  229
+1                52   20
+
+-.-.-.-.-.-.-.-.-.-
+arg2-as-manner    0  1
+precedence            
+0               826  0
+1                72  0
+
+-.-.-.-.-.-.-.-.-.-
+reason        0    1
+succession          
+0           766  119
+1            12    1
+
+-.-.-.-.-.-.-.-.-.-
+result        0    1
+succession          
+0           722  163
+1            11    2
+
+-.-.-.-.-.-.-.-.-.-
+arg1-as-goal    0  1
+succession          
+0             885  0
+1              13  0
+
+-.-.-.-.-.-.-.-.-.-
+arg2-as-goal    0  1
+succession          
+0             883  2
+1              13  0
+
+-.-.-.-.-.-.-.-.-.-
+arg1-as-denier    0  1
+succession            
+0               876  9
+1                13  0
+
+-.-.-.-.-.-.-.-.-.-
+arg2-as-denier    0  1
+succession            
+0               881  4
+1                13  0
+
+-.-.-.-.-.-.-.-.-.-
+contrast      0   1
+succession         
+0           844  41
+1            13   0
+
+-.-.-.-.-.-.-.-.-.-
+similarity    0  1
+succession        
+0           880  5
+1            13  0
+
+-.-.-.-.-.-.-.-.-.-
+conjunction    0    1
+succession           
+0            499  386
+1              7    6
+
+-.-.-.-.-.-.-.-.-.-
+disjunction    0  1
+succession         
+0            881  4
+1             13  0
+
+-.-.-.-.-.-.-.-.-.-
+arg1-as-instance    0  1
+succession              
+0                 876  9
+1                  13  0
+
+-.-.-.-.-.-.-.-.-.-
+arg2-as-instance    0   1
+succession               
+0                 831  54
+1                  13   0
+
+-.-.-.-.-.-.-.-.-.-
+arg1-as-detail    0   1
+succession             
+0               875  10
+1                13   0
+
+-.-.-.-.-.-.-.-.-.-
+arg2-as-detail    0    1
+succession              
+0               639  246
+1                10    3
+
+-.-.-.-.-.-.-.-.-.-
+arg2-as-manner    0  1
+succession            
+0               885  0
+1                13  0
+
+-.-.-.-.-.-.-.-.-.-
+result    0    1
+reason          
+0       635  143
+1        98   22
+
+-.-.-.-.-.-.-.-.-.-
+arg1-as-goal    0  1
+reason              
+0             778  0
+1             120  0
+
+-.-.-.-.-.-.-.-.-.-
+arg2-as-goal    0  1
+reason              
+0             776  2
+1             120  0
+
+-.-.-.-.-.-.-.-.-.-
+arg1-as-denier    0  1
+reason                
+0               770  8
+1               119  1
+
+-.-.-.-.-.-.-.-.-.-
+arg2-as-denier    0  1
+reason                
+0               774  4
+1               120  0
+
+-.-.-.-.-.-.-.-.-.-
+contrast    0   1
+reason           
+0         742  36
+1         115   5
+
+-.-.-.-.-.-.-.-.-.-
+similarity    0  1
+reason            
+0           773  5
+1           120  0
+
+-.-.-.-.-.-.-.-.-.-
+conjunction    0    1
+reason               
+0            438  340
+1             68   52
+
+-.-.-.-.-.-.-.-.-.-
+disjunction    0  1
+reason             
+0            774  4
+1            120  0
+
+-.-.-.-.-.-.-.-.-.-
+arg1-as-instance    0  1
+reason                  
+0                 770  8
+1                 119  1
+
+-.-.-.-.-.-.-.-.-.-
+arg2-as-instance    0   1
+reason                   
+0                 731  47
+1                 113   7
+
+-.-.-.-.-.-.-.-.-.-
+arg1-as-detail    0  1
+reason                
+0               769  9
+1               119  1
+
+-.-.-.-.-.-.-.-.-.-
+arg2-as-detail    0    1
+reason                  
+0               562  216
+1                87   33
+
+-.-.-.-.-.-.-.-.-.-
+arg2-as-manner    0  1
+reason                
+0               778  0
+1               120  0
+
+-.-.-.-.-.-.-.-.-.-
+arg1-as-goal    0  1
+result              
+0             733  0
+1             165  0
+
+-.-.-.-.-.-.-.-.-.-
+arg2-as-goal    0  1
+result              
+0             731  2
+1             165  0
+
+-.-.-.-.-.-.-.-.-.-
+arg1-as-denier    0  1
+result                
+0               725  8
+1               164  1
+
+-.-.-.-.-.-.-.-.-.-
+arg2-as-denier    0  1
+result                
+0               729  4
+1               165  0
+
+-.-.-.-.-.-.-.-.-.-
+contrast    0   1
+result           
+0         699  34
+1         158   7
+
+-.-.-.-.-.-.-.-.-.-
+similarity    0  1
+result            
+0           729  4
+1           164  1
+
+-.-.-.-.-.-.-.-.-.-
+conjunction    0    1
+result               
+0            413  320
+1             93   72
+
+-.-.-.-.-.-.-.-.-.-
+disjunction    0  1
+result             
+0            729  4
+1            165  0
+
+-.-.-.-.-.-.-.-.-.-
+arg1-as-instance    0  1
+result                  
+0                 725  8
+1                 164  1
+
+-.-.-.-.-.-.-.-.-.-
+arg2-as-instance    0   1
+result                   
+0                 689  44
+1                 155  10
+
+-.-.-.-.-.-.-.-.-.-
+arg1-as-detail    0  1
+result                
+0               725  8
+1               163  2
+
+-.-.-.-.-.-.-.-.-.-
+arg2-as-detail    0    1
+result                  
+0               530  203
+1               119   46
+
+-.-.-.-.-.-.-.-.-.-
+arg2-as-manner    0  1
+result                
+0               733  0
+1               165  0
+
+-.-.-.-.-.-.-.-.-.-
+arg2-as-goal    0  1
+arg1-as-goal        
+0             896  2
+1               0  0
+
+-.-.-.-.-.-.-.-.-.-
+arg1-as-denier    0  1
+arg1-as-goal          
+0               889  9
+1                 0  0
+
+-.-.-.-.-.-.-.-.-.-
+arg2-as-denier    0  1
+arg1-as-goal          
+0               894  4
+1                 0  0
+
+-.-.-.-.-.-.-.-.-.-
+contrast        0   1
+arg1-as-goal         
+0             857  41
+1               0   0
+
+-.-.-.-.-.-.-.-.-.-
+similarity      0  1
+arg1-as-goal        
+0             893  5
+1               0  0
+
+-.-.-.-.-.-.-.-.-.-
+conjunction     0    1
+arg1-as-goal          
+0             506  392
+1               0    0
+
+-.-.-.-.-.-.-.-.-.-
+disjunction     0  1
+arg1-as-goal        
+0             894  4
+1               0  0
+
+-.-.-.-.-.-.-.-.-.-
+arg1-as-instance    0  1
+arg1-as-goal            
+0                 889  9
+1                   0  0
+
+-.-.-.-.-.-.-.-.-.-
+arg2-as-instance    0   1
+arg1-as-goal             
+0                 844  54
+1                   0   0
+
+-.-.-.-.-.-.-.-.-.-
+arg1-as-detail    0   1
+arg1-as-goal           
+0               888  10
+1                 0   0
+
+-.-.-.-.-.-.-.-.-.-
+arg2-as-detail    0    1
+arg1-as-goal            
+0               649  249
+1                 0    0
+
+-.-.-.-.-.-.-.-.-.-
+arg2-as-manner    0  1
+arg1-as-goal          
+0               898  0
+1                 0  0
+
+-.-.-.-.-.-.-.-.-.-
+arg1-as-denier    0  1
+arg2-as-goal          
+0               887  9
+1                 2  0
+
+-.-.-.-.-.-.-.-.-.-
+arg2-as-denier    0  1
+arg2-as-goal          
+0               892  4
+1                 2  0
+
+-.-.-.-.-.-.-.-.-.-
+contrast        0   1
+arg2-as-goal         
+0             855  41
+1               2   0
+
+-.-.-.-.-.-.-.-.-.-
+similarity      0  1
+arg2-as-goal        
+0             891  5
+1               2  0
+
+-.-.-.-.-.-.-.-.-.-
+conjunction     0    1
+arg2-as-goal          
+0             505  391
+1               1    1
+
+-.-.-.-.-.-.-.-.-.-
+disjunction     0  1
+arg2-as-goal        
+0             892  4
+1               2  0
+
+-.-.-.-.-.-.-.-.-.-
+arg1-as-instance    0  1
+arg2-as-goal            
+0                 887  9
+1                   2  0
+
+-.-.-.-.-.-.-.-.-.-
+arg2-as-instance    0   1
+arg2-as-goal             
+0                 842  54
+1                   2   0
+
+-.-.-.-.-.-.-.-.-.-
+arg1-as-detail    0   1
+arg2-as-goal           
+0               886  10
+1                 2   0
+
+-.-.-.-.-.-.-.-.-.-
+arg2-as-detail    0    1
+arg2-as-goal            
+0               647  249
+1                 2    0
+
+-.-.-.-.-.-.-.-.-.-
+arg2-as-manner    0  1
+arg2-as-goal          
+0               896  0
+1                 2  0
+
+-.-.-.-.-.-.-.-.-.-
+arg2-as-denier    0  1
+arg1-as-denier        
+0               885  4
+1                 9  0
+
+-.-.-.-.-.-.-.-.-.-
+contrast          0   1
+arg1-as-denier         
+0               848  41
+1                 9   0
+
+-.-.-.-.-.-.-.-.-.-
+similarity        0  1
+arg1-as-denier        
+0               884  5
+1                 9  0
+
+-.-.-.-.-.-.-.-.-.-
+conjunction       0    1
+arg1-as-denier          
+0               501  388
+1                 5    4
+
+-.-.-.-.-.-.-.-.-.-
+disjunction       0  1
+arg1-as-denier        
+0               885  4
+1                 9  0
+
+-.-.-.-.-.-.-.-.-.-
+arg1-as-instance    0  1
+arg1-as-denier          
+0                 880  9
+1                   9  0
+
+-.-.-.-.-.-.-.-.-.-
+arg2-as-instance    0   1
+arg1-as-denier           
+0                 835  54
+1                   9   0
+
+-.-.-.-.-.-.-.-.-.-
+arg1-as-detail    0   1
+arg1-as-denier         
+0               879  10
+1                 9   0
+
+-.-.-.-.-.-.-.-.-.-
+arg2-as-detail    0    1
+arg1-as-denier          
+0               642  247
+1                 7    2
+
+-.-.-.-.-.-.-.-.-.-
+arg2-as-manner    0  1
+arg1-as-denier        
+0               889  0
+1                 9  0
+
+-.-.-.-.-.-.-.-.-.-
+contrast          0   1
+arg2-as-denier         
+0               853  41
+1                 4   0
+
+-.-.-.-.-.-.-.-.-.-
+similarity        0  1
+arg2-as-denier        
+0               889  5
+1                 4  0
+
+-.-.-.-.-.-.-.-.-.-
+conjunction       0    1
+arg2-as-denier          
+0               504  390
+1                 2    2
+
+-.-.-.-.-.-.-.-.-.-
+disjunction       0  1
+arg2-as-denier        
+0               890  4
+1                 4  0
+
+-.-.-.-.-.-.-.-.-.-
+arg1-as-instance    0  1
+arg2-as-denier          
+0                 885  9
+1                   4  0
+
+-.-.-.-.-.-.-.-.-.-
+arg2-as-instance    0   1
+arg2-as-denier           
+0                 840  54
+1                   4   0
+
+-.-.-.-.-.-.-.-.-.-
+arg1-as-detail    0   1
+arg2-as-denier         
+0               884  10
+1                 4   0
+
+-.-.-.-.-.-.-.-.-.-
+arg2-as-detail    0    1
+arg2-as-denier          
+0               646  248
+1                 3    1
+
+-.-.-.-.-.-.-.-.-.-
+arg2-as-manner    0  1
+arg2-as-denier        
+0               894  0
+1                 4  0
+
+-.-.-.-.-.-.-.-.-.-
+similarity    0  1
+contrast          
+0           852  5
+1            41  0
+
+-.-.-.-.-.-.-.-.-.-
+conjunction    0    1
+contrast             
+0            483  374
+1             23   18
+
+-.-.-.-.-.-.-.-.-.-
+disjunction    0  1
+contrast           
+0            853  4
+1             41  0
+
+-.-.-.-.-.-.-.-.-.-
+arg1-as-instance    0  1
+contrast                
+0                 848  9
+1                  41  0
+
+-.-.-.-.-.-.-.-.-.-
+arg2-as-instance    0   1
+contrast                 
+0                 805  52
+1                  39   2
+
+-.-.-.-.-.-.-.-.-.-
+arg1-as-detail    0   1
+contrast               
+0               847  10
+1                41   0
+
+-.-.-.-.-.-.-.-.-.-
+arg2-as-detail    0    1
+contrast                
+0               619  238
+1                30   11
+
+-.-.-.-.-.-.-.-.-.-
+arg2-as-manner    0  1
+contrast              
+0               857  0
+1                41  0
+
+-.-.-.-.-.-.-.-.-.-
+conjunction    0    1
+similarity           
+0            503  390
+1              3    2
+
+-.-.-.-.-.-.-.-.-.-
+disjunction    0  1
+similarity         
+0            889  4
+1              5  0
+
+-.-.-.-.-.-.-.-.-.-
+arg1-as-instance    0  1
+similarity              
+0                 884  9
+1                   5  0
+
+-.-.-.-.-.-.-.-.-.-
+arg2-as-instance    0   1
+similarity               
+0                 839  54
+1                   5   0
+
+-.-.-.-.-.-.-.-.-.-
+arg1-as-detail    0   1
+similarity             
+0               883  10
+1                 5   0
+
+-.-.-.-.-.-.-.-.-.-
+arg2-as-detail    0    1
+similarity              
+0               645  248
+1                 4    1
+
+-.-.-.-.-.-.-.-.-.-
+arg2-as-manner    0  1
+similarity            
+0               893  0
+1                 5  0
+
+-.-.-.-.-.-.-.-.-.-
+disjunction    0  1
+conjunction        
+0            504  2
+1            390  2
+
+-.-.-.-.-.-.-.-.-.-
+arg1-as-instance    0  1
+conjunction             
+0                 501  5
+1                 388  4
+
+-.-.-.-.-.-.-.-.-.-
+arg2-as-instance    0   1
+conjunction              
+0                 476  30
+1                 368  24
+
+-.-.-.-.-.-.-.-.-.-
+arg1-as-detail    0  1
+conjunction           
+0               500  6
+1               388  4
+
+-.-.-.-.-.-.-.-.-.-
+arg2-as-detail    0    1
+conjunction             
+0               366  140
+1               283  109
+
+-.-.-.-.-.-.-.-.-.-
+arg2-as-manner    0  1
+conjunction           
+0               506  0
+1               392  0
+
+-.-.-.-.-.-.-.-.-.-
+arg1-as-instance    0  1
+disjunction             
+0                 885  9
+1                   4  0
+
+-.-.-.-.-.-.-.-.-.-
+arg2-as-instance    0   1
+disjunction              
+0                 840  54
+1                   4   0
+
+-.-.-.-.-.-.-.-.-.-
+arg1-as-detail    0   1
+disjunction            
+0               884  10
+1                 4   0
+
+-.-.-.-.-.-.-.-.-.-
+arg2-as-detail    0    1
+disjunction             
+0               646  248
+1                 3    1
+
+-.-.-.-.-.-.-.-.-.-
+arg2-as-manner    0  1
+disjunction           
+0               894  0
+1                 4  0
+
+-.-.-.-.-.-.-.-.-.-
+arg2-as-instance    0   1
+arg1-as-instance         
+0                 835  54
+1                   9   0
+
+-.-.-.-.-.-.-.-.-.-
+arg1-as-detail      0   1
+arg1-as-instance         
+0                 879  10
+1                   9   0
+
+-.-.-.-.-.-.-.-.-.-
+arg2-as-detail      0    1
+arg1-as-instance          
+0                 642  247
+1                   7    2
+
+-.-.-.-.-.-.-.-.-.-
+arg2-as-manner      0  1
+arg1-as-instance        
+0                 889  0
+1                   9  0
+
+-.-.-.-.-.-.-.-.-.-
+arg1-as-detail      0   1
+arg2-as-instance         
+0                 834  10
+1                  54   0
+
+-.-.-.-.-.-.-.-.-.-
+arg2-as-detail      0    1
+arg2-as-instance          
+0                 610  234
+1                  39   15
+
+-.-.-.-.-.-.-.-.-.-
+arg2-as-manner      0  1
+arg2-as-instance        
+0                 844  0
+1                  54  0
+
+-.-.-.-.-.-.-.-.-.-
+arg2-as-detail    0    1
+arg1-as-detail          
+0               642  246
+1                 7    3
+
+-.-.-.-.-.-.-.-.-.-
+arg2-as-manner    0  1
+arg1-as-detail        
+0               888  0
+1                10  0
+
+-.-.-.-.-.-.-.-.-.-
+arg2-as-manner    0  1
+arg2-as-detail        
+0               649  0
+1               249  0
+
+-.-.-.-.-.-.-.-.-.-

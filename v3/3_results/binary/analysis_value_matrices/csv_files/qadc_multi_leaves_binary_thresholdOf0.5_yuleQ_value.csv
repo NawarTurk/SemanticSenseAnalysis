@@ -1,0 +1,16 @@
+,synchronous,precedence,succession,reason,result,arg1-as-denier,arg2-as-denier,contrast,conjunction,disjunction,arg1-as-instance,arg2-as-instance,arg1-as-detail,arg2-as-detail,arg2-as-manner
+synchronous,,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+precedence,,,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+succession,,,,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+reason,,,,,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+result,,,,,,NA,NA,NA,-0.7381489841986456,NA,NA,NA,NA,NA,NA
+arg1-as-denier,,,,,,,NA,NA,NA,NA,NA,NA,NA,NA,NA
+arg2-as-denier,,,,,,,,NA,NA,NA,NA,NA,NA,NA,NA
+contrast,,,,,,,,,NA,NA,NA,NA,NA,NA,NA
+conjunction,,,,,,,,,,NA,NA,NA,NA,-0.7271985863803181,NA
+disjunction,,,,,,,,,,,NA,NA,NA,NA,NA
+arg1-as-instance,,,,,,,,,,,,NA,NA,NA,NA
+arg2-as-instance,,,,,,,,,,,,,NA,NA,NA
+arg1-as-detail,,,,,,,,,,,,,,NA,NA
+arg2-as-detail,,,,,,,,,,,,,,,NA
+arg2-as-manner,,,,,,,,,,,,,,,

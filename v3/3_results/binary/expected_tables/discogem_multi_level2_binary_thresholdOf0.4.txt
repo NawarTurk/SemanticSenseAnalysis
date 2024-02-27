@@ -1,0 +1,330 @@
+asynchronous     0    1
+synchronous            
+0             6075  410
+1               17    1
+
+-.-.-.-.-.-.-.-.-.-
+cause           0     1
+synchronous            
+0            4465  2020
+1              13     5
+
+-.-.-.-.-.-.-.-.-.-
+concession      0    1
+synchronous           
+0            6121  364
+1              17    1
+
+-.-.-.-.-.-.-.-.-.-
+contrast        0   1
+synchronous          
+0            6396  89
+1              18   0
+
+-.-.-.-.-.-.-.-.-.-
+similarity      0   1
+synchronous          
+0            6462  23
+1              18   0
+
+-.-.-.-.-.-.-.-.-.-
+conjunction     0     1
+synchronous            
+0            5038  1447
+1              14     4
+
+-.-.-.-.-.-.-.-.-.-
+disjunction     0  1
+synchronous         
+0            6485  0
+1              18  0
+
+-.-.-.-.-.-.-.-.-.-
+instantiation     0    1
+synchronous             
+0              6256  229
+1                18    0
+
+-.-.-.-.-.-.-.-.-.-
+level-of-detail     0     1
+synchronous                
+0                5471  1014
+1                  16     2
+
+-.-.-.-.-.-.-.-.-.-
+substitution     0  1
+synchronous          
+0             6479  6
+1               18  0
+
+-.-.-.-.-.-.-.-.-.-
+cause            0     1
+asynchronous            
+0             4195  1897
+1              283   128
+
+-.-.-.-.-.-.-.-.-.-
+concession       0    1
+asynchronous           
+0             5750  342
+1              388   23
+
+-.-.-.-.-.-.-.-.-.-
+contrast         0   1
+asynchronous          
+0             6008  84
+1              406   5
+
+-.-.-.-.-.-.-.-.-.-
+similarity       0   1
+asynchronous          
+0             6070  22
+1              410   1
+
+-.-.-.-.-.-.-.-.-.-
+conjunction      0     1
+asynchronous            
+0             4732  1360
+1              320    91
+
+-.-.-.-.-.-.-.-.-.-
+disjunction      0  1
+asynchronous         
+0             6092  0
+1              411  0
+
+-.-.-.-.-.-.-.-.-.-
+instantiation     0    1
+asynchronous            
+0              5877  215
+1               397   14
+
+-.-.-.-.-.-.-.-.-.-
+level-of-detail     0    1
+asynchronous              
+0                5140  952
+1                 347   64
+
+-.-.-.-.-.-.-.-.-.-
+substitution     0  1
+asynchronous         
+0             6086  6
+1              411  0
+
+-.-.-.-.-.-.-.-.-.-
+concession     0    1
+cause                
+0           4226  252
+1           1912  113
+
+-.-.-.-.-.-.-.-.-.-
+contrast     0   1
+cause             
+0         4417  61
+1         1997  28
+
+-.-.-.-.-.-.-.-.-.-
+similarity     0   1
+cause               
+0           4462  16
+1           2018   7
+
+-.-.-.-.-.-.-.-.-.-
+conjunction     0    1
+cause                 
+0            3479  999
+1            1573  452
+
+-.-.-.-.-.-.-.-.-.-
+disjunction     0  1
+cause               
+0            4478  0
+1            2025  0
+
+-.-.-.-.-.-.-.-.-.-
+instantiation     0    1
+cause                   
+0              4320  158
+1              1954   71
+
+-.-.-.-.-.-.-.-.-.-
+level-of-detail     0    1
+cause                     
+0                3778  700
+1                1709  316
+
+-.-.-.-.-.-.-.-.-.-
+substitution     0  1
+cause                
+0             4474  4
+1             2023  2
+
+-.-.-.-.-.-.-.-.-.-
+contrast       0   1
+concession          
+0           6054  84
+1            360   5
+
+-.-.-.-.-.-.-.-.-.-
+similarity     0   1
+concession          
+0           6116  22
+1            364   1
+
+-.-.-.-.-.-.-.-.-.-
+conjunction     0     1
+concession             
+0            4768  1370
+1             284    81
+
+-.-.-.-.-.-.-.-.-.-
+disjunction     0  1
+concession          
+0            6138  0
+1             365  0
+
+-.-.-.-.-.-.-.-.-.-
+instantiation     0    1
+concession              
+0              5921  217
+1               353   12
+
+-.-.-.-.-.-.-.-.-.-
+level-of-detail     0    1
+concession                
+0                5179  959
+1                 308   57
+
+-.-.-.-.-.-.-.-.-.-
+substitution     0  1
+concession           
+0             6132  6
+1              365  0
+
+-.-.-.-.-.-.-.-.-.-
+similarity     0   1
+contrast            
+0           6391  23
+1             89   0
+
+-.-.-.-.-.-.-.-.-.-
+conjunction     0     1
+contrast               
+0            4983  1431
+1              69    20
+
+-.-.-.-.-.-.-.-.-.-
+disjunction     0  1
+contrast            
+0            6414  0
+1              89  0
+
+-.-.-.-.-.-.-.-.-.-
+instantiation     0    1
+contrast                
+0              6188  226
+1                86    3
+
+-.-.-.-.-.-.-.-.-.-
+level-of-detail     0     1
+contrast                   
+0                5412  1002
+1                  75    14
+
+-.-.-.-.-.-.-.-.-.-
+substitution     0  1
+contrast             
+0             6408  6
+1               89  0
+
+-.-.-.-.-.-.-.-.-.-
+conjunction     0     1
+similarity             
+0            5034  1446
+1              18     5
+
+-.-.-.-.-.-.-.-.-.-
+disjunction     0  1
+similarity          
+0            6480  0
+1              23  0
+
+-.-.-.-.-.-.-.-.-.-
+instantiation     0    1
+similarity              
+0              6251  229
+1                23    0
+
+-.-.-.-.-.-.-.-.-.-
+level-of-detail     0     1
+similarity                 
+0                5467  1013
+1                  20     3
+
+-.-.-.-.-.-.-.-.-.-
+substitution     0  1
+similarity           
+0             6474  6
+1               23  0
+
+-.-.-.-.-.-.-.-.-.-
+disjunction     0  1
+conjunction         
+0            5052  0
+1            1451  0
+
+-.-.-.-.-.-.-.-.-.-
+instantiation     0    1
+conjunction             
+0              4874  178
+1              1400   51
+
+-.-.-.-.-.-.-.-.-.-
+level-of-detail     0    1
+conjunction               
+0                4263  789
+1                1224  227
+
+-.-.-.-.-.-.-.-.-.-
+substitution     0  1
+conjunction          
+0             5047  5
+1             1450  1
+
+-.-.-.-.-.-.-.-.-.-
+instantiation     0    1
+disjunction             
+0              6274  229
+1                 0    0
+
+-.-.-.-.-.-.-.-.-.-
+level-of-detail     0     1
+disjunction                
+0                5487  1016
+1                   0     0
+
+-.-.-.-.-.-.-.-.-.-
+substitution     0  1
+disjunction          
+0             6497  6
+1                0  0
+
+-.-.-.-.-.-.-.-.-.-
+level-of-detail     0    1
+instantiation             
+0                5293  981
+1                 194   35
+
+-.-.-.-.-.-.-.-.-.-
+substitution      0  1
+instantiation         
+0              6268  6
+1               229  0
+
+-.-.-.-.-.-.-.-.-.-
+substitution        0  1
+level-of-detail         
+0                5482  5
+1                1015  1
+
+-.-.-.-.-.-.-.-.-.-

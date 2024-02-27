@@ -1,0 +1,14 @@
+,synchronous,asynchronous,cause,condition,purpose,concession,contrast,similarity,conjunction,disjunction,instantiation,level-of-detail,manner
+synchronous,,1.0,0.04296664130598717,1.0,1.0,1.0,1.0,1.0,chi2,1.0,0.6178235008118991,0.006964351636147359,1.0
+asynchronous,,,chi2,1.0,1.0,0.15386734517430062,0.6117997884280562,1.0,chi2,1.0,chi2,chi2,1.0
+cause,,,,1.0,1.0,chi2,chi2,0.6704865655961667,chi2,0.6639150726023582,chi2,chi2,1.0
+condition,,,,,1.0,1.0,1.0,1.0,0.43666666666666665,1.0,1.0,1.0,1.0
+purpose,,,,,,1.0,1.0,1.0,0.13623187687713728,1.0,1.0,1.0,1.0
+concession,,,,,,,0.00017118824665996127,1.0,chi2,1.0,1.0,chi2,1.0
+contrast,,,,,,,,0.24991088158852057,chi2,0.21297800588713472,0.06969267360799011,chi2,1.0
+similarity,,,,,,,,,1.0,1.0,1.0,1.0,1.0
+conjunction,,,,,,,,,,1.0,chi2,chi2,1.0
+disjunction,,,,,,,,,,,1.0,0.1825259591328937,1.0
+instantiation,,,,,,,,,,,,chi2,1.0
+level-of-detail,,,,,,,,,,,,,1.0
+manner,,,,,,,,,,,,,

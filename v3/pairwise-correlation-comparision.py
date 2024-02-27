@@ -135,8 +135,11 @@ def get_chi2_or_fisher_p_value_and_OR(contingency_table):
 
     try:
         stat, chi2_p, dof, expected_table = chi2_contingency(contingency_table, correction= False)
-        save_expected_table(expected_table)
-        if (expected < 5).any():
+        expected_df = pd.DataFrame(expected_table, 
+                            index=contingency_table.index, 
+                            columns=contingency_table.columns).astype(int)
+        save_expected_table(expected_df)
+        if (expected_table < 5).any():
             _, fisher_exact_p = scipy.stats.fisher_exact(contingency_table)
             if (fisher_exact_p < report_critical_p_value and (one_zero * zero_one) > 0):
                 OR_value = (one_one * zero_zero) / (one_zero * zero_one)

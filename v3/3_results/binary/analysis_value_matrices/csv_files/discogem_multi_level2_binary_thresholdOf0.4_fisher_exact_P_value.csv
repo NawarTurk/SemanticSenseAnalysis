@@ -1,0 +1,12 @@
+,synchronous,asynchronous,cause,concession,contrast,similarity,conjunction,disjunction,instantiation,level-of-detail,substitution
+synchronous,,0.11511751444509306,chi2,0.6225263387208139,1.0,1.0,0.7820338192606575,1.0,1.0,0.05945639101669613,1.0
+asynchronous,,,chi2,chi2,chi2,0.39917678355182784,chi2,1.0,chi2,chi2,1.0
+cause,,,,chi2,chi2,chi2,chi2,1.0,chi2,chi2,0.44680924310771425
+concession,,,,,chi2,0.6431123471280844,chi2,1.0,chi2,chi2,1.0
+contrast,,,,,,1.0,chi2,1.0,0.07768682295415547,chi2,1.0
+similarity,,,,,,,chi2,1.0,1.0,0.02440439885106259,1.0
+conjunction,,,,,,,,1.0,chi2,chi2,0.3605643372097166
+disjunction,,,,,,,,,1.0,1.0,1.0
+instantiation,,,,,,,,,,chi2,1.0
+level-of-detail,,,,,,,,,,,1.0
+substitution,,,,,,,,,,,

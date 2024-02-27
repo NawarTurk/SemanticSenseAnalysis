@@ -1,0 +1,11 @@
+,synchronous,asynchronous,cause,concession,contrast,conjunction,disjunction,instantiation,level-of-detail,manner
+synchronous,,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0
+asynchronous,,,chi2,1.0,1.0,chi2,1.0,1.0,chi2,1.0
+cause,,,,0.36340505559796066,0.22763857281911304,chi2,1.0,0.238686117790396,chi2,1.0
+concession,,,,,1.0,0.6132190252865537,1.0,1.0,0.6072098317620123,1.0
+contrast,,,,,,0.3848998760380431,1.0,1.0,0.3771799605905688,1.0
+conjunction,,,,,,,1.0,0.23145228388378322,chi2,1.0
+disjunction,,,,,,,,1.0,1.0,1.0
+instantiation,,,,,,,,,0.38682183426347644,1.0
+level-of-detail,,,,,,,,,,1.0
+manner,,,,,,,,,,

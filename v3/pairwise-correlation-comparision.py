@@ -8,25 +8,12 @@ import os
 from scipy.stats import chi2_contingency
 from scipy.stats import fisher_exact
 
-
-# Hyper=parameters
-thresholds = [0.3, 0.4, 0.5]  # for binary transfomation  if > threshold -> 1 else 0
-report_critical_p_value = 0.05  # literature
-report_critical_upper_yule_q = 0.8  # literature
-report_critical_lower_yule_q = -0.8  # literature
-report_critical_upper_proposed_indicator = 0.8  # arbitrary
-report_critical_lower_proposed_indicator = 0.2  # arbitrary
-report_critical_conditional_probability = 0.7  # often considered high
-report_critical_OR_value = 1  # > 1 means positive association, negative association otherwise
-report_critical_upper_pointwise_mutual_info = 1 # values close to zero?
-report_critical_lower_pointwise_mutual_info = -1 # values close to zero?
-
-
-
 # Dataframe dictionaries
 dfs_ready_to_transform = {}
-dfs_ready_to_process_binary = {}
-dfs_ready_to_process_continuous = {}
+dfs_ready_to_process = {}
+dfs_ready_to_process_continuous = {}  # not active currently 
+
+global_sheet_df = pd.DataFrame()
 
 # Value matrices dictionaries     
 chi2_p_value_matrices = {}
@@ -82,7 +69,6 @@ def transform_to_binary(df_ready_to_transform, threshold):
 def remove_all_zeros_columns(df_transformed_to_binary):
     all_zero_columns = df_transformed_to_binary.columns[(df_transformed_to_binary == '¬V').all()]
     df_binary_cleaned = df_transformed_to_binary.drop(all_zero_columns, axis=1)
-    print(df_binary_cleaned)
     return df_binary_cleaned
 
 def get_contingency_matrix(s1, s2, s1_name, s2_name, df_name, isSkip):
@@ -110,7 +96,6 @@ def get_contingency_matrix(s1, s2, s1_name, s2_name, df_name, isSkip):
     if (not isSkip):
         with open(f'./{result_folder}/{binary_folder}/{contingency_table_folder}/{df_name}.txt', 'a') as file:
             file.write(contingency_table_str + '\n\n' + '-.-.-.-.-.-.-.-.-.-\n')
-    print()
     return contingency_table
 
 def get_chi2_or_fisher_p_value_and_OR(contingency_table):
@@ -127,10 +112,10 @@ def get_chi2_or_fisher_p_value_and_OR(contingency_table):
     Returns:
     - tuple: A tuple containing the p-value and a string indicating which test was used 
     """
-    one_one = contingency_table.loc['V','V']
-    one_zero = contingency_table.loc['V','¬V']
-    zero_one = contingency_table.loc['¬V','V']
-    zero_zero = contingency_table.loc['¬V','¬V']
+    vote_vote = contingency_table.loc['V','V']
+    vote_noVote = contingency_table.loc['V','¬V']
+    noVote_vote = contingency_table.loc['¬V','V']
+    noVote_noVote = contingency_table.loc['¬V','¬V']
 
     OR_value = not_applicable
 
@@ -142,15 +127,15 @@ def get_chi2_or_fisher_p_value_and_OR(contingency_table):
         save_expected_table(expected_df)
         if (expected_table < 5).any():
             _, fisher_exact_p = scipy.stats.fisher_exact(contingency_table)
-            if (fisher_exact_p < report_critical_p_value and (one_zero * zero_one) > 0):
-                OR_value = (one_one * zero_zero) / (one_zero * zero_one)
+            if (fisher_exact_p < report_critical_p_value and (vote_noVote * noVote_vote) > 0):
+                OR_value = (vote_vote * noVote_noVote) / (vote_noVote * noVote_vote)
             return (fisher_exact_p, fisher_exact_test, OR_value)
-        if (chi2_p < report_critical_p_value and (one_zero * zero_one) > 0):
-            OR_value = (one_one * zero_zero) / (one_zero * zero_one)
+        if (chi2_p < report_critical_p_value and (vote_noVote * noVote_vote) > 0):
+            OR_value = (vote_vote * noVote_noVote) / (vote_noVote * noVote_vote)
     except ValueError as e:
         _, fisher_exact_p = scipy.stats.fisher_exact(contingency_table)
-        if (fisher_exact_p < report_critical_p_value and (one_zero * zero_one) > 0):
-            OR_value = (one_one * zero_zero) / (one_zero * zero_one)
+        if (fisher_exact_p < report_critical_p_value and (vote_noVote * noVote_vote) > 0):
+            OR_value = (vote_vote * noVote_noVote) / (vote_noVote * noVote_vote)
         return (fisher_exact_p, fisher_exact_test, OR_value)
     return (chi2_p, chi2_squared_test, OR_value)
 
@@ -172,31 +157,30 @@ def get_yuleQ_value(contingency_table, isSkip):
     Returns:
     - float or str: Yule's Q coefficient if calculable, otherwise 'NA' if skipped or if the table contains zero values.
     """
-    one_one = contingency_table.loc['V','V']
-    one_zero = contingency_table.loc['V','¬V']
-    zero_one = contingency_table.loc['¬V','V']
-    zero_zero = contingency_table.loc['¬V','¬V']
+    vote_vote = contingency_table.loc['V','V']
+    vote_noVote = contingency_table.loc['V','¬V']
+    noVote_vote = contingency_table.loc['¬V','V']
+    noVote_noVote = contingency_table.loc['¬V','¬V']
 
     if (isSkip):
         # we set isSkip to true when we are comparing the same sense (i=j)
         return not_applicable
-    if (one_one*one_zero*zero_one*zero_zero == 0):  
+    if (vote_vote*vote_noVote*noVote_vote*noVote_noVote == 0):  
         # none of the contingency table cells can be zero
         return not_applicable
-    numerator = (one_one * zero_zero) - (one_zero * zero_one)
-    denominator = (one_one * zero_zero) + (one_zero * zero_one)
+    numerator = (vote_vote * noVote_noVote) - (vote_noVote * noVote_vote)
+    denominator = (vote_vote * noVote_noVote) + (vote_noVote * noVote_vote)
     yules_q = numerator / denominator
 
     return yules_q
 
 def get_proposed_method_value(contingency_table):
-    one_one = contingency_table.loc['V','V']
-    one_zero = contingency_table.loc['V','¬V']
-    zero_one = contingency_table.loc['¬V','V']
-    zero_zero = contingency_table.loc['¬V','¬V']
+    vote_vote = contingency_table.loc['V','V']
+    vote_noVote = contingency_table.loc['V','¬V']
+    noVote_vote = contingency_table.loc['¬V','V']
 
-    numerator = one_one
-    denominator = one_one + one_zero + zero_one
+    numerator = vote_vote
+    denominator = vote_vote + vote_noVote + noVote_vote
 
     if denominator == 0:
         return not_applicable  
@@ -205,18 +189,17 @@ def get_proposed_method_value(contingency_table):
     return proposed_method_value
 
 def get_conditional_probability_value(contingency_table):
-    one_one = contingency_table.loc['V','V']
-    one_zero = contingency_table.loc['V','¬V']
-    zero_one = contingency_table.loc['¬V','V']
-    zero_zero = contingency_table.loc['¬V','¬V']
+    vote_vote = contingency_table.loc['V','V']
+    vote_noVote = contingency_table.loc['V','¬V']
+    noVote_vote = contingency_table.loc['¬V','V']
 
     s1_given_s2_probability = None
     s2_given_s1_probability = None
     
-    if (one_one + zero_one) > 0:
-        s1_given_s2_probability = one_one / (one_one + zero_one)
-    if (one_one + one_zero) > 0:
-        s2_given_s1_probability = one_one / (one_one + one_zero)
+    if (vote_vote + noVote_vote) > 0:
+        s1_given_s2_probability = vote_vote / (vote_vote + noVote_vote)
+    if (vote_vote + vote_noVote) > 0:
+        s2_given_s1_probability = vote_vote / (vote_vote + vote_noVote)
     
     if s1_given_s2_probability is not None and s2_given_s1_probability is not None:
         return (s1_given_s2_probability + s2_given_s1_probability) / 2
@@ -228,20 +211,18 @@ def get_conditional_probability_value(contingency_table):
         return not_applicable
     
 def get_pointwise_mutual_info_value(contingency_table):
-    one_one = contingency_table.loc['V','V']
-    one_zero = contingency_table.loc['V','¬V']
-    zero_one = contingency_table.loc['¬V','V']
-    zero_zero = contingency_table.loc['¬V','¬V']
+    vote_vote = contingency_table.loc['V','V']
+    vote_noVote = contingency_table.loc['V','¬V']
+    noVote_vote = contingency_table.loc['¬V','V']
+    noVote_noVote = contingency_table.loc['¬V','¬V']
 
+    total = vote_vote + vote_noVote + noVote_vote + noVote_noVote
+    p_v_v = vote_vote / total
+    p_v_s1 = (vote_vote + vote_noVote) / total
+    p_v_s2 = (vote_vote + noVote_vote) / total
 
-
-    total = one_one + one_zero + zero_one + zero_zero
-    p_1_1 = one_one / total
-    p_1_s1 = (one_one + one_zero) / total
-    p_1_s2 = (one_one + zero_one) / total
-
-    if (p_1_1 > 0 and (p_1_s1 * p_1_s2) > 0):
-        pointwise_mutual_info_value = np.log2(p_1_1 / (p_1_s1 * p_1_s2))
+    if (p_v_v > 0 and (p_v_s1 * p_v_s2) > 0):
+        pointwise_mutual_info_value = np.log2(p_v_v / (p_v_s1 * p_v_s2))
     else:
         pointwise_mutual_info_value = not_applicable
 
@@ -311,6 +292,39 @@ def save_expected_table(expected_table):
         file.write(expected_table_str + '\n\n' + '-.-.-.-.-.-.-.-.-.-\n')   
 
 # NEED REFACTORING
+def get_global_Sheet_columns():
+    golbal_sheet_col_names = []
+    for df_name, df_ready_to_transform in dfs_ready_to_process.items():
+        for stats_name in statistics_methods:
+            col_name = f'{df_name}_{stats_name}'
+            golbal_sheet_col_names.append(col_name)
+    return golbal_sheet_col_names
+
+def store_in_global_sheet(global_sheet_df, df_name, s1_name, s2_name, p_value, OR_value, yuleQ_value, pointwise_mutual_info_value, proposed_indicator_value):
+    if 'leaves' in df_name:
+        row_index = f'Leaves: {s1_name}|{s2_name}'
+    else:
+        row_index = f'Level2: {s1_name}|{s2_name}'
+
+    values_to_store = {
+        f'{df_name}_{OR_ratio}': OR_value,
+        f'{df_name}_{yule_Q_test}': yuleQ_value,
+        f'{df_name}_{pointwise_mutual_info}': pointwise_mutual_info_value,
+        f'{df_name}_{proposed_indicator}': proposed_indicator_value
+    }
+
+    if row_index not in global_sheet_df.index:
+        # Adding a new row by creating a new DataFrame and appending it to the global_sheet_df
+        new_row_df = pd.DataFrame(values_to_store, index=[row_index])
+        global_sheet_df = pd.concat([global_sheet_df, new_row_df])
+    else:
+        # If the row already exists, update the values directly
+        for col, value in values_to_store.items():
+            global_sheet_df.at[row_index, col] = value
+
+    return global_sheet_df
+
+
 def generate_summary_report(df, df_name, method_used):
     result = ''
     positive_assosication = ''
@@ -422,6 +436,19 @@ def generate_summary_report(df, df_name, method_used):
 
 
 #________________________________ START _________________________________
+# 0. Set Up Your Hyper=parameters
+thresholds = [0.3, 0.4, 0.5]  # for binary transfomation  if >= threshold -> V else 0
+report_critical_p_value = 0.05  # literature
+report_critical_upper_yule_q = 0.8  # literature
+report_critical_lower_yule_q = -0.8  # literature
+report_critical_upper_proposed_indicator = 0.8  # arbitrary
+report_critical_lower_proposed_indicator = 0.2  # arbitrary
+report_critical_conditional_probability = 0.7  # often considered high
+report_critical_OR_value = 1  # > 1 means positive association, negative association otherwise
+report_critical_upper_pointwise_mutual_info = 1 # values close to zero?
+report_critical_lower_pointwise_mutual_info = -1 # values close to zero?
+statistics_methods = [OR_ratio, yule_Q_test, pointwise_mutual_info, proposed_indicator]
+
 
 # 1. Clean all previous results from the previous run
 clean_files_within_directory(result_folder)
@@ -451,13 +478,10 @@ for csv_file in csv_raw_files:
     # Save for checking (saved in ready_to_transform_folder)
     df_leaves.to_csv(f'{ready_to_transform_folder}/{file_name}_leaves.csv', index = False)
     df_level2.to_csv(f'{ready_to_transform_folder}/{file_name}_level2.csv', index = False)
-
-
-    dfs_ready_to_process_continuous[file_name + "_leaves"] = df_leaves # we want to consider the data as as without transforming so we can apply pearsom, spearman and kendall before transfomation into binary
+    # dfs_ready_to_process_continuous[file_name + "_leaves"] = df_leaves # we want to consider the data as as without transforming so we can apply pearsom, spearman and kendall before transfomation into binary
    
 # 3. Prepare data for processing, Part 2
 # 3.2. Data Transformation (from ready_to_transform to ready_to_process)
-
 for df_name, df_ready_to_transform in dfs_ready_to_transform.items():
     # Transform to binary
     for threshold in thresholds:
@@ -468,16 +492,19 @@ for df_name, df_ready_to_transform in dfs_ready_to_transform.items():
         df_binary_cleaned = remove_all_zeros_columns(df_transformed_to_binary) 
 
         # Store in a dictionary
-        dfs_ready_to_process_binary[df_name + f'_binary_thresholdOf{threshold}'] = df_binary_cleaned
+        dfs_ready_to_process[f'{df_name}_{threshold}'] = df_binary_cleaned
         
         # Save for checking (saved in ready_to_process_folder)
-        df_binary_cleaned.to_csv(f'{ready_to_process_folder}/{binary_folder}/{df_name}_binary_cleaned_{threshold}.csv')
+        df_binary_cleaned.to_csv(f'{ready_to_process_folder}/{binary_folder}/{df_name}_{threshold}_clean.csv')
     
  
+global_sheet_col_names = (get_global_Sheet_columns())
+global_sheet_df = pd.DataFrame(columns = global_sheet_col_names)
+
 # 4. Processing data
 isSkip = False
 
-for df_name, df_ready_to_process in dfs_ready_to_process_binary.items():
+for df_name, df_ready_to_process in dfs_ready_to_process.items():
     # 4.1. preparing the dictionaries that hold the value matrices (adding the lables)
     column_labels = df_ready_to_process.columns
 
@@ -512,6 +539,8 @@ for df_name, df_ready_to_process in dfs_ready_to_process_binary.items():
             conditional_probability_value = get_conditional_probability_value(contingency_table)
             pointwise_mutual_info_value = get_pointwise_mutual_info_value(contingency_table)
 
+            global_sheet_df = store_in_global_sheet(global_sheet_df, df_name, s1_name, s2_name, p_value, OR_value, yuleQ_value, pointwise_mutual_info_value, proposed_indicator_value)
+            global_sheet_df.to_csv('./global_sheet.csv')
 
             # 4.4 Storing the pair value in the appropriate cell
             if (method_used == chi2_squared_test):
@@ -527,13 +556,13 @@ for df_name, df_ready_to_process in dfs_ready_to_process_binary.items():
             pointwise_mutual_info_value_matrices[df_name].at[s1_name, s2_name] = pointwise_mutual_info_value
 
     # 4.5. Store the result value matrices
-    generate_csv(chi2_p_value_matrices[df_name], f'{df_name}_chi2_P_value')
-    generate_csv(fisher_exact_p_value_matrices[df_name], f'{df_name}_fisher_exact_P_value')
-    generate_csv(OR_ratio_matrices[df_name], f'{df_name}_OR_value')
-    generate_csv(yuleQ_value_matrices[df_name], f'{df_name}_yuleQ_value')    
-    generate_csv(pointwise_mutual_info_value_matrices[df_name], f'{df_name}_pointwise_mutualinfo_value')
-    generate_csv(conditional_probability_value_matrices[df_name], f'{df_name}_conditional_probability_value')
-    generate_csv(proposed_indicator_value_matrices[df_name], f'{df_name}_proposed_indicator_value')
+    generate_csv(chi2_p_value_matrices[df_name], f'{df_name}_chi2_Pvalue')
+    generate_csv(fisher_exact_p_value_matrices[df_name], f'{df_name}_fisherExact_Pvalue')
+    generate_csv(OR_ratio_matrices[df_name], f'{df_name}_OR')
+    generate_csv(yuleQ_value_matrices[df_name], f'{df_name}_yuleQ')    
+    generate_csv(pointwise_mutual_info_value_matrices[df_name], f'{df_name}_pointwiseMutualInfo')
+    generate_csv(conditional_probability_value_matrices[df_name], f'{df_name}_conditionalProbability')
+    generate_csv(proposed_indicator_value_matrices[df_name], f'{df_name}_proposedIndicator')
 
     generate_summary_report(df = chi2_p_value_matrices[df_name], df_name= df_name, method_used = chi2_squared_test)
     generate_summary_report(df = fisher_exact_p_value_matrices[df_name], df_name= df_name, method_used = fisher_exact_test)
@@ -544,92 +573,3 @@ for df_name, df_ready_to_process in dfs_ready_to_process_binary.items():
     generate_summary_report(df = proposed_indicator_value_matrices[df_name], df_name= df_name, method_used = proposed_indicator)
 
 
-
-
-
-# def save_to_report(data_name, first_sense, seconde_sense, corr_value):
-#     with open(report_file, 'a+') as file:
-#         file.write(f'{first_sense:<17}|{seconde_sense:<17}|{corr_value:<+7.2f}|  {data_name}\n')
-
-
-
-# def create_and_save_heatmap(corr_matrix, file_path, heatmap_title):
-#     plt.figure(figsize=(8, 6))
-#     ax = sns.heatmap(corr_matrix, annot=False, fmt=".2f", cmap='coolwarm', 
-#                 cbar=True, vmin=-1, vmax=1, linewidths=1, linecolor='black')
-
-#     # finding the max and min value
-#     numpy_corr_matrix = corr_matrix.to_numpy()  # need to be transformed to a numpy matrix
-#     np.fill_diagonal(numpy_corr_matrix, np.nan)  # because they are all 1s, removing them to reduce noise
-#     flattened_corr_matrix = numpy_corr_matrix.flatten()  # to be able to calculate the min and max
-#     max_corr_value = np.nanmax(flattened_corr_matrix)
-#     min_corr_value = np.nanmin(flattened_corr_matrix)
-
-#     # only annotating cells that are beyond the corr_threshold, and the max/min values
-#     for i in range(corr_matrix.shape[0]):
-#         for j in range(i+1, corr_matrix.shape[1]):
-#             corr_value = corr_matrix.iloc[i, j]
-#             if corr_value >= UPPER_CORR_THRESHOLD or corr_value == max_corr_value or corr_value <= LOWER_CORR_THRESHOLD or corr_value == min_corr_value:
-#                 text = ax.text(j + 0.5, i + 0.5, f'{corr_value:.2f}',
-#                             ha="center", va="center", color="black")
-#                 first_sense = corr_matrix.columns[i]  # a sense in the correlation
-#                 seconde_sense = corr_matrix.columns[j]  # a sense in the correlation
-#                 save_to_report(heatmap_title, first_sense, seconde_sense, corr_value)
-                       
-#     # Customize the color bar
-#     cbar = ax.collections[0].colorbar
-#     cbar.set_ticks(np.arange(-1, 1.1, 0.1))  # Setting ticks from -1 to 1 at intervals of 0.1
-#     cbar.set_ticklabels([f'{tick:.1f}' for tick in np.arange(-1, 1.1, 0.1)])  # Formatting tick labels
-
-#     plt.title(f'{heatmap_title}_heatmap')
-#     plt.tight_layout()
-#     plt.savefig(f'{file_path}/{heatmap_title}_heatmap.png')
-#     plt.close()
-
-    # corr_matrix = phi_coefficient_matrix(df_ready_to_process)
-    # corr_matrix.to_csv(f'{result_folder}/{binary_folder}/{binary_corr_matrix_folder}/{df_name}_Phi_corr_matrix.csv')
-
-    # heatmap_file_path = f'{result_folder}/{binary_folder}/{binary_heatmap_folder}'
-    # heatmap_title = df_name + '_Phi_corr'
-    # create_and_save_heatmap(corr_matrix, heatmap_file_path, heatmap_title)
-
-# for df_name, df_ready_to_process in dfs_ready_to_process_continuous.items():
-#     for corr_coefficient in correlation_coefficients:
-
-#         corr_matrix = df_ready_to_process.corr(corr_coefficient)
-
-#         corr_matrix.to_csv(f'{result_folder}/{continuous_folder}/{continuous_corr_matrix_folder}/{df_name}_{corr_coefficient}_corr_matrix.csv')
-
-#         heatmap_file_path = f'{result_folder}/{continuous_folder}/{continuous_heatmap_folder}'
-#         heatmap_title = df_name + '_' + corr_coefficient
-#         create_and_save_heatmap(corr_matrix, heatmap_file_path, heatmap_title)
-
-
-
-
-
-    
-
-
-
-
-#
-    
-# def convert_to_level1(df_level2):
-#     df_level1 = pd.DataFrame()
-#     df_level1['temporal'] = df_level2['synchronous'] + df_level2['asynchronous'] 
-#     df_level1['contingency'] = df_level2['cause'] + df_level2['condition'] + df_level2['negative-condition'] + df_level2['purpose'] 
-#     df_level1['comparision'] = df_level2['concession'] + df_level2['contrast'] + df_level2['similarity']
-#     df_level1['expansion'] = df_level2['conjunction'] + df_level2['disjunction'] + df_level2['equivalence'] + df_level2['exception'] + \
-#                              df_level2['instantiation'] + df_level2['level-of-detail'] + df_level2['manner'] + df_level2['substitution']
-#     return df_level1
-    
-
-    # def annotate_sense_of_interest(df, list_of_sense):
-#     for col in df.columns:
-#         if col in list_of_sense:
-#             df.rename(columns = {col: col + '+++'}, inplace = True)
-    
-
-
-    # sense_of_interest = ['synchronous',	'precedence',	'reason',	'result',	'arg1-as-denier',	'arg2-as-denier',	'contrast',	'similarity',	'conjunction',	'arg2-as-instance',	'arg1-as-detail',	'arg2-as-detail', 'instantiation',	'level-of-detail', 'asynchronous',	'cause',	'concession']

@@ -1,10 +1,10 @@
-*** discogem_multi_leaves_binary_thresholdOf0.3 ***
+*** discogem_multi_leaves_0.3 ***
 
  Positivre Association 
 ______________________________
 
 
-*** discogem_multi_leaves_binary_thresholdOf0.3 ***
+*** discogem_multi_leaves_0.3 ***
 
  Negative Associatuin 
 synchronous          | precedence           | 0.02    | 
@@ -130,13 +130,13 @@ arg2-as-detail       | arg2-as-subst        | 0.0021  |
 ______________________________
 
 
-*** discogem_multi_leaves_binary_thresholdOf0.4 ***
+*** discogem_multi_leaves_0.4 ***
 
  Positivre Association 
 ______________________________
 
 
-*** discogem_multi_leaves_binary_thresholdOf0.4 ***
+*** discogem_multi_leaves_0.4 ***
 
  Negative Associatuin 
 synchronous          | precedence           | 0.0072  | 
@@ -247,13 +247,13 @@ arg2-as-detail       | arg2-as-subst        | 0.0012  |
 ______________________________
 
 
-*** discogem_multi_leaves_binary_thresholdOf0.5 ***
+*** discogem_multi_leaves_0.5 ***
 
  Positivre Association 
 ______________________________
 
 
-*** discogem_multi_leaves_binary_thresholdOf0.5 ***
+*** discogem_multi_leaves_0.5 ***
 
  Negative Associatuin 
 synchronous          | precedence           | 0.0     | 
@@ -337,13 +337,13 @@ arg2-as-detail       | arg2-as-subst        | 0.0     |
 ______________________________
 
 
-*** discogem_multi_level2_binary_thresholdOf0.3 ***
+*** discogem_multi_level2_0.3 ***
 
  Positivre Association 
 ______________________________
 
 
-*** discogem_multi_level2_binary_thresholdOf0.3 ***
+*** discogem_multi_level2_0.3 ***
 
  Negative Associatuin 
 synchronous          | asynchronous         | 0.0186  | 
@@ -415,13 +415,13 @@ level-of-detail      | substitution         | 0.0017  |
 ______________________________
 
 
-*** discogem_multi_level2_binary_thresholdOf0.4 ***
+*** discogem_multi_level2_0.4 ***
 
  Positivre Association 
 ______________________________
 
 
-*** discogem_multi_level2_binary_thresholdOf0.4 ***
+*** discogem_multi_level2_0.4 ***
 
  Negative Associatuin 
 synchronous          | asynchronous         | 0.007   | 
@@ -482,13 +482,13 @@ level-of-detail      | substitution         | 0.001   |
 ______________________________
 
 
-*** discogem_multi_level2_binary_thresholdOf0.5 ***
+*** discogem_multi_level2_0.5 ***
 
  Positivre Association 
 ______________________________
 
 
-*** discogem_multi_level2_binary_thresholdOf0.5 ***
+*** discogem_multi_level2_0.5 ***
 
  Negative Associatuin 
 synchronous          | asynchronous         | 0.0     | 
@@ -539,13 +539,13 @@ level-of-detail      | substitution         | 0.0     |
 ______________________________
 
 
-*** qadc_multi_leaves_binary_thresholdOf0.3 ***
+*** qadc_multi_leaves_0.3 ***
 
  Positivre Association 
 ______________________________
 
 
-*** qadc_multi_leaves_binary_thresholdOf0.3 ***
+*** qadc_multi_leaves_0.3 ***
 
  Negative Associatuin 
 synchronous          | precedence           | 0.0     | 
@@ -703,13 +703,13 @@ arg2-as-detail       | arg2-as-manner       | 0.0     |
 ______________________________
 
 
-*** qadc_multi_leaves_binary_thresholdOf0.4 ***
+*** qadc_multi_leaves_0.4 ***
 
  Positivre Association 
 ______________________________
 
 
-*** qadc_multi_leaves_binary_thresholdOf0.4 ***
+*** qadc_multi_leaves_0.4 ***
 
  Negative Associatuin 
 synchronous          | precedence           | 0.0     | 
@@ -851,13 +851,13 @@ arg2-as-detail       | arg2-as-manner       | 0.0     |
 ______________________________
 
 
-*** qadc_multi_leaves_binary_thresholdOf0.5 ***
+*** qadc_multi_leaves_0.5 ***
 
  Positivre Association 
 ______________________________
 
 
-*** qadc_multi_leaves_binary_thresholdOf0.5 ***
+*** qadc_multi_leaves_0.5 ***
 
  Negative Associatuin 
 synchronous          | precedence           | 0.0     | 
@@ -968,13 +968,13 @@ arg2-as-detail       | arg2-as-manner       | 0.0     |
 ______________________________
 
 
-*** qadc_multi_level2_binary_thresholdOf0.3 ***
+*** qadc_multi_level2_0.3 ***
 
  Positivre Association 
 ______________________________
 
 
-*** qadc_multi_level2_binary_thresholdOf0.3 ***
+*** qadc_multi_level2_0.3 ***
 
  Negative Associatuin 
 synchronous          | asynchronous         | 0.009   | 
@@ -1057,13 +1057,13 @@ level-of-detail      | manner               | 0.0     |
 ______________________________
 
 
-*** qadc_multi_level2_binary_thresholdOf0.4 ***
+*** qadc_multi_level2_0.4 ***
 
  Positivre Association 
 ______________________________
 
 
-*** qadc_multi_level2_binary_thresholdOf0.4 ***
+*** qadc_multi_level2_0.4 ***
 
  Negative Associatuin 
 synchronous          | asynchronous         | 0.0     | 
@@ -1135,13 +1135,13 @@ level-of-detail      | manner               | 0.0     |
 ______________________________
 
 
-*** qadc_multi_level2_binary_thresholdOf0.5 ***
+*** qadc_multi_level2_0.5 ***
 
  Positivre Association 
 ______________________________
 
 
-*** qadc_multi_level2_binary_thresholdOf0.5 ***
+*** qadc_multi_level2_0.5 ***
 
  Negative Associatuin 
 synchronous          | asynchronous         | 0.0     | 

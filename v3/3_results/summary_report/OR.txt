@@ -1,4 +1,4 @@
-*** discogem_multi_leaves_binary_thresholdOf0.3 ***
+*** discogem_multi_leaves_0.3 ***
 
  Positivre Association 
 synchronous          | precedence           | 2.6368  | 
@@ -11,7 +11,7 @@ arg2-as-instance     | arg2-as-detail       | 1.7284  |
 ______________________________
 
 
-*** discogem_multi_leaves_binary_thresholdOf0.3 ***
+*** discogem_multi_leaves_0.3 ***
 
  Negative Associatuin 
 synchronous          | reason               | 0.0     | 
@@ -60,7 +60,7 @@ conjunction          | arg2-as-subst        | 0.0     |
 ______________________________
 
 
-*** discogem_multi_leaves_binary_thresholdOf0.4 ***
+*** discogem_multi_leaves_0.4 ***
 
  Positivre Association 
 result               | arg1-as-detail       | 3.471   | 
@@ -68,7 +68,7 @@ similarity           | conjunction          | 4.1409  |
 ______________________________
 
 
-*** discogem_multi_leaves_binary_thresholdOf0.4 ***
+*** discogem_multi_leaves_0.4 ***
 
  Negative Associatuin 
 synchronous          | result               | 0.0     | 
@@ -104,13 +104,13 @@ arg2-as-instance     | arg2-as-detail       | 0.5575  |
 ______________________________
 
 
-*** discogem_multi_leaves_binary_thresholdOf0.5 ***
+*** discogem_multi_leaves_0.5 ***
 
  Positivre Association 
 ______________________________
 
 
-*** discogem_multi_leaves_binary_thresholdOf0.5 ***
+*** discogem_multi_leaves_0.5 ***
 
  Negative Associatuin 
 precedence           | reason               | 0.0     | 
@@ -136,7 +136,7 @@ arg2-as-instance     | arg2-as-detail       | 0.193   |
 ______________________________
 
 
-*** discogem_multi_level2_binary_thresholdOf0.3 ***
+*** discogem_multi_level2_0.3 ***
 
  Positivre Association 
 synchronous          | asynchronous         | 2.4182  | 
@@ -146,7 +146,7 @@ instantiation        | level-of-detail      | 1.5361  |
 ______________________________
 
 
-*** discogem_multi_level2_binary_thresholdOf0.3 ***
+*** discogem_multi_level2_0.3 ***
 
  Negative Associatuin 
 synchronous          | cause                | 0.4008  | 
@@ -180,14 +180,14 @@ conjunction          | substitution         | 0.0     |
 ______________________________
 
 
-*** discogem_multi_level2_binary_thresholdOf0.4 ***
+*** discogem_multi_level2_0.4 ***
 
  Positivre Association 
 similarity           | conjunction          | 4.1409  | 
 ______________________________
 
 
-*** discogem_multi_level2_binary_thresholdOf0.4 ***
+*** discogem_multi_level2_0.4 ***
 
  Negative Associatuin 
 synchronous          | cause                | 0.0     | 
@@ -215,13 +215,13 @@ instantiation        | level-of-detail      | 0.5042  |
 ______________________________
 
 
-*** discogem_multi_level2_binary_thresholdOf0.5 ***
+*** discogem_multi_level2_0.5 ***
 
  Positivre Association 
 ______________________________
 
 
-*** discogem_multi_level2_binary_thresholdOf0.5 ***
+*** discogem_multi_level2_0.5 ***
 
  Negative Associatuin 
 asynchronous         | cause                | 0.0381  | 
@@ -245,7 +245,7 @@ instantiation        | level-of-detail      | 0.1536  |
 ______________________________
 
 
-*** qadc_multi_leaves_binary_thresholdOf0.3 ***
+*** qadc_multi_leaves_0.3 ***
 
  Positivre Association 
 precedence           | succession           | 23.1188 | 
@@ -253,7 +253,7 @@ arg1-as-denier       | contrast             | 9.3516  |
 ______________________________
 
 
-*** qadc_multi_leaves_binary_thresholdOf0.3 ***
+*** qadc_multi_leaves_0.3 ***
 
  Negative Associatuin 
 synchronous          | arg2-as-detail       | 0.0     | 
@@ -276,13 +276,13 @@ conjunction          | arg1-as-instance     | 0.1412  |
 ______________________________
 
 
-*** qadc_multi_leaves_binary_thresholdOf0.4 ***
+*** qadc_multi_leaves_0.4 ***
 
  Positivre Association 
 ______________________________
 
 
-*** qadc_multi_leaves_binary_thresholdOf0.4 ***
+*** qadc_multi_leaves_0.4 ***
 
  Negative Associatuin 
 precedence           | reason               | 0.0     | 
@@ -298,13 +298,13 @@ contrast             | arg2-as-detail       | 0.0     |
 ______________________________
 
 
-*** qadc_multi_leaves_binary_thresholdOf0.5 ***
+*** qadc_multi_leaves_0.5 ***
 
  Positivre Association 
 ______________________________
 
 
-*** qadc_multi_leaves_binary_thresholdOf0.5 ***
+*** qadc_multi_leaves_0.5 ***
 
  Negative Associatuin 
 reason               | result               | 0.0     | 
@@ -316,14 +316,14 @@ conjunction          | arg2-as-detail       | 0.1579  |
 ______________________________
 
 
-*** qadc_multi_level2_binary_thresholdOf0.3 ***
+*** qadc_multi_level2_0.3 ***
 
  Positivre Association 
 concession           | contrast             | 10.0476 | 
 ______________________________
 
 
-*** qadc_multi_level2_binary_thresholdOf0.3 ***
+*** qadc_multi_level2_0.3 ***
 
  Negative Associatuin 
 synchronous          | cause                | 0.1422  | 
@@ -344,13 +344,13 @@ instantiation        | level-of-detail      | 0.5426  |
 ______________________________
 
 
-*** qadc_multi_level2_binary_thresholdOf0.4 ***
+*** qadc_multi_level2_0.4 ***
 
  Positivre Association 
 ______________________________
 
 
-*** qadc_multi_level2_binary_thresholdOf0.4 ***
+*** qadc_multi_level2_0.4 ***
 
  Negative Associatuin 
 asynchronous         | cause                | 0.3271  | 
@@ -366,13 +366,13 @@ conjunction          | instantiation        | 0.2616  |
 ______________________________
 
 
-*** qadc_multi_level2_binary_thresholdOf0.5 ***
+*** qadc_multi_level2_0.5 ***
 
  Positivre Association 
 ______________________________
 
 
-*** qadc_multi_level2_binary_thresholdOf0.5 ***
+*** qadc_multi_level2_0.5 ***
 
  Negative Associatuin 
 asynchronous         | cause                | 0.0     | 

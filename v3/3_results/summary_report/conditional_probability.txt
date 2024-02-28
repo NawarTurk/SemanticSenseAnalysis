@@ -1,70 +1,70 @@
-*** discogem_multi_leaves_binary_thresholdOf0.3 ***
+*** discogem_multi_leaves_0.3 ***
 
  Positive Association
 ______________________________
 
 
-*** discogem_multi_leaves_binary_thresholdOf0.4 ***
+*** discogem_multi_leaves_0.4 ***
 
  Positive Association
 ______________________________
 
 
-*** discogem_multi_leaves_binary_thresholdOf0.5 ***
+*** discogem_multi_leaves_0.5 ***
 
  Positive Association
 ______________________________
 
 
-*** discogem_multi_level2_binary_thresholdOf0.3 ***
+*** discogem_multi_level2_0.3 ***
 
  Positive Association
 ______________________________
 
 
-*** discogem_multi_level2_binary_thresholdOf0.4 ***
+*** discogem_multi_level2_0.4 ***
 
  Positive Association
 ______________________________
 
 
-*** discogem_multi_level2_binary_thresholdOf0.5 ***
+*** discogem_multi_level2_0.5 ***
 
  Positive Association
 ______________________________
 
 
-*** qadc_multi_leaves_binary_thresholdOf0.3 ***
+*** qadc_multi_leaves_0.3 ***
 
  Positive Association
 ______________________________
 
 
-*** qadc_multi_leaves_binary_thresholdOf0.4 ***
+*** qadc_multi_leaves_0.4 ***
 
  Positive Association
 ______________________________
 
 
-*** qadc_multi_leaves_binary_thresholdOf0.5 ***
+*** qadc_multi_leaves_0.5 ***
 
  Positive Association
 ______________________________
 
 
-*** qadc_multi_level2_binary_thresholdOf0.3 ***
+*** qadc_multi_level2_0.3 ***
 
  Positive Association
 ______________________________
 
 
-*** qadc_multi_level2_binary_thresholdOf0.4 ***
+*** qadc_multi_level2_0.4 ***
 
  Positive Association
 ______________________________
 
 
-*** qadc_multi_level2_binary_thresholdOf0.5 ***
+*** qadc_multi_level2_0.5 ***
 
  Positive Association
 ______________________________

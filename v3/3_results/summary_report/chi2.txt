@@ -1,4 +1,4 @@
-*** discogem_multi_leaves_binary_thresholdOf0.3 ***
+*** discogem_multi_leaves_0.3 ***
 
 synchronous          | precedence           | 0.0014  | 
 synchronous          | arg2-as-detail       | 0.0033  | 
@@ -47,7 +47,7 @@ arg2-as-instance     | arg2-as-detail       | 0.0     |
 ______________________________
 
 
-*** discogem_multi_leaves_binary_thresholdOf0.4 ***
+*** discogem_multi_leaves_0.4 ***
 
 precedence           | reason               | 0.0003  | 
 precedence           | result               | 0.0     | 
@@ -81,7 +81,7 @@ arg2-as-instance     | arg2-as-detail       | 0.0202  |
 ______________________________
 
 
-*** discogem_multi_leaves_binary_thresholdOf0.5 ***
+*** discogem_multi_leaves_0.5 ***
 
 precedence           | reason               | 0.012   | 
 precedence           | result               | 0.0     | 
@@ -105,7 +105,7 @@ arg2-as-instance     | arg2-as-detail       | 0.0101  |
 ______________________________
 
 
-*** discogem_multi_level2_binary_thresholdOf0.3 ***
+*** discogem_multi_level2_0.3 ***
 
 synchronous          | asynchronous         | 0.0038  | 
 synchronous          | cause                | 0.0015  | 
@@ -140,7 +140,7 @@ instantiation        | level-of-detail      | 0.0001  |
 ______________________________
 
 
-*** discogem_multi_level2_binary_thresholdOf0.4 ***
+*** discogem_multi_level2_0.4 ***
 
 synchronous          | cause                | 0.0033  | 
 asynchronous         | cause                | 0.0     | 
@@ -167,7 +167,7 @@ instantiation        | level-of-detail      | 0.0032  |
 ______________________________
 
 
-*** discogem_multi_level2_binary_thresholdOf0.5 ***
+*** discogem_multi_level2_0.5 ***
 
 asynchronous         | cause                | 0.0     | 
 asynchronous         | concession           | 0.0058  | 
@@ -188,7 +188,7 @@ instantiation        | level-of-detail      | 0.0025  |
 ______________________________
 
 
-*** qadc_multi_leaves_binary_thresholdOf0.3 ***
+*** qadc_multi_leaves_0.3 ***
 
 precedence           | reason               | 0.0016  | 
 precedence           | conjunction          | 0.0     | 
@@ -206,7 +206,7 @@ contrast             | arg2-as-detail       | 0.0002  |
 ______________________________
 
 
-*** qadc_multi_leaves_binary_thresholdOf0.4 ***
+*** qadc_multi_leaves_0.4 ***
 
 precedence           | conjunction          | 0.0001  | 
 precedence           | arg2-as-detail       | 0.0032  | 
@@ -219,7 +219,7 @@ contrast             | conjunction          | 0.0113  |
 ______________________________
 
 
-*** qadc_multi_leaves_binary_thresholdOf0.5 ***
+*** qadc_multi_leaves_0.5 ***
 
 reason               | conjunction          | 0.0008  | 
 reason               | arg2-as-detail       | 0.0046  | 
@@ -229,7 +229,7 @@ conjunction          | arg2-as-detail       | 0.0004  |
 ______________________________
 
 
-*** qadc_multi_level2_binary_thresholdOf0.3 ***
+*** qadc_multi_level2_0.3 ***
 
 asynchronous         | conjunction          | 0.0     | 
 asynchronous         | instantiation        | 0.0075  | 
@@ -247,7 +247,7 @@ instantiation        | level-of-detail      | 0.0389  |
 ______________________________
 
 
-*** qadc_multi_level2_binary_thresholdOf0.4 ***
+*** qadc_multi_level2_0.4 ***
 
 asynchronous         | cause                | 0.004   | 
 asynchronous         | conjunction          | 0.0     | 
@@ -261,7 +261,7 @@ conjunction          | instantiation        | 0.0185  |
 ______________________________
 
 
-*** qadc_multi_level2_binary_thresholdOf0.5 ***
+*** qadc_multi_level2_0.5 ***
 
 asynchronous         | cause                | 0.0011  | 
 asynchronous         | conjunction          | 0.0029  | 

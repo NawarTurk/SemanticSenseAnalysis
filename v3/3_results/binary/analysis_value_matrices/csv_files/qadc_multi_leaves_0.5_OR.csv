@@ -2,12 +2,12 @@
 synchronous,,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
 precedence,,,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
 succession,,,,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
-reason,,,,,0.0,NA,NA,NA,0.0,NA,NA,NA,NA,0.0,NA
-result,,,,,,NA,NA,NA,0.15064935064935064,NA,NA,NA,NA,0.0,NA
+reason,,,,,0.08760330578512397,NA,NA,NA,0.043411471934621644,NA,NA,NA,NA,0.060893877718843796,NA
+result,,,,,,NA,NA,NA,0.1864043891342165,NA,NA,NA,NA,0.04999142219934809,NA
 arg1-as-denier,,,,,,,NA,NA,NA,NA,NA,NA,NA,NA,NA
 arg2-as-denier,,,,,,,,NA,NA,NA,NA,NA,NA,NA,NA
 contrast,,,,,,,,,NA,NA,NA,NA,NA,NA,NA
-conjunction,,,,,,,,,,NA,NA,NA,NA,0.15794444007240105,NA
+conjunction,,,,,,,,,,NA,NA,NA,NA,0.18276299112801014,NA
 disjunction,,,,,,,,,,,NA,NA,NA,NA,NA
 arg1-as-instance,,,,,,,,,,,,NA,NA,NA,NA
 arg2-as-instance,,,,,,,,,,,,,NA,NA,NA

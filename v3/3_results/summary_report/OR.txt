@@ -1,386 +1,386 @@
 *** discogem_multi_leaves_0.3 ***
 
- Positivre Association 
-synchronous          | precedence           | 2.6368  | 
-succession           | arg2-as-detail       | 3.605   | 
-result               | arg1-as-detail       | 1.6738  | 
-arg1-as-denier       | arg2-as-denier       | 4.3056  | 
-arg2-as-denier       | contrast             | 1.778   | 
-similarity           | conjunction          | 5.5781  | 
-arg2-as-instance     | arg2-as-detail       | 1.7284  | 
+ Positive Association 
+synchronous          | precedence           | 2.7085  | 
+succession           | arg2-as-detail       | 3.604   | 
+result               | arg1-as-detail       | 1.679   | 
+arg1-as-denier       | arg2-as-denier       | 4.3706  | 
+arg2-as-denier       | contrast             | 1.8253  | 
+similarity           | conjunction          | 5.4868  | 
+arg2-as-instance     | arg2-as-detail       | 1.7317  | 
 ______________________________
 
 
 *** discogem_multi_leaves_0.3 ***
 
- Negative Associatuin 
-synchronous          | reason               | 0.0     | 
-synchronous          | arg2-as-denier       | 0.0     | 
-synchronous          | arg2-as-detail       | 0.2457  | 
-precedence           | reason               | 0.0406  | 
-precedence           | result               | 0.7515  | 
-precedence           | arg1-as-denier       | 0.0802  | 
-precedence           | arg2-as-denier       | 0.4815  | 
-precedence           | contrast             | 0.1098  | 
-precedence           | similarity           | 0.0     | 
-precedence           | conjunction          | 0.4325  | 
-precedence           | arg2-as-instance     | 0.073   | 
-precedence           | arg1-as-detail       | 0.1407  | 
-precedence           | arg2-as-detail       | 0.0652  | 
-succession           | result               | 0.0     | 
-reason               | result               | 0.1678  | 
-reason               | arg1-as-denier       | 0.2227  | 
-reason               | arg2-as-denier       | 0.1094  | 
-reason               | contrast             | 0.3866  | 
-reason               | similarity           | 0.0     | 
-reason               | conjunction          | 0.2765  | 
-reason               | arg2-as-instance     | 0.4962  | 
-result               | arg1-as-denier       | 0.3368  | 
-result               | arg2-as-denier       | 0.4646  | 
-result               | contrast             | 0.2319  | 
-result               | similarity           | 0.1673  | 
-result               | conjunction          | 0.3471  | 
-result               | arg2-as-instance     | 0.1665  | 
-result               | arg2-as-detail       | 0.1871  | 
-arg1-as-denier       | conjunction          | 0.1258  | 
-arg1-as-denier       | arg2-as-instance     | 0.0     | 
-arg1-as-denier       | arg2-as-detail       | 0.3905  | 
-arg2-as-denier       | similarity           | 0.0     | 
-arg2-as-denier       | conjunction          | 0.2645  | 
-arg2-as-denier       | arg2-as-instance     | 0.2201  | 
-arg2-as-denier       | arg2-as-detail       | 0.1294  | 
-contrast             | conjunction          | 0.2936  | 
-contrast             | arg2-as-instance     | 0.0892  | 
-contrast             | arg2-as-detail       | 0.1885  | 
-similarity           | arg2-as-detail       | 0.1382  | 
-conjunction          | arg2-as-instance     | 0.3084  | 
-conjunction          | arg1-as-detail       | 0.1381  | 
-conjunction          | arg2-as-detail       | 0.5501  | 
-conjunction          | arg2-as-subst        | 0.0     | 
+ Negative Association 
+synchronous          | reason               | 0.1064  | 
+synchronous          | arg2-as-denier       | 0.1378  | 
+synchronous          | arg2-as-detail       | 0.274   | 
+precedence           | reason               | 0.0506  | 
+precedence           | result               | 0.7529  | 
+precedence           | arg1-as-denier       | 0.1197  | 
+precedence           | arg2-as-denier       | 0.4945  | 
+precedence           | contrast             | 0.1367  | 
+precedence           | similarity           | 0.06    | 
+precedence           | conjunction          | 0.4338  | 
+precedence           | arg2-as-instance     | 0.085   | 
+precedence           | arg1-as-detail       | 0.2094  | 
+precedence           | arg2-as-detail       | 0.0678  | 
+succession           | result               | 0.0835  | 
+reason               | result               | 0.1699  | 
+reason               | arg1-as-denier       | 0.2769  | 
+reason               | arg2-as-denier       | 0.1273  | 
+reason               | contrast             | 0.4236  | 
+reason               | similarity           | 0.0824  | 
+reason               | conjunction          | 0.2783  | 
+reason               | arg2-as-instance     | 0.5127  | 
+result               | arg1-as-denier       | 0.345   | 
+result               | arg2-as-denier       | 0.4672  | 
+result               | contrast             | 0.2376  | 
+result               | similarity           | 0.18    | 
+result               | conjunction          | 0.3474  | 
+result               | arg2-as-instance     | 0.169   | 
+result               | arg2-as-detail       | 0.1876  | 
+arg1-as-denier       | conjunction          | 0.1331  | 
+arg1-as-denier       | arg2-as-instance     | 0.0646  | 
+arg1-as-denier       | arg2-as-detail       | 0.4048  | 
+arg2-as-denier       | similarity           | 0.1067  | 
+arg2-as-denier       | conjunction          | 0.2669  | 
+arg2-as-denier       | arg2-as-instance     | 0.2415  | 
+arg2-as-denier       | arg2-as-detail       | 0.1342  | 
+contrast             | conjunction          | 0.2985  | 
+contrast             | arg2-as-instance     | 0.1333  | 
+contrast             | arg2-as-detail       | 0.1984  | 
+similarity           | arg2-as-detail       | 0.1601  | 
+conjunction          | arg2-as-instance     | 0.3105  | 
+conjunction          | arg1-as-detail       | 0.1507  | 
+conjunction          | arg2-as-detail       | 0.5506  | 
+conjunction          | arg2-as-subst        | 0.0625  | 
 ______________________________
 
 
 *** discogem_multi_leaves_0.4 ***
 
- Positivre Association 
-result               | arg1-as-detail       | 3.471   | 
-similarity           | conjunction          | 4.1409  | 
+ Positive Association 
+result               | arg1-as-detail       | 3.4702  | 
+similarity           | conjunction          | 4.1122  | 
 ______________________________
 
 
 *** discogem_multi_leaves_0.4 ***
 
- Negative Associatuin 
-synchronous          | result               | 0.0     | 
-precedence           | reason               | 0.1167  | 
-precedence           | result               | 0.3248  | 
-precedence           | arg2-as-denier       | 0.1582  | 
-precedence           | contrast             | 0.0     | 
-precedence           | conjunction          | 0.2769  | 
-precedence           | arg2-as-instance     | 0.0     | 
-precedence           | arg2-as-detail       | 0.0     | 
-reason               | result               | 0.0661  | 
-reason               | arg2-as-denier       | 0.1268  | 
-reason               | conjunction          | 0.0804  | 
-reason               | arg2-as-detail       | 0.4555  | 
-result               | arg1-as-denier       | 0.1523  | 
-result               | arg2-as-denier       | 0.0902  | 
-result               | contrast             | 0.0772  | 
-result               | similarity           | 0.1495  | 
-result               | conjunction          | 0.1639  | 
-result               | arg2-as-instance     | 0.0599  | 
-result               | arg2-as-detail       | 0.0698  | 
-arg1-as-denier       | conjunction          | 0.0     | 
-arg1-as-denier       | arg2-as-detail       | 0.0     | 
-arg2-as-denier       | conjunction          | 0.1098  | 
-arg2-as-denier       | arg2-as-instance     | 0.0     | 
-arg2-as-denier       | arg2-as-detail       | 0.0355  | 
-contrast             | conjunction          | 0.1595  | 
-contrast             | arg2-as-detail       | 0.0     | 
-conjunction          | arg2-as-instance     | 0.0916  | 
-conjunction          | arg1-as-detail       | 0.0     | 
-conjunction          | arg2-as-detail       | 0.3003  | 
-arg2-as-instance     | arg2-as-detail       | 0.5575  | 
+ Negative Association 
+synchronous          | result               | 0.0882  | 
+precedence           | reason               | 0.1454  | 
+precedence           | result               | 0.3288  | 
+precedence           | arg2-as-denier       | 0.1969  | 
+precedence           | contrast             | 0.083   | 
+precedence           | conjunction          | 0.2809  | 
+precedence           | arg2-as-instance     | 0.0326  | 
+precedence           | arg2-as-detail       | 0.008   | 
+reason               | result               | 0.0726  | 
+reason               | arg2-as-denier       | 0.1893  | 
+reason               | conjunction          | 0.0869  | 
+reason               | arg2-as-detail       | 0.4685  | 
+result               | arg1-as-denier       | 0.1882  | 
+result               | arg2-as-denier       | 0.0989  | 
+result               | contrast             | 0.0959  | 
+result               | similarity           | 0.2195  | 
+result               | conjunction          | 0.1648  | 
+result               | arg2-as-instance     | 0.0672  | 
+result               | arg2-as-detail       | 0.0716  | 
+arg1-as-denier       | conjunction          | 0.0363  | 
+arg1-as-denier       | arg2-as-detail       | 0.0723  | 
+arg2-as-denier       | conjunction          | 0.1186  | 
+arg2-as-denier       | arg2-as-instance     | 0.0709  | 
+arg2-as-denier       | arg2-as-detail       | 0.0531  | 
+contrast             | conjunction          | 0.1784  | 
+contrast             | arg2-as-detail       | 0.0377  | 
+conjunction          | arg2-as-instance     | 0.099   | 
+conjunction          | arg1-as-detail       | 0.077   | 
+conjunction          | arg2-as-detail       | 0.3021  | 
+arg2-as-instance     | arg2-as-detail       | 0.5722  | 
 ______________________________
 
 
 *** discogem_multi_leaves_0.5 ***
 
- Positivre Association 
+ Positive Association 
 ______________________________
 
 
 *** discogem_multi_leaves_0.5 ***
 
- Negative Associatuin 
-precedence           | reason               | 0.0     | 
-precedence           | result               | 0.0379  | 
-precedence           | conjunction          | 0.0664  | 
-precedence           | arg2-as-instance     | 0.0     | 
-precedence           | arg2-as-detail       | 0.0     | 
-reason               | result               | 0.0     | 
-reason               | conjunction          | 0.0     | 
-reason               | arg2-as-detail       | 0.0     | 
-result               | arg2-as-denier       | 0.11    | 
-result               | contrast             | 0.0     | 
-result               | conjunction          | 0.0157  | 
-result               | arg2-as-instance     | 0.0     | 
-result               | arg2-as-detail       | 0.0     | 
-arg2-as-denier       | conjunction          | 0.0     | 
-arg2-as-denier       | arg2-as-detail       | 0.0     | 
-contrast             | conjunction          | 0.0     | 
-contrast             | arg2-as-detail       | 0.0     | 
-conjunction          | arg2-as-instance     | 0.0964  | 
-conjunction          | arg2-as-detail       | 0.0123  | 
-arg2-as-instance     | arg2-as-detail       | 0.193   | 
+ Negative Association 
+precedence           | reason               | 0.0787  | 
+precedence           | result               | 0.0473  | 
+precedence           | conjunction          | 0.0772  | 
+precedence           | arg2-as-instance     | 0.0835  | 
+precedence           | arg2-as-detail       | 0.0218  | 
+reason               | result               | 0.0191  | 
+reason               | conjunction          | 0.0222  | 
+reason               | arg2-as-detail       | 0.0443  | 
+result               | arg2-as-denier       | 0.1368  | 
+result               | contrast             | 0.0488  | 
+result               | conjunction          | 0.0183  | 
+result               | arg2-as-instance     | 0.0203  | 
+result               | arg2-as-detail       | 0.0052  | 
+arg2-as-denier       | conjunction          | 0.031   | 
+arg2-as-denier       | arg2-as-detail       | 0.0619  | 
+contrast             | conjunction          | 0.0566  | 
+contrast             | arg2-as-detail       | 0.113   | 
+conjunction          | arg2-as-instance     | 0.12    | 
+conjunction          | arg2-as-detail       | 0.0184  | 
+arg2-as-instance     | arg2-as-detail       | 0.2401  | 
 ______________________________
 
 
 *** discogem_multi_level2_0.3 ***
 
- Positivre Association 
-synchronous          | asynchronous         | 2.4182  | 
-concession           | contrast             | 2.3271  | 
-similarity           | conjunction          | 5.5781  | 
-instantiation        | level-of-detail      | 1.5361  | 
+ Positive Association 
+synchronous          | asynchronous         | 2.4841  | 
+concession           | contrast             | 2.3523  | 
+similarity           | conjunction          | 5.4868  | 
+instantiation        | level-of-detail      | 1.5384  | 
 ______________________________
 
 
 *** discogem_multi_level2_0.3 ***
 
- Negative Associatuin 
-synchronous          | cause                | 0.4008  | 
-synchronous          | concession           | 0.0     | 
-synchronous          | instantiation        | 0.0     | 
-synchronous          | level-of-detail      | 0.1913  | 
-asynchronous         | cause                | 0.4655  | 
-asynchronous         | concession           | 0.3174  | 
-asynchronous         | contrast             | 0.1008  | 
-asynchronous         | similarity           | 0.0     | 
-asynchronous         | conjunction          | 0.4718  | 
-asynchronous         | instantiation        | 0.108   | 
-asynchronous         | level-of-detail      | 0.1031  | 
-cause                | concession           | 0.3296  | 
-cause                | contrast             | 0.232   | 
-cause                | similarity           | 0.1192  | 
-cause                | conjunction          | 0.2973  | 
-cause                | instantiation        | 0.3098  | 
-cause                | level-of-detail      | 0.4329  | 
-concession           | similarity           | 0.1222  | 
-concession           | conjunction          | 0.3154  | 
-concession           | instantiation        | 0.1414  | 
-concession           | level-of-detail      | 0.2676  | 
-contrast             | conjunction          | 0.2936  | 
-contrast             | instantiation        | 0.0856  | 
-contrast             | level-of-detail      | 0.1994  | 
-similarity           | level-of-detail      | 0.1455  | 
-conjunction          | instantiation        | 0.3122  | 
-conjunction          | level-of-detail      | 0.5237  | 
-conjunction          | substitution         | 0.0     | 
+ Negative Association 
+synchronous          | cause                | 0.4098  | 
+synchronous          | concession           | 0.0773  | 
+synchronous          | instantiation        | 0.1217  | 
+synchronous          | level-of-detail      | 0.2134  | 
+asynchronous         | cause                | 0.4663  | 
+asynchronous         | concession           | 0.3241  | 
+asynchronous         | contrast             | 0.1255  | 
+asynchronous         | similarity           | 0.0551  | 
+asynchronous         | conjunction          | 0.473   | 
+asynchronous         | instantiation        | 0.1186  | 
+asynchronous         | level-of-detail      | 0.105   | 
+cause                | concession           | 0.3305  | 
+cause                | contrast             | 0.2353  | 
+cause                | similarity           | 0.1269  | 
+cause                | conjunction          | 0.2975  | 
+cause                | instantiation        | 0.3112  | 
+cause                | level-of-detail      | 0.4331  | 
+concession           | similarity           | 0.182   | 
+concession           | conjunction          | 0.3167  | 
+concession           | instantiation        | 0.1529  | 
+concession           | level-of-detail      | 0.2696  | 
+contrast             | conjunction          | 0.2985  | 
+contrast             | instantiation        | 0.1279  | 
+contrast             | level-of-detail      | 0.207   | 
+similarity           | level-of-detail      | 0.1626  | 
+conjunction          | instantiation        | 0.3142  | 
+conjunction          | level-of-detail      | 0.5241  | 
+conjunction          | substitution         | 0.0625  | 
 ______________________________
 
 
 *** discogem_multi_level2_0.4 ***
 
- Positivre Association 
-similarity           | conjunction          | 4.1409  | 
+ Positive Association 
+similarity           | conjunction          | 4.1122  | 
 ______________________________
 
 
 *** discogem_multi_level2_0.4 ***
 
- Negative Associatuin 
-synchronous          | cause                | 0.0     | 
-asynchronous         | cause                | 0.2415  | 
-asynchronous         | concession           | 0.0768  | 
-asynchronous         | contrast             | 0.0     | 
-asynchronous         | conjunction          | 0.2771  | 
-asynchronous         | instantiation        | 0.0     | 
-asynchronous         | level-of-detail      | 0.0     | 
-cause                | concession           | 0.145   | 
-cause                | contrast             | 0.1011  | 
-cause                | similarity           | 0.0957  | 
-cause                | conjunction          | 0.1473  | 
-cause                | instantiation        | 0.1268  | 
-cause                | level-of-detail      | 0.2187  | 
-concession           | conjunction          | 0.1203  | 
-concession           | instantiation        | 0.0707  | 
-concession           | level-of-detail      | 0.0702  | 
-contrast             | conjunction          | 0.1595  | 
-contrast             | level-of-detail      | 0.0     | 
-similarity           | level-of-detail      | 0.0     | 
-conjunction          | instantiation        | 0.0895  | 
-conjunction          | level-of-detail      | 0.2864  | 
-instantiation        | level-of-detail      | 0.5042  | 
+ Negative Association 
+synchronous          | cause                | 0.0564  | 
+asynchronous         | cause                | 0.244   | 
+asynchronous         | concession           | 0.0957  | 
+asynchronous         | contrast             | 0.0804  | 
+asynchronous         | conjunction          | 0.281   | 
+asynchronous         | instantiation        | 0.0308  | 
+asynchronous         | level-of-detail      | 0.006   | 
+cause                | concession           | 0.1478  | 
+cause                | contrast             | 0.113   | 
+cause                | similarity           | 0.1404  | 
+cause                | conjunction          | 0.1478  | 
+cause                | instantiation        | 0.1314  | 
+cause                | level-of-detail      | 0.2196  | 
+concession           | conjunction          | 0.1247  | 
+concession           | instantiation        | 0.1057  | 
+concession           | level-of-detail      | 0.077   | 
+contrast             | conjunction          | 0.1784  | 
+contrast             | level-of-detail      | 0.0293  | 
+similarity           | level-of-detail      | 0.1096  | 
+conjunction          | instantiation        | 0.0967  | 
+conjunction          | level-of-detail      | 0.2878  | 
+instantiation        | level-of-detail      | 0.5153  | 
 ______________________________
 
 
 *** discogem_multi_level2_0.5 ***
 
- Positivre Association 
+ Positive Association 
 ______________________________
 
 
 *** discogem_multi_level2_0.5 ***
 
- Negative Associatuin 
-asynchronous         | cause                | 0.0381  | 
-asynchronous         | concession           | 0.1043  | 
-asynchronous         | conjunction          | 0.0654  | 
-asynchronous         | instantiation        | 0.0     | 
-asynchronous         | level-of-detail      | 0.0     | 
-cause                | concession           | 0.0349  | 
-cause                | contrast             | 0.0     | 
-cause                | conjunction          | 0.0176  | 
-cause                | instantiation        | 0.0     | 
-cause                | level-of-detail      | 0.0592  | 
-concession           | conjunction          | 0.0     | 
-concession           | instantiation        | 0.0     | 
-concession           | level-of-detail      | 0.0     | 
-contrast             | conjunction          | 0.0     | 
-contrast             | level-of-detail      | 0.0     | 
-conjunction          | instantiation        | 0.0942  | 
-conjunction          | level-of-detail      | 0.01    | 
-instantiation        | level-of-detail      | 0.1536  | 
+ Negative Association 
+asynchronous         | cause                | 0.0443  | 
+asynchronous         | concession           | 0.1559  | 
+asynchronous         | conjunction          | 0.0761  | 
+asynchronous         | instantiation        | 0.0804  | 
+asynchronous         | level-of-detail      | 0.0175  | 
+cause                | concession           | 0.0435  | 
+cause                | contrast             | 0.0332  | 
+cause                | conjunction          | 0.0193  | 
+cause                | instantiation        | 0.0135  | 
+cause                | level-of-detail      | 0.0621  | 
+concession           | conjunction          | 0.0147  | 
+concession           | instantiation        | 0.1104  | 
+concession           | level-of-detail      | 0.024   | 
+contrast             | conjunction          | 0.0566  | 
+contrast             | level-of-detail      | 0.0922  | 
+conjunction          | instantiation        | 0.1172  | 
+conjunction          | level-of-detail      | 0.0149  | 
+instantiation        | level-of-detail      | 0.1911  | 
 ______________________________
 
 
 *** qadc_multi_leaves_0.3 ***
 
- Positivre Association 
-precedence           | succession           | 23.1188 | 
-arg1-as-denier       | contrast             | 9.3516  | 
+ Positive Association 
+precedence           | succession           | 22.0261 | 
+arg1-as-denier       | contrast             | 10.0599 | 
 ______________________________
 
 
 *** qadc_multi_leaves_0.3 ***
 
- Negative Associatuin 
-synchronous          | arg2-as-detail       | 0.0     | 
-precedence           | reason               | 0.0818  | 
-precedence           | conjunction          | 0.2303  | 
-precedence           | arg2-as-instance     | 0.0     | 
-precedence           | arg2-as-detail       | 0.1747  | 
-succession           | conjunction          | 0.211   | 
-reason               | result               | 0.063   | 
-reason               | contrast             | 0.15    | 
-reason               | conjunction          | 0.3072  | 
-result               | contrast             | 0.1024  | 
-result               | conjunction          | 0.1857  | 
-result               | arg2-as-instance     | 0.0     | 
-result               | arg2-as-detail       | 0.1944  | 
-arg1-as-denier       | conjunction          | 0.1412  | 
-contrast             | conjunction          | 0.4422  | 
-contrast             | arg2-as-detail       | 0.0597  | 
-conjunction          | arg1-as-instance     | 0.1412  | 
+ Negative Association 
+synchronous          | arg2-as-detail       | 0.0876  | 
+precedence           | reason               | 0.1215  | 
+precedence           | conjunction          | 0.2379  | 
+precedence           | arg2-as-instance     | 0.0947  | 
+precedence           | arg2-as-detail       | 0.1905  | 
+succession           | conjunction          | 0.2531  | 
+reason               | result               | 0.0783  | 
+reason               | contrast             | 0.2215  | 
+reason               | conjunction          | 0.3115  | 
+result               | contrast             | 0.1515  | 
+result               | conjunction          | 0.1886  | 
+result               | arg2-as-instance     | 0.0368  | 
+result               | arg2-as-detail       | 0.2004  | 
+arg1-as-denier       | conjunction          | 0.2005  | 
+contrast             | conjunction          | 0.4548  | 
+contrast             | arg2-as-detail       | 0.0883  | 
+conjunction          | arg1-as-instance     | 0.2005  | 
 ______________________________
 
 
 *** qadc_multi_leaves_0.4 ***
 
- Positivre Association 
+ Positive Association 
 ______________________________
 
 
 *** qadc_multi_leaves_0.4 ***
 
- Negative Associatuin 
-precedence           | reason               | 0.0     | 
-precedence           | conjunction          | 0.0     | 
-precedence           | arg2-as-detail       | 0.0     | 
-reason               | result               | 0.0     | 
-reason               | conjunction          | 0.1182  | 
-reason               | arg2-as-detail       | 0.1602  | 
-result               | conjunction          | 0.083   | 
-result               | arg2-as-detail       | 0.0745  | 
-contrast             | conjunction          | 0.1153  | 
-contrast             | arg2-as-detail       | 0.0     | 
+ Negative Association 
+precedence           | reason               | 0.118   | 
+precedence           | conjunction          | 0.0311  | 
+precedence           | arg2-as-detail       | 0.0562  | 
+reason               | result               | 0.0379  | 
+reason               | conjunction          | 0.132   | 
+reason               | arg2-as-detail       | 0.1852  | 
+result               | conjunction          | 0.0928  | 
+result               | arg2-as-detail       | 0.0924  | 
+contrast             | conjunction          | 0.1689  | 
+contrast             | arg2-as-detail       | 0.0966  | 
 ______________________________
 
 
 *** qadc_multi_leaves_0.5 ***
 
- Positivre Association 
+ Positive Association 
 ______________________________
 
 
 *** qadc_multi_leaves_0.5 ***
 
- Negative Associatuin 
-reason               | result               | 0.0     | 
-reason               | conjunction          | 0.0     | 
-reason               | arg2-as-detail       | 0.0     | 
-result               | conjunction          | 0.1506  | 
-result               | arg2-as-detail       | 0.0     | 
-conjunction          | arg2-as-detail       | 0.1579  | 
+ Negative Association 
+reason               | result               | 0.0876  | 
+reason               | conjunction          | 0.0434  | 
+reason               | arg2-as-detail       | 0.0609  | 
+result               | conjunction          | 0.1864  | 
+result               | arg2-as-detail       | 0.05    | 
+conjunction          | arg2-as-detail       | 0.1828  | 
 ______________________________
 
 
 *** qadc_multi_level2_0.3 ***
 
- Positivre Association 
-concession           | contrast             | 10.0476 | 
+ Positive Association 
+concession           | contrast             | 10.3718 | 
 ______________________________
 
 
 *** qadc_multi_level2_0.3 ***
 
- Negative Associatuin 
-synchronous          | cause                | 0.1422  | 
-synchronous          | level-of-detail      | 0.0     | 
-asynchronous         | conjunction          | 0.3363  | 
-asynchronous         | instantiation        | 0.1078  | 
-asynchronous         | level-of-detail      | 0.1418  | 
-cause                | concession           | 0.2043  | 
-cause                | contrast             | 0.0884  | 
-cause                | conjunction          | 0.2086  | 
-cause                | instantiation        | 0.3216  | 
-cause                | level-of-detail      | 0.2618  | 
-concession           | conjunction          | 0.2217  | 
-concession           | level-of-detail      | 0.2296  | 
-contrast             | conjunction          | 0.4422  | 
-contrast             | level-of-detail      | 0.1538  | 
-instantiation        | level-of-detail      | 0.5426  | 
+ Negative Association 
+synchronous          | cause                | 0.2053  | 
+synchronous          | level-of-detail      | 0.0712  | 
+asynchronous         | conjunction          | 0.3416  | 
+asynchronous         | instantiation        | 0.1598  | 
+asynchronous         | level-of-detail      | 0.151   | 
+cause                | concession           | 0.2483  | 
+cause                | contrast             | 0.109   | 
+cause                | conjunction          | 0.2099  | 
+cause                | instantiation        | 0.3332  | 
+cause                | level-of-detail      | 0.2638  | 
+concession           | conjunction          | 0.2512  | 
+concession           | level-of-detail      | 0.279   | 
+contrast             | conjunction          | 0.4548  | 
+contrast             | level-of-detail      | 0.1771  | 
+instantiation        | level-of-detail      | 0.5552  | 
 ______________________________
 
 
 *** qadc_multi_level2_0.4 ***
 
- Positivre Association 
+ Positive Association 
 ______________________________
 
 
 *** qadc_multi_level2_0.4 ***
 
- Negative Associatuin 
-asynchronous         | cause                | 0.3271  | 
-asynchronous         | conjunction          | 0.1524  | 
-asynchronous         | level-of-detail      | 0.0574  | 
-cause                | contrast             | 0.0     | 
-cause                | conjunction          | 0.0937  | 
-cause                | instantiation        | 0.0     | 
-cause                | level-of-detail      | 0.1114  | 
-contrast             | conjunction          | 0.1153  | 
-contrast             | level-of-detail      | 0.0     | 
-conjunction          | instantiation        | 0.2616  | 
+ Negative Association 
+asynchronous         | cause                | 0.3471  | 
+asynchronous         | conjunction          | 0.1699  | 
+asynchronous         | level-of-detail      | 0.0852  | 
+cause                | contrast             | 0.0612  | 
+cause                | conjunction          | 0.0977  | 
+cause                | instantiation        | 0.0436  | 
+cause                | level-of-detail      | 0.1179  | 
+contrast             | conjunction          | 0.1689  | 
+contrast             | level-of-detail      | 0.0852  | 
+conjunction          | instantiation        | 0.2996  | 
 ______________________________
 
 
 *** qadc_multi_level2_0.5 ***
 
- Positivre Association 
+ Positive Association 
 ______________________________
 
 
 *** qadc_multi_level2_0.5 ***
 
- Negative Associatuin 
-asynchronous         | cause                | 0.0     | 
-asynchronous         | conjunction          | 0.0     | 
-asynchronous         | level-of-detail      | 0.0     | 
-cause                | conjunction          | 0.0602  | 
-cause                | level-of-detail      | 0.0     | 
-conjunction          | level-of-detail      | 0.1245  | 
+ Negative Association 
+asynchronous         | cause                | 0.0459  | 
+asynchronous         | conjunction          | 0.0551  | 
+asynchronous         | level-of-detail      | 0.0615  | 
+cause                | conjunction          | 0.0748  | 
+cause                | level-of-detail      | 0.0162  | 
+conjunction          | level-of-detail      | 0.1442  | 
 ______________________________
 
 

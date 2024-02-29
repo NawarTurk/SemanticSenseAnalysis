@@ -1,12 +1,12 @@
 *** discogem_multi_leaves_0.3 ***
 
- Positivre Association 
+ Positive Association 
 ______________________________
 
 
 *** discogem_multi_leaves_0.3 ***
 
- Negative Associatuin 
+ Negative Association 
 synchronous          | precedence           | 0.02    | 
 synchronous          | succession           | 0.0     | 
 synchronous          | reason               | 0.0     | 
@@ -132,13 +132,13 @@ ______________________________
 
 *** discogem_multi_leaves_0.4 ***
 
- Positivre Association 
+ Positive Association 
 ______________________________
 
 
 *** discogem_multi_leaves_0.4 ***
 
- Negative Associatuin 
+ Negative Association 
 synchronous          | precedence           | 0.0072  | 
 synchronous          | succession           | 0.0     | 
 synchronous          | reason               | 0.0     | 
@@ -249,13 +249,13 @@ ______________________________
 
 *** discogem_multi_leaves_0.5 ***
 
- Positivre Association 
+ Positive Association 
 ______________________________
 
 
 *** discogem_multi_leaves_0.5 ***
 
- Negative Associatuin 
+ Negative Association 
 synchronous          | precedence           | 0.0     | 
 synchronous          | reason               | 0.0     | 
 synchronous          | result               | 0.0     | 
@@ -339,13 +339,13 @@ ______________________________
 
 *** discogem_multi_level2_0.3 ***
 
- Positivre Association 
+ Positive Association 
 ______________________________
 
 
 *** discogem_multi_level2_0.3 ***
 
- Negative Associatuin 
+ Negative Association 
 synchronous          | asynchronous         | 0.0186  | 
 synchronous          | cause                | 0.0051  | 
 synchronous          | purpose              | 0.0     | 
@@ -417,13 +417,13 @@ ______________________________
 
 *** discogem_multi_level2_0.4 ***
 
- Positivre Association 
+ Positive Association 
 ______________________________
 
 
 *** discogem_multi_level2_0.4 ***
 
- Negative Associatuin 
+ Negative Association 
 synchronous          | asynchronous         | 0.007   | 
 synchronous          | cause                | 0.0     | 
 synchronous          | concession           | 0.0     | 
@@ -484,13 +484,13 @@ ______________________________
 
 *** discogem_multi_level2_0.5 ***
 
- Positivre Association 
+ Positive Association 
 ______________________________
 
 
 *** discogem_multi_level2_0.5 ***
 
- Negative Associatuin 
+ Negative Association 
 synchronous          | asynchronous         | 0.0     | 
 synchronous          | cause                | 0.0     | 
 synchronous          | concession           | 0.0     | 
@@ -541,13 +541,13 @@ ______________________________
 
 *** qadc_multi_leaves_0.3 ***
 
- Positivre Association 
+ Positive Association 
 ______________________________
 
 
 *** qadc_multi_leaves_0.3 ***
 
- Negative Associatuin 
+ Negative Association 
 synchronous          | precedence           | 0.0     | 
 synchronous          | succession           | 0.0     | 
 synchronous          | reason               | 0.0     | 
@@ -705,13 +705,13 @@ ______________________________
 
 *** qadc_multi_leaves_0.4 ***
 
- Positivre Association 
+ Positive Association 
 ______________________________
 
 
 *** qadc_multi_leaves_0.4 ***
 
- Negative Associatuin 
+ Negative Association 
 synchronous          | precedence           | 0.0     | 
 synchronous          | succession           | 0.0     | 
 synchronous          | reason               | 0.0     | 
@@ -853,13 +853,13 @@ ______________________________
 
 *** qadc_multi_leaves_0.5 ***
 
- Positivre Association 
+ Positive Association 
 ______________________________
 
 
 *** qadc_multi_leaves_0.5 ***
 
- Negative Associatuin 
+ Negative Association 
 synchronous          | precedence           | 0.0     | 
 synchronous          | succession           | 0.0     | 
 synchronous          | reason               | 0.0     | 
@@ -970,13 +970,13 @@ ______________________________
 
 *** qadc_multi_level2_0.3 ***
 
- Positivre Association 
+ Positive Association 
 ______________________________
 
 
 *** qadc_multi_level2_0.3 ***
 
- Negative Associatuin 
+ Negative Association 
 synchronous          | asynchronous         | 0.009   | 
 synchronous          | cause                | 0.0031  | 
 synchronous          | condition            | 0.0     | 
@@ -1059,13 +1059,13 @@ ______________________________
 
 *** qadc_multi_level2_0.4 ***
 
- Positivre Association 
+ Positive Association 
 ______________________________
 
 
 *** qadc_multi_level2_0.4 ***
 
- Negative Associatuin 
+ Negative Association 
 synchronous          | asynchronous         | 0.0     | 
 synchronous          | cause                | 0.0     | 
 synchronous          | purpose              | 0.0     | 
@@ -1137,13 +1137,13 @@ ______________________________
 
 *** qadc_multi_level2_0.5 ***
 
- Positivre Association 
+ Positive Association 
 ______________________________
 
 
 *** qadc_multi_level2_0.5 ***
 
- Negative Associatuin 
+ Negative Association 
 synchronous          | asynchronous         | 0.0     | 
 synchronous          | cause                | 0.0     | 
 synchronous          | concession           | 0.0     | 

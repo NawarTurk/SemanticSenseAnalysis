@@ -112,10 +112,10 @@ def get_chi2_or_fisher_p_value_and_OR(contingency_table):
     Returns:
     - tuple: A tuple containing the p-value and a string indicating which test was used 
     """
-    vote_vote = contingency_table.loc['V','V']
-    vote_noVote = contingency_table.loc['V','¬V']
-    noVote_vote = contingency_table.loc['¬V','V']
-    noVote_noVote = contingency_table.loc['¬V','¬V']
+    vote_vote = contingency_table.loc['V','V'] + 0.5
+    vote_noVote = contingency_table.loc['V','¬V'] + 0.5
+    noVote_vote = contingency_table.loc['¬V','V'] + 0.5
+    noVote_noVote = contingency_table.loc['¬V','¬V'] + 0.5
 
     OR_value = not_applicable
 
@@ -355,13 +355,13 @@ def generate_summary_report(df, df_name, method_used):
             file.write(result) 
 
     elif method_used == yule_Q_test:
-        positive_assosication += (f'*** {df_name} ***\n\n Positivre Association \n')
-        negative_assosication += (f'*** {df_name} ***\n\n Negative Associatuin \n')
+        positive_assosication += (f'*** {df_name} ***\n\n Positive Association \n')
+        negative_assosication += (f'*** {df_name} ***\n\n Negative Association \n')
         for row_label, row in df.iterrows():
             for col_label, value in row.items():
                 if row_label != col_label:
                     if isinstance(value, (int, float)):
-                        if value >= report_critical_upper_yule_q:
+                        if round(value, 4) >= report_critical_upper_yule_q:
                             positive_assosication += (f'{row_label:<20} | {col_label:<20} | {round(value, 4):<7} | \n')
                         elif value <= report_critical_lower_yule_q:
                             negative_assosication += (f'{row_label:<20} | {col_label:<20} | {round(value, 4):<7} | \n')
@@ -372,8 +372,8 @@ def generate_summary_report(df, df_name, method_used):
             file.write(negative_assosication)  
     
     elif method_used == proposed_indicator:
-        positive_assosication += (f'*** {df_name} ***\n\n Positivre Association \n')
-        negative_assosication += (f'*** {df_name} ***\n\n Negative Associatuin \n')
+        positive_assosication += (f'*** {df_name} ***\n\n Positive Association \n')
+        negative_assosication += (f'*** {df_name} ***\n\n Negative Association \n')
         for row_label, row in df.iterrows():
             for col_label, value in row.items():
                 if row_label != col_label:
@@ -402,8 +402,8 @@ def generate_summary_report(df, df_name, method_used):
             file.write(positive_assosication) 
         
     elif method_used == OR_ratio:
-        positive_assosication += (f'*** {df_name} ***\n\n Positivre Association \n')
-        negative_assosication += (f'*** {df_name} ***\n\n Negative Associatuin \n')
+        positive_assosication += (f'*** {df_name} ***\n\n Positive Association \n')
+        negative_assosication += (f'*** {df_name} ***\n\n Negative Association \n')
         for row_label, row in df.iterrows():
             for col_label, value in row.items():
                 if row_label != col_label:
@@ -439,8 +439,8 @@ def generate_summary_report(df, df_name, method_used):
 # 0. Set Up Your Hyper=parameters
 thresholds = [0.3, 0.4, 0.5]  # for binary transfomation  if >= threshold -> V else 0
 report_critical_p_value = 0.05  # literature
-report_critical_upper_yule_q = 0.8  # literature
-report_critical_lower_yule_q = -0.8  # literature
+report_critical_upper_yule_q = 0.5  # literature  moderate positive
+report_critical_lower_yule_q = -0.5  # literature moderate negative
 report_critical_upper_proposed_indicator = 0.8  # arbitrary
 report_critical_lower_proposed_indicator = 0.2  # arbitrary
 report_critical_conditional_probability = 0.7  # often considered high

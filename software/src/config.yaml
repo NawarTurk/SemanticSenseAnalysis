@@ -1,0 +1,36 @@
+hyperparameters:
+  thresholds: [0.3, 0.4, 0.5]
+  report_critical_p_value: 0.05
+  report_critical_upper_yule_q: 0.5
+  report_critical_lower_yule_q: -0.5
+  report_critical_upper_proposed_indicator: 0.8
+  report_critical_lower_proposed_indicator: 0.2
+  report_critical_conditional_probability: 0.7
+  report_critical_OR_value: 1
+  report_critical_upper_pointwise_mutual_info: 1
+  report_critical_lower_pointwise_mutual_info: -1
+  statistics_methods:
+    ["OR", "yuleQ", "pointwise_mutual_info", "proposed_indicator"]
+
+paths:
+  raw_data_folder: "../data/0_raw_data"
+  ready_to_transform_folder: "../data/1_ready_to_transform"
+  ready_to_process_folder: "../data/2_ready_to_process"
+  result_folder: "../data/3_results"
+  binary_folder: "binary"
+  analysis_value_matrices_folder: "analysis_value_matrices"
+  csv_files_folder: "csv_files"
+  contingency_table_folder: "contingency_tables"
+  expected_table_folder: "expected_tables"
+  report_folder: "report"
+  summary_report_folder: "summary_report"
+
+constants:
+  not_applicable: "NA"
+  fisher_exact_test: "fisher"
+  chi2_squared_test: "chi2"
+  yule_Q_test: "yuleQ"
+  proposed_indicator: "proposed_indicator"
+  conditional_probability: "conditional_probability"
+  OR_ratio: "OR"
+  pointwise_mutual_info: "pointwise_mutual_info_mutual_info"
